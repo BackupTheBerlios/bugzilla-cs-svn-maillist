@@ -1,0 +1,2480 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Bugzilla-cs-svn] r4 - in trunk/template/cs/default: admin/flag-type admin/groups admin/products/groupcontrol bug bug/activity bug/create flag global list pages reports
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/bugzilla-cs-svn/2005-November/index.html" >
+   <LINK REL="made" HREF="mailto:bugzilla-cs-svn%40lists.berlios.de?Subject=Re%3A%20%5BBugzilla-cs-svn%5D%20r4%20-%20in%20trunk/template/cs/default%3A%20admin/flag-type%20admin/groups%20admin/products/groupcontrol%20bug%20bug/activity%20bug/create%20flag%20global%20list%20pages%20reports&In-Reply-To=%3C200511011852.jA1Iqvsg009037%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Bugzilla-cs-svn] r4 - in trunk/template/cs/default: admin/flag-type admin/groups admin/products/groupcontrol bug bug/activity bug/create flag global list pages reports</H1>
+    <B>Petr Kadlec at BerliOS</B> 
+    <A HREF="mailto:bugzilla-cs-svn%40lists.berlios.de?Subject=Re%3A%20%5BBugzilla-cs-svn%5D%20r4%20-%20in%20trunk/template/cs/default%3A%20admin/flag-type%20admin/groups%20admin/products/groupcontrol%20bug%20bug/activity%20bug/create%20flag%20global%20list%20pages%20reports&In-Reply-To=%3C200511011852.jA1Iqvsg009037%40sheep.berlios.de%3E"
+       TITLE="[Bugzilla-cs-svn] r4 - in trunk/template/cs/default: admin/flag-type admin/groups admin/products/groupcontrol bug bug/activity bug/create flag global list pages reports">mormegil at berlios.de
+       </A><BR>
+    <I>Tue Nov  1 19:52:57 CET 2005</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: mormegil
+Date: 2005-11-01 19:52:50 +0100 (Tue, 01 Nov 2005)
+New Revision: 4
+
+Modified:
+   trunk/template/cs/default/admin/flag-type/confirm-delete.html.tmpl
+   trunk/template/cs/default/admin/flag-type/edit.html.tmpl
+   trunk/template/cs/default/admin/flag-type/list.html.tmpl
+   trunk/template/cs/default/admin/groups/create.html.tmpl
+   trunk/template/cs/default/admin/products/groupcontrol/confirm-edit.html.tmpl
+   trunk/template/cs/default/admin/products/groupcontrol/edit.html.tmpl
+   trunk/template/cs/default/bug/activity/table.html.tmpl
+   trunk/template/cs/default/bug/comments.html.tmpl
+   trunk/template/cs/default/bug/create/create-guided.html.tmpl
+   trunk/template/cs/default/bug/create/create.html.tmpl
+   trunk/template/cs/default/bug/edit.html.tmpl
+   trunk/template/cs/default/flag/list.html.tmpl
+   trunk/template/cs/default/global/choose-product.html.tmpl
+   trunk/template/cs/default/global/user-error.html.tmpl
+   trunk/template/cs/default/global/variables.none.tmpl
+   trunk/template/cs/default/list/table.html.tmpl
+   trunk/template/cs/default/pages/bug-writing.html.tmpl
+   trunk/template/cs/default/pages/voting.html.tmpl
+   trunk/template/cs/default/reports/duplicates.html.tmpl
+Log:
+Zbytek rozhrani, plus par nedokoncenych statickych stranek
+
+Modified: trunk/template/cs/default/admin/flag-type/confirm-delete.html.tmpl
+===================================================================
+--- trunk/template/cs/default/admin/flag-type/confirm-delete.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/admin/flag-type/confirm-delete.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -25,33 +25,33 @@
+ [% name = BLOCK %][% flag_type.name FILTER html %][% END %]
+ 
+ [% PROCESS global/header.html.tmpl
+-  title = &quot;Confirm Deletion of Flag Type '$name'&quot;
++  title = &quot;Potvrdit smaz&#195;&#161;n&#195;&#173; typu p&#197;&#153;&#195;&#173;znaku &#226;&#128;&#158;$name&#226;&#128;&#156;&quot;
+ %]
+ 
+ &lt;p&gt;
+-   There are [% flag_count %] flags of type [% name FILTER html %].
+-   If you delete this type, those flags will also be deleted.  Note that
+-   instead of deleting the type you can
+-   &lt;a href=&quot;editflagtypes.cgi?action=deactivate&amp;id=[% flag_type.id %]&quot;&gt;deactivate it&lt;/a&gt;,
+-   in which case the type and its flags will remain in the database
+-   but will not appear in the [% terms.Bugzilla %] UI.
++   P&#197;&#153;&#195;&#173;znak typu [% name FILTER html %] se pou&#197;&#190;&#195;&#173;v&#195;&#161; (po&#196;&#141;et pou&#197;&#190;it&#195;&#173;: [% flag_count %]).
++   Pokud tento typ sma&#197;&#190;ete, tyto p&#197;&#153;&#195;&#173;znaku budou tak&#195;&#169; smaz&#195;&#161;ny. Uv&#196;&#155;domte si,
++   &#197;&#190;e m&#195;&#173;sto maz&#195;&#161;n&#195;&#173; tohoto typu jej m&#197;&#175;&#197;&#190;ete
++   &lt;a href=&quot;editflagtypes.cgi?action=deactivate&amp;id=[% flag_type.id %]&quot;&gt;deaktivovat&lt;/a&gt;,
++   v takov&#195;&#169;m p&#197;&#153;&#195;&#173;pad&#196;&#155; tento typ a p&#197;&#153;&#195;&#173;slu&#197;&#161;n&#195;&#169; p&#197;&#153;&#195;&#173;znaky z&#197;&#175;stanou v datab&#195;&#161;zi,
++   ale nebudou se zobrazovat v u&#197;&#190;ivatelsk&#195;&#169;m rozhran&#195;&#173; [% terms.Bugzilla_2sg %].
+ &lt;/p&gt;
+ 
+ &lt;table&gt;
+    &lt;tr&gt;
+       &lt;td colspan=&quot;2&quot;&gt;
+-         Do you really want to delete this type?
++         Opravdu chcete smazat tento typ?
+       &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+       &lt;td&gt;
+          &lt;a href=&quot;editflagtypes.cgi?action=delete&amp;id=[% flag_type.id %]&quot;&gt;
+-            Yes, delete
++            Ano, smazat
+          &lt;/a&gt;
+       &lt;/td&gt;
+       &lt;td align=&quot;right&quot;&gt;
+          &lt;a href=&quot;editflagtypes.cgi&quot;&gt;
+-            No, don't delete
++            Ne, nemazat
+          &lt;/a&gt;
+       &lt;/td&gt;
+    &lt;/tr&gt;
+
+Modified: trunk/template/cs/default/admin/flag-type/edit.html.tmpl
+===================================================================
+--- trunk/template/cs/default/admin/flag-type/edit.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/admin/flag-type/edit.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -34,19 +34,19 @@
+ [% END %]
+ 
+ [% IF type.target_type == &quot;bug&quot; %]
+-  [% title = BLOCK %]Create Flag Type for [% terms.Bugs %][% END %]
+-  [% typeLabelLowerPlural = BLOCK %][% terms.bugs %][% END %]
+-  [% typeLabelLowerSingular = BLOCK %][% terms.bug %][% END %]
++  [% title = BLOCK %]Vytvo&#197;&#153;it typ p&#197;&#153;&#195;&#173;znaku pro [% terms.chyba_4pl %][% END %]
++  [% typeLabelLowerPlural = BLOCK %][% terms.chyby %][% END %]
++  [% typeLabelLowerSingular = BLOCK %][% terms.chyba %][% END %]
+ [% ELSE %]
+-  [% title = &quot;Create Flag Type for Attachments&quot; %]
+-  [% typeLabelLowerPlural = BLOCK %]attachments[% END %]
+-  [% typeLabelLowerSingular = BLOCK %]attachment[% END %]
++  [% title = &quot;Vytvo&#197;&#153;it typ p&#197;&#153;&#195;&#173;znaku pro p&#197;&#153;&#195;&#173;lohy&quot; %]
++  [% typeLabelLowerPlural = BLOCK %]p&#197;&#153;&#195;&#173;lohy[% END %]
++  [% typeLabelLowerSingular = BLOCK %]p&#197;&#153;&#195;&#173;loha[% END %]
+ [% END %]
+ 
+ [% IF last_action == &quot;copy&quot; %]
+-  [% title = &quot;Create Flag Type Based on $type.name&quot; %]
++  [% title = &quot;Vytvo&#197;&#153;it typ p&#197;&#153;&#195;&#173;znaku podle $type.name&quot; %]
+ [% ELSIF last_action == &quot;edit&quot; %]
+-  [% title = &quot;Edit Flag Type $type.name&quot; %]
++  [% title = &quot;Upravit typ p&#197;&#153;&#195;&#173;znaku $type.name&quot; %]
+ [% END %]
+ 
+ [% PROCESS global/header.html.tmpl
+@@ -55,7 +55,7 @@
+     table#form th { text-align: right; vertical-align: baseline; white-space: nowrap; }
+     table#form td { text-align: left; vertical-align: baseline; }
+   &quot;
+-  onload=&quot;selectProduct(document.forms[0], 'product', 'component', '__Any__');&quot;
++  onload=&quot;selectProduct(document.forms[0], 'product', 'component', '__V&#197;&#161;echny__');&quot;
+   javascript_urls=[&quot;productmenu.js&quot;]
+ %]
+ 
+@@ -72,35 +72,35 @@
+ 
+   &lt;table id=&quot;form&quot; cellspacing=&quot;0&quot; cellpadding=&quot;4&quot; border=&quot;0&quot;&gt;
+     &lt;tr&gt;
+-      &lt;th&gt;Name:&lt;/th&gt;
++      &lt;th&gt;N&#195;&#161;zev:&lt;/th&gt;
+       &lt;td&gt;
+-        a short name identifying this type&lt;br&gt;
++        kr&#195;&#161;tk&#195;&#189; n&#195;&#161;zev ozna&#196;&#141;uj&#195;&#173;c&#195;&#173; tento typ&lt;br&gt;
+         &lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;[% type.name FILTER html %]&quot;
+                size=&quot;50&quot; maxlength=&quot;50&quot;&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+     &lt;tr&gt;
+-      &lt;th&gt;Description:&lt;/th&gt;
++      &lt;th&gt;Popis:&lt;/th&gt;
+       &lt;td&gt;
+-        a comprehensive description of this type&lt;br&gt;
++        detailn&#195;&#173; popis tohoto typu&lt;br&gt;
+         &lt;textarea name=&quot;description&quot; rows=&quot;4&quot; cols=&quot;80&quot;&gt;[% type.description FILTER html %]&lt;/textarea&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+     &lt;tr&gt;
+-      &lt;th&gt;Category:&lt;/th&gt;
++      &lt;th&gt;Kategorie:&lt;/th&gt;
+ 
+       &lt;td&gt;
+-        the products/components to which [% typeLabelLowerPlural %] must
+-        (inclusions) or must not (exclusions) belong in order for users
+-        to be able to set flags of this type for them
++        Produkty/komponenty, do kter&#195;&#189;ch [% typeLabelLowerPlural %] mus&#195;&#173;
++        (zahrnut&#195;&#173;), nebo nesm&#195;&#173; (vyjmut&#195;&#173;) pat&#197;&#153;it, aby jim u&#197;&#190;ivatel&#195;&#169;
++	mohli nastavovat p&#197;&#153;&#195;&#173;znaky tohoto typu
+         &lt;table&gt;
+           &lt;tr&gt;
+             &lt;td style=&quot;vertical-align: top;&quot;&gt;
+-              &lt;b&gt;Product/Component:&lt;/b&gt;&lt;br&gt;
+-              &lt;select name=&quot;product&quot; onchange=&quot;selectProduct(this.form, 'product', 'component', '__Any__');&quot;&gt;
+-                &lt;option value=&quot;&quot;&gt;__Any__&lt;/option&gt;
++              &lt;b&gt;Produkt/komponenta:&lt;/b&gt;&lt;br&gt;
++              &lt;select name=&quot;product&quot; onchange=&quot;selectProduct(this.form, 'product', 'component', '__V&#197;&#161;echny__');&quot;&gt;
++                &lt;option value=&quot;&quot;&gt;__V&#197;&#161;echny__&lt;/option&gt;
+                 [% FOREACH item = products %]
+                   &lt;option value=&quot;[% item FILTER html %]&quot; 
+                           [% &quot;selected&quot; IF type.product.name == item %]&gt;
+@@ -108,25 +108,25 @@
+                 [% END %]
+               &lt;/select&gt;&lt;br&gt;
+               &lt;select name=&quot;component&quot;&gt;
+-                &lt;option value=&quot;&quot;&gt;__Any__&lt;/option&gt;
++                &lt;option value=&quot;&quot;&gt;__V&#197;&#161;echny__&lt;/option&gt;
+                 [% FOREACH item = components %]
+                   &lt;option value=&quot;[% item FILTER html %]&quot; 
+                           [% &quot;selected&quot; IF type.component.name == item %]&gt;
+                           [% item FILTER html %]&lt;/option&gt;
+                 [% END %]
+               &lt;/select&gt;&lt;br&gt;
+-              &lt;input type=&quot;submit&quot; name=&quot;categoryAction-include&quot; value=&quot;Include&quot;&gt;
+-              &lt;input type=&quot;submit&quot; name=&quot;categoryAction-exclude&quot; value=&quot;Exclude&quot;&gt;
++              &lt;input type=&quot;submit&quot; name=&quot;categoryAction-include&quot; value=&quot;Zahrnout&quot;&gt;
++              &lt;input type=&quot;submit&quot; name=&quot;categoryAction-exclude&quot; value=&quot;Vyjmout&quot;&gt;
+             &lt;/td&gt;
+             &lt;td style=&quot;vertical-align: top;&quot;&gt;
+-              &lt;b&gt;Inclusions:&lt;/b&gt;&lt;br&gt;
++              &lt;b&gt;Zahrnuto:&lt;/b&gt;&lt;br&gt;
+               [% PROCESS &quot;global/select-menu.html.tmpl&quot; name=&quot;inclusion_to_remove&quot; multiple=&quot;1&quot; size=&quot;4&quot; options=type.inclusions %]&lt;br&gt;
+-              &lt;input type=&quot;submit&quot; name=&quot;categoryAction-removeInclusion&quot; value=&quot;Remove Inclusion&quot;&gt;
++              &lt;input type=&quot;submit&quot; name=&quot;categoryAction-removeInclusion&quot; value=&quot;Odstranit zahrnut&#195;&#173;&quot;&gt;
+             &lt;/td&gt;
+             &lt;td style=&quot;vertical-align: top;&quot;&gt;
+-              &lt;b&gt;Exclusions:&lt;/b&gt;&lt;br&gt;
++              &lt;b&gt;Vyjmuto:&lt;/b&gt;&lt;br&gt;
+               [% PROCESS &quot;global/select-menu.html.tmpl&quot; name=&quot;exclusion_to_remove&quot; multiple=&quot;1&quot; size=&quot;4&quot; options=type.exclusions %]&lt;br&gt;
+-              &lt;input type=&quot;submit&quot; name=&quot;categoryAction-removeExclusion&quot; value=&quot;Remove Exclusion&quot;&gt;
++              &lt;input type=&quot;submit&quot; name=&quot;categoryAction-removeExclusion&quot; value=&quot;Odstranit vyjmut&#195;&#173;&quot;&gt;
+             &lt;/td&gt;
+           &lt;/tr&gt;
+         &lt;/table&gt;
+@@ -134,12 +134,12 @@
+     &lt;/tr&gt;
+ 
+     &lt;tr&gt;
+-      &lt;th&gt;Sort Key:&lt;/th&gt;
++      &lt;th&gt;Kl&#195;&#173;&#196;&#141; &#197;&#153;azen&#195;&#173;:&lt;/th&gt;
+       &lt;td&gt;
+-        a number between 1 and 32767 by which this type will be sorted
+-        when displayed to users in a list; ignore if you don't care
+-        what order the types appear in or if you want them to appear
+-        in alphabetical order&lt;br&gt;
++        cel&#195;&#169; &#196;&#141;&#195;&#173;slo mezi 1 a 32767, podle kter&#195;&#169;ho se tento typ bude
++	&#197;&#153;adit p&#197;&#153;i zobrazen&#195;&#173; v seznamu; pokud v&#195;&#161;s nezaj&#195;&#173;m&#195;&#161;, v jak&#195;&#169;m po&#197;&#153;ad&#195;&#173;
++	se budou p&#197;&#153;&#195;&#173;znaky zobrazovat, nebo je chcete zobrazovat
++	v abecedn&#195;&#173;m po&#197;&#153;ad&#195;&#173;, tuto polo&#197;&#190;ku ignorujte.&lt;br&gt;
+         &lt;input type=&quot;text&quot; name=&quot;sortkey&quot; value=&quot;[% type.sortkey || 1 %]&quot; size=&quot;5&quot; maxlength=&quot;5&quot;&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+@@ -148,7 +148,7 @@
+       &lt;th&gt;&nbsp;&lt;/th&gt;
+       &lt;td&gt;
+         &lt;input type=&quot;checkbox&quot; name=&quot;is_active&quot; [% &quot;checked&quot; IF type.is_active || !type.is_active.defined %]&gt;
+-        active (flags of this type appear in the UI and can be set)
++        aktivn&#195;&#173; (p&#197;&#153;&#195;&#173;znaky tohoto typu se zobrazuj&#195;&#173; u&#197;&#190;ivatel&#197;&#175;m a mohou b&#195;&#189;t nastavov&#195;&#161;ny)
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+@@ -156,20 +156,20 @@
+       &lt;th&gt;&nbsp;&lt;/th&gt;
+       &lt;td&gt;
+         &lt;input type=&quot;checkbox&quot; name=&quot;is_requestable&quot; [% &quot;checked&quot; IF type.is_requestable || !type.is_requestable.defined %]&gt;
+-        requestable (users can ask for flags of this type to be set)
++        po&#197;&#190;adovateln&#195;&#189; (u&#197;&#190;ivatel&#195;&#169; mohou &#197;&#190;&#195;&#161;dat o nastaven&#195;&#173; p&#197;&#153;&#195;&#173;znaku tohoto typu)
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+     &lt;tr&gt;
+-      &lt;th&gt;CC List:&lt;/th&gt;
++      &lt;th&gt;Seznam CC:&lt;/th&gt;
+       &lt;td&gt;
+-        if requestable, who should get carbon copied on email notification of requests.
+-        This is a comma-separated list of full e-mail addresses which do not
+-        need to be [% terms.Bugzilla %] logins.
++        pokud je p&#197;&#153;&#195;&#173;znak po&#197;&#190;adovateln&#195;&#189;, kdo m&#195;&#161; dost&#195;&#161;vat kopie e-mailov&#195;&#189;ch upozorn&#196;&#155;n&#195;&#173;
++	na &#197;&#190;&#195;&#161;dosti. Obsahuje seznam pln&#195;&#189;ch e-mailov&#195;&#189;ch adres odd&#196;&#155;len&#195;&#189;ch &#196;&#141;&#195;&#161;rkami, e-maily
++	nemus&#195;&#173; b&#195;&#189;t registrovan&#195;&#169; na [% terms.Bugzilla_6sg %].
+         [% IF Param('emailsuffix') %]
+-          Note that the configured emailsuffix
+-          &lt;kbd&gt;[% Param('emailsuffix') %]&lt;/kbd&gt; will &lt;em&gt;not&lt;/em&gt; be appended
+-          to these addresses, so you should add it explicitly if so desired.
++          Uv&#196;&#155;domte si, &#197;&#190;e zvolen&#195;&#161; p&#197;&#153;&#195;&#173;pona
++          &lt;kbd&gt;[% Param('emailsuffix') %]&lt;/kbd&gt; &lt;em&gt;nebude&lt;/em&gt; k t&#196;&#155;mto adres&#195;&#161;m
++	  p&#197;&#153;ipojena, pokud si p&#197;&#153;ejete, mus&#195;&#173;te ji v&#195;&#189;slovn&#196;&#155; uv&#195;&#169;st.
+         [% END %]&lt;br&gt;
+         &lt;input type=&quot;text&quot; name=&quot;cc_list&quot; value=&quot;[% type.cc_list FILTER html %]&quot; size=&quot;80&quot; maxlength=&quot;200&quot;&gt;
+       &lt;/td&gt;
+@@ -179,7 +179,7 @@
+       &lt;th&gt;&nbsp;&lt;/th&gt;
+       &lt;td&gt;
+         &lt;input type=&quot;checkbox&quot; name=&quot;is_requesteeble&quot; [% &quot;checked&quot; IF type.is_requesteeble || !type.is_requesteeble.defined %]&gt;
+-        specifically requestable (users can ask specific other users to set flags of this type as opposed to just asking the wind)
++        jmenovit&#196;&#155; po&#197;&#190;adovateln&#195;&#189; (u&#197;&#190;ivatel&#195;&#169; mohou &#197;&#190;&#195;&#161;dat konkr&#195;&#169;tn&#195;&#173; jin&#195;&#169; u&#197;&#190;ivatele o nastaven&#195;&#173; tohoto typu, oproti nejmenovit&#195;&#169; &#197;&#190;&#195;&#161;dosti do pl&#195;&#169;na)
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+@@ -187,16 +187,16 @@
+       &lt;th&gt;&nbsp;&lt;/th&gt;
+       &lt;td&gt;
+         &lt;input type=&quot;checkbox&quot; name=&quot;is_multiplicable&quot; [% &quot;checked&quot; IF type.is_multiplicable || !type.is_multiplicable.defined %]&gt;
+-        multiplicable (multiple flags of this type can be set on the same [% typeLabelLowerSingular %])
++        n&#195;&#161;sobn&#195;&#189; (jedna polo&#197;&#190;ka m&#197;&#175;&#197;&#190;e m&#195;&#173;t nastaveno v&#195;&#173;c p&#197;&#153;&#195;&#173;znak&#197;&#175; tohoto typu)
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+     &lt;tr&gt;
+       &lt;th&gt;&lt;/th&gt;
+       &lt;td&gt;
+-        &lt;input type=&quot;submit&quot; value=&quot;        
+-          [% IF (last_action == &quot;enter&quot; || last_action == &quot;copy&quot;) %]Create 
+-          [% ELSE %]Save Changes 
++        &lt;input type=&quot;submit&quot; value=&quot;
++          [% IF (last_action == &quot;enter&quot; || last_action == &quot;copy&quot;) %]Vytvo&#197;&#153;it
++          [% ELSE %]Ulo&#197;&#190;it zm&#196;&#155;ny
+           [% END %]&quot;&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+
+Modified: trunk/template/cs/default/admin/flag-type/list.html.tmpl
+===================================================================
+--- trunk/template/cs/default/admin/flag-type/list.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/admin/flag-type/list.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -22,7 +22,7 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [% PROCESS global/header.html.tmpl
+-  title = 'Administer Flag Types'
++  title = 'Spr&#195;&#161;va typ&#197;&#175; p&#197;&#153;&#195;&#173;znak&#197;&#175;'
+   style = &quot;
+     table#flag_types tr th { text-align: left; }
+     .inactive { color: #787878; }
+@@ -30,33 +30,33 @@
+ %]
+ 
+ &lt;p&gt;
+-  Flags are markers that identify whether [% terms.abug %] or attachment has been granted
+-  or denied some status.  Flags appear in the UI as a name and a status symbol
+-  (&quot;+&quot; for granted, &quot;-&quot; for denied, and &quot;?&quot; for statuses requested by users).
++  P&#197;&#153;&#195;&#173;znaky jsou zna&#196;&#141;ky, kter&#195;&#169; ozna&#196;&#141;uj&#195;&#173; [% terms.chyba_4pl %] &#196;&#141;i p&#197;&#153;&#195;&#173;lohy, kter&#195;&#189;m byl
++  ud&#196;&#155;len nebo zam&#195;&#173;tnut n&#196;&#155;jak&#195;&#189; statut. P&#197;&#153;&#195;&#173;znaky se zobrazuj&#195;&#173; v u&#197;&#190;ivatelsk&#195;&#169;m rozhran&#195;&#173;
++  sv&#195;&#189;m jm&#195;&#169;nem a symbolem statutu
++  (&#226;&#128;&#158;+&#226;&#128;&#156; pro ud&#196;&#155;len&#195;&#169;, &#226;&#128;&#158;-&#226;&#128;&#156; pro zam&#195;&#173;tnut&#195;&#169; a &#226;&#128;&#158;?&#226;&#128;&#156; pro statuty po&#197;&#190;adovan&#195;&#169; u&#197;&#190;ivateli).
+ &lt;/p&gt;
+ 
+ &lt;p&gt;
+-  For example, you might define a &quot;review&quot; status for users to request review
+-  for their patches.  When a patch writer requests review, the string &quot;review?&quot;
+-  will appear in the attachment.  When a patch reviewer reviews the patch,
+-  either the string &quot;review+&quot; or the string &quot;review-&quot; will appear in the patch,
+-  depending on whether the patch passed or failed review.
++  Nap&#197;&#153;&#195;&#173;klad m&#197;&#175;&#197;&#190;ete definovat statut &#226;&#128;&#158;kontrola&#226;&#128;&#156; pro u&#197;&#190;ivatele, kte&#197;&#153;&#195;&#173; po&#197;&#190;aduj&#195;&#173;
++  kontrolu sv&#195;&#189;ch patch&#197;&#175;. Ve chv&#195;&#173;li, kdy autor patche &#197;&#190;&#195;&#161;d&#195;&#161; kontrolu, objev&#195;&#173;
++  se u p&#197;&#153;&#195;&#173;lohy ozna&#196;&#141;en&#195;&#173; &#226;&#128;&#158;kontrola?&#226;&#128;&#156;. Kdy&#197;&#190; p&#197;&#153;&#195;&#173;slu&#197;&#161;n&#195;&#189; u&#197;&#190;ivatel patch zkontroluje,
++  podle jeho rozhodnut&#195;&#173; se u patche objev&#195;&#173; bu&#196;&#143; &#226;&#128;&#158;kontrola+&#226;&#128;&#156;, nebo &#226;&#128;&#158;kontrola-&#226;&#128;&#156;.
+ &lt;/p&gt;
+ 
+-&lt;h3&gt;Flag Types for [% terms.Bugs %]&lt;/h3&gt;
++&lt;h3&gt;Typy p&#197;&#153;&#195;&#173;znak&#197;&#175; pro [% terms.chyba_4pl %]&lt;/h3&gt;
+ 
+ [% PROCESS display_flag_types types=bug_types %]
+ 
+ &lt;p&gt;
+-  &lt;a href=&quot;editflagtypes.cgi?action=enter&amp;target_type=bug&quot;&gt;Create Flag Type for [% terms.Bugs %]&lt;/a&gt;
++  &lt;a href=&quot;editflagtypes.cgi?action=enter&amp;target_type=bug&quot;&gt;Vytvo&#197;&#153;it typ p&#197;&#153;&#195;&#173;znaku pro [% terms.chyba_4pl %]&lt;/a&gt;
+ &lt;/p&gt;
+ 
+-&lt;h3&gt;Flag Types for Attachments&lt;/h3&gt;
++&lt;h3&gt;Typy p&#197;&#153;&#195;&#173;znak&#197;&#175; pro p&#197;&#153;&#195;&#173;lohy&lt;/h3&gt;
+ 
+ [% PROCESS display_flag_types types=attachment_types %]
+ 
+ &lt;p&gt;
+-  &lt;a href=&quot;editflagtypes.cgi?action=enter&amp;target_type=attachment&quot;&gt;Create Flag Type For Attachments&lt;/a&gt;
++  &lt;a href=&quot;editflagtypes.cgi?action=enter&amp;target_type=attachment&quot;&gt;Vytvo&#197;&#153;it typ p&#197;&#153;&#195;&#173;znaku pro p&#197;&#153;&#195;&#173;lohy&lt;/a&gt;
+ &lt;/p&gt;
+ 
+ &lt;script type=&quot;text/javascript&quot; language=&quot;JavaScript&quot;&gt;
+@@ -64,11 +64,11 @@
+   function confirmDelete(id, name, count)
+   {
+     if (count &gt; 0) {
+-        var msg = 'There are ' + count + ' flags of type ' + name + '. ' +
+-                  'If you delete this type, those flags will also be ' +
+-                  'deleted.\n\nNote: to deactivate the type instead ' +
+-                  'of deleting it, edit it and uncheck its &quot;is active&quot; ' +
+-                  'flag.\n\nDo you really want to delete this flag type?';
++        var msg = 'Tento typ se pou&#197;&#190;&#195;&#173;v&#195;&#161; (po&#196;&#141;et p&#197;&#153;&#195;&#173;znak&#197;&#175;: ' + count + '). ' +
++                  'Pokud jej sma&#197;&#190;ete, v&#197;&#161;echny jeho p&#197;&#153;&#195;&#173;znaky budou smaz&#195;&#161;ny.\n' +
++                  '\nPozn&#195;&#161;mka: pokud chcete typ deaktivovat nam&#195;&#173;sto jeho ' +
++                  'maz&#195;&#161;n&#195;&#173;, editujte ho a od&#197;&#161;krtn&#196;&#155;te jeho ozna&#196;&#141;en&#195;&#173; &#226;&#128;&#158;aktivn&#195;&#173;&#226;&#128;&#156;.\n' +
++                  '\nOpravdu chcete smazat tento typ p&#197;&#153;&#195;&#173;znaku?';
+         if (!confirm(msg)) return false;
+     }
+     location.href = &quot;editflagtypes.cgi?action=delete&amp;id=&quot; + id;
+@@ -85,9 +85,9 @@
+   &lt;table id=&quot;flag_types&quot; cellspacing=&quot;0&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;
+ 
+     &lt;tr&gt;
+-      &lt;th&gt;Edit name ...&lt;/th&gt;
+-      &lt;th&gt;Description&lt;/th&gt;
+-      &lt;th&gt;Actions&lt;/th&gt;
++      &lt;th&gt;Editovat...&lt;/th&gt;
++      &lt;th&gt;Popis&lt;/th&gt;
++      &lt;th&gt;&#196;&#140;innosti&lt;/th&gt;
+     &lt;/tr&gt;
+ 
+     [% FOREACH type = types %]
+@@ -96,10 +96,10 @@
+         &lt;td&gt;&lt;a href=&quot;editflagtypes.cgi?action=edit&amp;id=[% type.id %]&quot;&gt;[% type.name FILTER html %]&lt;/a&gt;&lt;/td&gt;
+         &lt;td&gt;[% type.description FILTER html %]&lt;/td&gt;
+         &lt;td&gt;
+-          &lt;a href=&quot;editflagtypes.cgi?action=copy&amp;id=[% type.id %]&quot;&gt;Copy&lt;/a&gt;
++          &lt;a href=&quot;editflagtypes.cgi?action=copy&amp;id=[% type.id %]&quot;&gt;Kop&#195;&#173;rovat&lt;/a&gt;
+           | &lt;a href=&quot;editflagtypes.cgi?action=confirmdelete&amp;id=[% type.id %]&quot;
+                onclick=&quot;return confirmDelete([% type.id %], '[% type.name FILTER js FILTER html %]',
+-                                             [% type.flag_count %]);&quot;&gt;Delete&lt;/a&gt;
++                                             [% type.flag_count %]);&quot;&gt;Smazat&lt;/a&gt;
+         &lt;/td&gt;
+       &lt;/tr&gt;
+ 
+
+Modified: trunk/template/cs/default/admin/groups/create.html.tmpl
+===================================================================
+--- trunk/template/cs/default/admin/groups/create.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/admin/groups/create.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -24,16 +24,16 @@
+   #%]
+ 
+ [% PROCESS global/header.html.tmpl
+-  title = &quot;Add group&quot;
+-  h2 = &quot;This page allows you to define a new user group.&quot;
++  title = &quot;Vytvo&#197;&#153;it skupinu&quot;
++  h2 = &quot;Na t&#195;&#169;to str&#195;&#161;nce m&#197;&#175;&#197;&#190;ete definovat novou u&#197;&#190;ivatelskou skupinu.&quot;
+ %]
+ 
+ &lt;form method=&quot;post&quot; action=&quot;editgroups.cgi&quot;&gt;
+   &lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;
+-    &lt;th&gt;New Name&lt;/th&gt;
+-    &lt;th&gt;New Description&lt;/th&gt;
+-    &lt;th&gt;New User RegExp&lt;/th&gt;
+-    &lt;th&gt;Use For [% terms.Bugs %]&lt;/th&gt;
++    &lt;th&gt;Nov&#195;&#189; n&#195;&#161;zev&lt;/th&gt;
++    &lt;th&gt;Nov&#195;&#189; popis&lt;/th&gt;
++    &lt;th&gt;Nov&#195;&#189; RegExp pro u&#197;&#190;ivatelsk&#195;&#161; jm&#195;&#169;na&lt;/th&gt;
++    &lt;th&gt;Pou&#197;&#190;&#195;&#173;vat pro [% terms.chyba_4pl %]&lt;/th&gt;
+   &lt;/tr&gt;&lt;tr&gt;
+     &lt;td&gt;&lt;input size=&quot;20&quot; name=&quot;name&quot;&gt;&lt;/td&gt;
+     &lt;td&gt;&lt;input size=&quot;40&quot; name=&quot;desc&quot;&gt;&lt;/td&gt;
+@@ -43,40 +43,38 @@
+ 
+   &lt;input type=&quot;checkbox&quot; name=&quot;insertnew&quot; value=&quot;1&quot;
+     [% IF Param(&quot;makeproductgroups&quot;) %] checked[% END %]&gt;
+-    Insert new group into all existing products.&lt;p&gt;
++    Vlo&#197;&#190;it novou skupinu do v&#197;&#161;ech existuj&#195;&#173;c&#195;&#173;ch produkt&#197;&#175;.&lt;p&gt;
+   &lt;input type=&quot;submit&quot; value=&quot;Add&quot;&gt;
+   &lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;new&quot;&gt;
+ &lt;/form&gt;
+ 
+-&lt;p&gt;&lt;b&gt;Name&lt;/b&gt; is what is used with the UserInGroup() function in any
+-customized cgi files you write that use a given group.  It can also be used
+-by people submitting [% terms.bugs %] by email to limit [% terms.abug %] to
+-a certain set of groups. It may not contain any spaces.&lt;/p&gt;
++&lt;p&gt;&lt;b&gt;N&#195;&#161;zev&lt;/b&gt; se pou&#197;&#190;&#195;&#173;v&#195;&#161; ve funkci UserInGroup() ve v&#197;&#161;ech upraven&#195;&#189;ch
++CGI souborech, kter&#195;&#169; pou&#197;&#190;&#195;&#173;vaj&#195;&#173; danou skupinu. Tak&#195;&#169; ho lze pou&#197;&#190;&#195;&#173;t v p&#197;&#153;&#195;&#173;padech
++zad&#195;&#161;v&#195;&#161;n&#195;&#173; [% terms.chyba_2pl %] e-mailem pro omezen&#195;&#173; [% terms.chyba_2sg %] na
++ur&#196;&#141;itou &#196;&#141;&#195;&#161;st skupin. Nesm&#195;&#173; obsahovat mezery.&lt;/p&gt;
+ 
+-&lt;p&gt;&lt;b&gt;Description&lt;/b&gt; is what will be shown in the [% terms.bug %] reports
+-to members of the group where they can choose whether
+-the [% terms.bug %] will be restricted to others in the same group.&lt;/p&gt;
++&lt;p&gt;&lt;b&gt;Popis&lt;/b&gt; bude zobrazen na str&#195;&#161;nk&#195;&#161;ch s popisem [% terms.chyba_2sg %] v&#197;&#161;em
++&#196;&#141;len&#197;&#175;m skupiny, kte&#197;&#153;&#195;&#173; se mohou rozhodnout, zda [% terms_tatochyba_2sg %] budou
++vid&#196;&#155;t jen &#196;&#141;lenov&#195;&#169; stejn&#195;&#169; skupiny.&lt;/p&gt;
+ 
+-&lt;p&gt;The &lt;b&gt;Use For [% terms.Bugs %]&lt;/b&gt; flag determines whether or not the
+-group is eligible to be used for [% terms.bugs %]. If you clear this, it will
+-no longer be possible for users to add [% terms.bugs %] to this group,
+-although [% terms.bugs %] already in the group will remain in the group.
+-Doing so is a much less drastic way to stop a group from growing
+-than deleting the group would be. &lt;b&gt;Note: If you are creating
+-a group, you probably want it to be usable for [% terms.bugs %], in which
+-case you should leave this checked.&lt;/b&gt;&lt;/p&gt;
++&lt;p&gt;P&#197;&#153;&#195;&#173;znak &lt;b&gt;Pou&#197;&#190;&#195;&#173;vat pro [% terms.chyba_4pl %]&lt;/b&gt; ur&#196;&#141;uje, zda se tato skupina
++d&#195;&#161; pou&#197;&#190;&#195;&#173;vat u [% terms.chyba_2pl %]. Pokud zru&#197;&#161;&#195;&#173;te za&#197;&#161;krtnut&#195;&#173;, u&#197;&#190;ivatel&#195;&#169; nebudou
++moci p&#197;&#153;id&#195;&#161;vat do t&#195;&#169;to skupiny [% terms.chyba_4pl %], p&#197;&#153;esto&#197;&#190;e p&#197;&#175;vodn&#195;&#173; [% terms.chyby %]
++zde z&#197;&#175;stanou. To je v&#195;&#189;razn&#196;&#155; m&#195;&#169;n&#196;&#155; drastick&#195;&#169; opat&#197;&#153;en&#195;&#173; proti nadm&#196;&#155;rn&#195;&#169;mu r&#197;&#175;stu skupiny
++ne&#197;&#190; by bylo jej&#195;&#173; smaz&#195;&#161;n&#195;&#173;. &lt;b&gt;Pozn&#195;&#161;mka: Pokud vytv&#195;&#161;&#197;&#153;&#195;&#173;te novou skupinu, z&#197;&#153;ejm&#196;&#155;
++ji budete cht&#195;&#173;t ponechat pou&#197;&#190;itelnou, tak&#197;&#190;e toto pol&#195;&#173;&#196;&#141;ko ponech&#195;&#161;te za&#197;&#161;krtnut&#195;&#169;.&lt;/b&gt;&lt;/p&gt;
+ 
+-&lt;p&gt;&lt;b&gt;User RegExp&lt;/b&gt; is optional, and if filled in, will 
+-automatically grant membership to this group to anyone with an 
+-email address that matches this regular expression.&lt;/p&gt;
++&lt;p&gt;&lt;b&gt;RegExp pro u&#197;&#190;ivatelsk&#195;&#161; jm&#195;&#169;na&lt;/b&gt; je voliteln&#195;&#189;, pokud je vypln&#196;&#155;n,
++automaticky p&#197;&#153;id&#196;&#155;luje &#196;&#141;lenstv&#195;&#173; v t&#195;&#169;to skupin&#196;&#155; komukoli, jeho&#197;&#190;
++e-mailov&#195;&#161; adresa vyhovuje tomuto regul&#195;&#161;rn&#195;&#173;mu v&#195;&#189;razu.&lt;/p&gt;
+ 
+-&lt;p&gt;By default, the new group will be associated with existing 
+-products. Unchecking the &quot;Insert new group into all existing 
+-products&quot; option will prevent this and make the group become 
+-visible only when its controls have been added to a product.&lt;/p&gt;
++&lt;p&gt;Implicitn&#196;&#155; bude nov&#195;&#161; skupina p&#197;&#153;i&#197;&#153;azena v&#197;&#161;em existuj&#195;&#173;c&#195;&#173;m produkt&#197;&#175;m.
++Pokud zru&#197;&#161;&#195;&#173;te za&#197;&#161;krtnut&#195;&#173; u &#226;&#128;&#158;Vlo&#197;&#190;it novou skupinu do v&#197;&#161;ech existuj&#195;&#173;c&#195;&#173;ch
++produkt&#197;&#175;&#226;&#128;&#156;, nebude to provedeno a skupina bude viditeln&#195;&#161; jen po
++p&#197;&#153;id&#195;&#161;n&#195;&#173; do produktu.&lt;/p&gt;
+ 
+-&lt;p&gt;Back to the &lt;a href=&quot;./&quot;&gt;main [% terms.bugs %] page&lt;/a&gt;
++&lt;p&gt;Zp&#196;&#155;t k &lt;a href=&quot;./&quot;&gt;hlavn&#195;&#173; str&#195;&#161;nce [% terms.chyba_2pl %]&lt;/a&gt;
+ 
+-or to the &lt;a href=&quot;editgroups.cgi&quot;&gt;group list&lt;/a&gt;.
++nebo na &lt;a href=&quot;editgroups.cgi&quot;&gt;seznam skupin&lt;/a&gt;.
+ 
+ [% PROCESS global/footer.html.tmpl %] 
+
+Modified: trunk/template/cs/default/admin/products/groupcontrol/confirm-edit.html.tmpl
+===================================================================
+--- trunk/template/cs/default/admin/products/groupcontrol/confirm-edit.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/admin/products/groupcontrol/confirm-edit.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -22,31 +22,29 @@
+ 
+ [% PROCESS global/variables.none.tmpl %]
+ 
+-[% PROCESS global/header.html.tmpl title=&quot;Confirm Group Control Change for product \'$product\'&quot; %]
++[% PROCESS global/header.html.tmpl title=&quot;Potvrdit zm&#196;&#155;ny skupin u produktu &#226;&#128;&#158;$product&#226;&#128;&#156;&quot; %]
+ 
+ [% FOREACH group = mandatory_groups %]
+ &lt;P&gt;
+-group '[% group.name FILTER html %]' impacts [% group.count %] 
+-[%+ terms.bugs %] for
+-which the group is newly mandatory and will be added.
++Skupina &#226;&#128;&#158;[% group.name FILTER html %]&#226;&#128;&#156; ovliv&#197;&#136;uje [% terms.chyba_4pl %] (po&#196;&#141;et: [% group.count %]),
++u kter&#195;&#189;ch je nov&#196;&#155; povinn&#195;&#161; a bude tam p&#197;&#153;id&#195;&#161;na.
+ [% END %]
+ 
+ [% FOREACH group = na_groups %]
+ &lt;P&gt;
+-group '[% group.name FILTER html %]' impacts [% group.count %]&nbsp;
+-[% terms.bugs %] for which the group is no longer applicable and will
+-be removed.[% END %]
++Skupina &#226;&#128;&#158;[% group.name FILTER html %]&#226;&#128;&#156; ovliv&#197;&#136;uje [% terms.chyba_4pl %] (po&#196;&#141;et: [% group.count %]),
++u kter&#195;&#189;ch nov&#196;&#155; nen&#195;&#173; povolena a bude odstran&#196;&#155;na.[% END %]
+ &lt;form method=&quot;post&quot; &gt;
+ 
+   [% PROCESS &quot;global/hidden-fields.html.tmpl&quot; exclude=&quot;^Bugzilla_(login|password)$&quot; %]
+ 
+   &lt;br&gt;
+-     Click &quot;Continue&quot; to proceed with the change including the changes
+-     indicated above.  If you do not want these changes, use &quot;back&quot; to
+-     return to the previous page.
++     Klikn&#196;&#155;te na &#226;&#128;&#158;Pokra&#196;&#141;ovat&#226;&#128;&#156; pro potvrzen&#195;&#173; zm&#196;&#155;n v&#196;&#141;etn&#196;&#155; zm&#196;&#155;n uveden&#195;&#189;ch
++     v&#195;&#189;&#197;&#161;e. Pokud si nep&#197;&#153;ejete prov&#195;&#169;st tyto zm&#196;&#155;ny, pou&#197;&#190;ijte tla&#196;&#141;&#195;&#173;tko
++     &#226;&#128;&#158;zp&#196;&#155;t&#226;&#128;&#156; pro n&#195;&#161;vrat na p&#197;&#153;edchoz&#195;&#173; str&#195;&#161;nku.
+   &lt;p&gt;
+     &lt;input type=&quot;hidden&quot; name=&quot;confirmed&quot; value=&quot;confirmed&quot;&gt;
+-    &lt;input type=&quot;submit&quot; value=&quot;Continue&quot;&gt;
++    &lt;input type=&quot;submit&quot; value=&quot;Pokra&#196;&#141;ovat&quot;&gt;
+   &lt;/p&gt;
+ 
+ &lt;/form&gt;
+
+Modified: trunk/template/cs/default/admin/products/groupcontrol/edit.html.tmpl
+===================================================================
+--- trunk/template/cs/default/admin/products/groupcontrol/edit.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/admin/products/groupcontrol/edit.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -23,7 +23,7 @@
+ 
+ [% filt_product = product FILTER html %]
+ [% PROCESS global/header.html.tmpl
+-  title = &quot;Edit Group Controls for '$filt_product'&quot;
++  title = &quot;Upravit nastaven&#195;&#173; skupin pro &#226;&#128;&#158;$filt_product&#226;&#128;&#156;&quot;
+ %]
+ 
+ &lt;form method=&quot;post&quot; action=&quot;editproducts.cgi&quot;&gt;
+@@ -32,12 +32,12 @@
+ 
+   &lt;table id=&quot;form&quot; cellspacing=&quot;0&quot; cellpadding=&quot;4&quot; border=&quot;1&quot;&gt;
+     &lt;tr bgcolor=&quot;#6666ff&quot;&gt;
+-      &lt;th&gt;Group&lt;/th&gt;
+-      &lt;th&gt;Entry&lt;/th&gt;
+-      &lt;th&gt;MemberControl&lt;/th&gt;
+-      &lt;th&gt;OtherControl&lt;/th&gt;
+-      &lt;th&gt;Canedit&lt;/th&gt;
+-      &lt;th&gt;[% terms.Bugs %]&lt;/th&gt;
++      &lt;th&gt;Skupina&lt;/th&gt;
++      &lt;th&gt;Zad&#195;&#161;v&#195;&#161;n&#195;&#173;&lt;/th&gt;
++      &lt;th&gt;&#196;&#140;lenov&#195;&#169;&lt;/th&gt;
++      &lt;th&gt;Ostatn&#195;&#173;&lt;/th&gt;
++      &lt;th&gt;Sm&#195;&#173;Editovat&lt;/th&gt;
++      &lt;th&gt;[% terms.Chyby %]&lt;/th&gt;
+     &lt;/tr&gt;
+     [% FOREACH group = groups %]
+       [% IF group.isactive == 0 AND group.bugcount &gt; 0 %]
+@@ -46,7 +46,7 @@
+             [% group.name FILTER html %]
+           &lt;/td&gt;
+           &lt;td align=&quot;center&quot; colspan=4&gt;
+-            Disabled
++            Vypnuto
+           &lt;/td&gt;
+           &lt;td&gt;
+             [% group.bugcount %]
+@@ -66,22 +66,22 @@
+               &lt;option value=[% const.CONTROLMAPNA %]
+                 [% &quot; selected=\&quot;selected\&quot;&quot;
+                   IF group.membercontrol == const.CONTROLMAPNA %]
+-                &gt;NA
++                &gt;Nic
+               &lt;/option&gt;
+               &lt;option value=[% const.CONTROLMAPSHOWN %]
+                 [% &quot; selected=\&quot;selected\&quot;&quot;
+                   IF group.membercontrol == const.CONTROLMAPSHOWN %]
+-                &gt;Shown
++                &gt;Zobrazen&#195;&#161;
+               &lt;/option&gt;
+               &lt;option value=[% const.CONTROLMAPDEFAULT %]
+                 [% &quot; selected=\&quot;selected\&quot;&quot;
+                   IF group.membercontrol == const.CONTROLMAPDEFAULT %]
+-                &gt;Default
++                &gt;Implicitn&#195;&#173;
+               &lt;/option&gt;
+               &lt;option value=[% const.CONTROLMAPMANDATORY %]
+                 [% &quot; selected=\&quot;selected\&quot;&quot;
+                   IF group.membercontrol == const.CONTROLMAPMANDATORY %]
+-                &gt;Mandatory
++                &gt;Povinn&#195;&#161;
+               &lt;/option&gt;
+             &lt;/select&gt;
+           &lt;/td&gt;
+@@ -90,22 +90,22 @@
+               &lt;option value=[% const.CONTROLMAPNA %]
+                 [% &quot; selected=\&quot;selected\&quot;&quot;
+                   IF group.othercontrol == const.CONTROLMAPNA %]
+-                &gt;NA
++                &gt;Nic
+               &lt;/option&gt;
+               &lt;option value=[% const.CONTROLMAPSHOWN %]
+                 [% &quot; selected=\&quot;selected\&quot;&quot;
+                   IF group.othercontrol == const.CONTROLMAPSHOWN %]
+-                &gt;Shown
++                &gt;Zobrazen&#195;&#161;
+               &lt;/option&gt;
+               &lt;option value=[% const.CONTROLMAPDEFAULT %]
+                 [% &quot; selected=\&quot;selected\&quot;&quot;
+                   IF group.othercontrol == const.CONTROLMAPDEFAULT %]
+-                &gt;Default
++                &gt;Implicitn&#195;&#173;
+               &lt;/option&gt;
+               &lt;option value=[% const.CONTROLMAPMANDATORY %]
+                 [% &quot; selected=\&quot;selected\&quot;&quot;
+                   IF group.othercontrol == const.CONTROLMAPMANDATORY %]
+-                &gt;Mandatory
++                &gt;Povinn&#195;&#161;
+               &lt;/option&gt;
+             &lt;/select&gt;
+           &lt;/td&gt;
+@@ -122,156 +122,149 @@
+ 
+   &lt;/table&gt;
+   &lt;br&gt;
+-  &lt;input type=submit name=&quot;submit&quot; value=&quot;submit&quot;&gt;
++  &lt;input type=submit name=&quot;submit&quot; value=&quot;odeslat&quot;&gt;
+   &lt;br&gt;
+ &lt;/form&gt;
+ 
+ 
+ &lt;p&gt;
+-These settings control the relationship of the groups to this
+-product.
++Tato nastaven&#195;&#173; &#197;&#153;&#195;&#173;d&#195;&#173; vztah skupin k tomuto produktu.
+ &lt;p&gt;
+-If any group has &lt;b&gt;Entry&lt;/b&gt; selected, then this product will
+-restrict [% terms.bug %] entry to only those users who are members of all the
+-groups with entry selected.
++Pokud m&#195;&#161; libovoln&#195;&#161; skupina zvoleno &lt;b&gt;Zad&#195;&#161;v&#195;&#161;n&#195;&#173;&lt;/b&gt;, mohou k tomuto produktu
++zad&#195;&#161;vat [% terms.chyba_4pl %] pouze ti u&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; jsou &#196;&#141;leny v&#197;&#161;ech
++skupin s t&#195;&#173;mto p&#197;&#153;&#195;&#173;znakem.
+ &lt;p&gt;
+-If any group has &lt;b&gt;Canedit&lt;/b&gt; selected, then this product
+-will be read-only for any users who are not members of all of
+-the groups with Canedit selected. ONLY users who are members of
+-all the canedit groups will be able to edit. This is an additional
+-restriction that further restricts what can be edited by a user.
++Pokud m&#195;&#161; libovoln&#195;&#161; skupina zvoleno &lt;b&gt;Sm&#195;&#173;Editovat&lt;/b&gt;, bude tento
++produkt pouze pro &#196;&#141;ten&#195;&#173; pro v&#197;&#161;echny u&#197;&#190;ivatele, kte&#197;&#153;&#195;&#173; nejsou &#196;&#141;lenov&#195;&#169;
++v&#197;&#161;ech skupin s t&#195;&#173;mto p&#197;&#153;&#195;&#173;znakem. POUZE u&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; jsou &#196;&#141;lenov&#195;&#169;
++v&#197;&#161;ech skupin Sm&#195;&#173;Editovat, budou moci prov&#195;&#161;d&#196;&#155;t &#195;&#186;pravy. Toto je dal&#197;&#161;&#195;&#173;
++omezen&#195;&#173; editac&#195;&#173; dovolen&#195;&#189;ch u&#197;&#190;ivateli.
+ &lt;p&gt;
+-The &lt;b&gt;MemberControl&lt;/b&gt; and &lt;b&gt;OtherControl&lt;/b&gt; fields
+-indicate which [% terms.bugs %] will be placed in
+-this group according to the following definitions.
++P&#197;&#153;&#195;&#173;znaky &lt;b&gt;&#196;&#140;lenov&#195;&#169;&lt;/b&gt; a &lt;b&gt;Ostatn&#195;&#173;&lt;/b&gt; ur&#196;&#141;uj&#195;&#173;, kter[% koncovky.mlady_1pl %]
++[%+ terms.chyby %] budou do t&#195;&#169;to skupiny um&#195;&#173;st&#196;&#155;ny, podle n&#195;&#161;sleduj&#195;&#173;c&#195;&#173;ch definic:
+ &lt;br&gt;
+ &lt;table border=1&gt;
+   &lt;tr&gt;
+     &lt;th&gt;
+-      MemberControl
++      &#196;&#140;lenov&#195;&#169;
+     &lt;/th&gt;
+     &lt;th&gt;
+-      OtherControl
++      Ostatn&#195;&#173;
+     &lt;/th&gt;
+     &lt;th&gt;
+-      Interpretation
++      [% terms.Chyby %] v tomto produktu&#226;&#128;&#166;
+     &lt;/th&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      NA
++      Nic
+     &lt;/td&gt;
+     &lt;td&gt;
+-      NA
++      Nic
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product are never associated with this group.
++      &#226;&#128;&#166;nikdy nepou&#197;&#190;&#195;&#173;vaj&#195;&#173; tuto skupinu.
+     &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      Shown
++      Zobrazen&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      NA
++      Nic
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product are permitted to be restricted to this
+-      group.  Users who are a member of this group will be able to place [% terms.bugs %] in
+-      this group.
++      &#226;&#128;&#166;mohou b&#195;&#189;t omezen[% koncovky.verb_pl %] na tuto skupinu. U&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; jsou &#196;&#141;leny
++      t&#195;&#169;to skupiny, mohou do t&#195;&#169;to chyby umis&#197;&#165;ovat [% terms.chyba_4pl %].
+     &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      Shown
++      Zobrazen&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      Shown
++      Zobrazen&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product can be placed in this group by anyone
+-      with permission to edit the [% terms.bug %] even if they are not a member
+-      of this group.
++      &#226;&#128;&#166;mohou b&#195;&#189;t do t&#195;&#169;to skupiny umis&#197;&#165;ov&#195;&#161;ny k&#195;&#189;mkoli, kdo k nim m&#195;&#161; pr&#195;&#161;vo
++      editovat, bez ohledu na to, zda je takov&#195;&#189; u&#197;&#190;ivatel &#196;&#141;lenem t&#195;&#169;to skupiny.
+     &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      Shown
++      Zobrazen&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      Default
++      Implicitn&#195;&#173;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product can be placed in this group by anyone
+-      with permission to edit the [% terms.bug %] even if they are not a member
+-      of this group. Non-members place [% terms.bugs %] in this group by default.
++      &#226;&#128;&#166;mohou b&#195;&#189;t do t&#195;&#169;to skupiny umis&#197;&#165;ov&#195;&#161;ny k&#195;&#189;mkoli, kdo k nim m&#195;&#161; pr&#195;&#161;vo
++      editovat, bez ohledu na to, zda je takov&#195;&#189; u&#197;&#190;ivatel &#196;&#141;lenem t&#195;&#169;to skupiny.
++      Ne&#196;&#141;lenov&#195;&#169; do t&#195;&#169;to skupiny [% terms.chyba_4pl %] umis&#197;&#165;uj&#195;&#173; implicitn&#196;&#155;.
+     &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      Shown
++      Zobrazen&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      Mandatory
++      Povinn&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product are permitted to be restricted to this
+-      group.  Users who are a member of this group will be able to place [% terms.bugs %]
+-       in this group.  Non-members will be forced to restrict [% terms.bugs %] to
+-       this group when they initially enter [% terms.abug %] in this product.
++      &#226;&#128;&#166;mohou b&#195;&#189;t omezen[% koncovky.verb_pl %] na tuto skupinu. U&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; jsou &#196;&#141;leny
++      t&#195;&#169;to skupiny, mohou do t&#195;&#169;to chyby umis&#197;&#165;ovat [% terms.chyba_4pl %].
++      Ne&#196;&#141;lenov&#195;&#169; do t&#195;&#169;to skupiny nov&#196;&#155; zadan[% koncovky.mlady_4pl %] [%+ terms.chyba_4pl %] umis&#197;&#165;uj&#195;&#173;
++      povinn&#196;&#155;.
+     &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      Default
++      Implicitn&#195;&#173;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      NA
++      Nic
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product are permitted to be restricted to this
+-      group and are placed in this group by default.  Users who are a member of this
+-      group will be able to place [% terms.bugs %] in this group.
++      &#226;&#128;&#166;mohou b&#195;&#189;t omezen[% koncovky.verb_pl %] na tuto skupinu a jsou do n&#195;&#173; umis&#197;&#165;ov&#195;&#161;n[% koncovky.verb_pl %]
++      implicitn&#196;&#155;. U&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; jsou &#196;&#141;leny t&#195;&#169;to skupiny, mohou do t&#195;&#169;to chyby umis&#197;&#165;ovat [% terms.chyba_4pl %].
+     &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      Default
++      Implicitn&#195;&#173;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      Default
++      Implicitn&#195;&#173;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product are permitted to be restricted to this
+-      group and are placed in this group by default.  Users who are a member of this group
+-      will be able to place [% terms.bugs %] in this group.  Non-members will be
+-      able to restrict [% terms.bugs %] to this group on entry and will do so by default
++      &#226;&#128;&#166;mohou b&#195;&#189;t omezen[% koncovky.verb_pl %] na tuto skupinu a jsou do n&#195;&#173; umis&#197;&#165;ov&#195;&#161;n[% koncovky.verb_pl %]
++      implicitn&#196;&#155;. U&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; jsou &#196;&#141;leny t&#195;&#169;to skupiny, mohou do t&#195;&#169;to chyby umis&#197;&#165;ovat [% terms.chyba_4pl %].
++      U&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; &#196;&#141;leny t&#195;&#169;to skupiny nejsou, do t&#195;&#169;to chyby tak&#195;&#169; mohou umis&#197;&#165;ovat [% terms.chyba_4pl %],
++      co&#197;&#190; se tak&#195;&#169; bude d&#195;&#173;t implicitn&#196;&#155;.
+     &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      Default
++      Implicitn&#195;&#173;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      Mandatory
++      Povinn&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product are permitted to be restricted to this
+-      group and are placed in this group by default.  Users who are a member of this group
+-      will be able to place [% terms.bugs %] in this group. Non-members will be forced
+-      to place [% terms.bugs %] in this group on entry.
++      &#226;&#128;&#166;mohou b&#195;&#189;t omezen[% koncovky.verb_pl %] na tuto skupinu a jsou do n&#195;&#173; umis&#197;&#165;ov&#195;&#161;n[% koncovky.verb_pl %]
++      implicitn&#196;&#155;. U&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; jsou &#196;&#141;leny t&#195;&#169;to skupiny, mohou do t&#195;&#169;to chyby umis&#197;&#165;ovat [% terms.chyba_4pl %].
++      U&#197;&#190;ivatel&#195;&#169;, kte&#197;&#153;&#195;&#173; &#196;&#141;leny t&#195;&#169;to skupiny nejsou, do t&#195;&#169;to chyby tak&#195;&#169; [% terms.chyba_4pl %] umis&#197;&#165;uj&#195;&#173; povinn&#196;&#155;.
+     &lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      Mandatory
++      Povinn&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      Mandatory
++      Povinn&#195;&#161;
+     &lt;/td&gt;
+     &lt;td&gt;
+-      [% terms.Bugs %] in this product are required to be restricted to this
+-      group.  Users are not given any option.
++      &#226;&#128;&#166;jsou v&#197;&#190;dy omezen[% koncovky.verb_pl %] na tuto skupinu, u&#197;&#190;ivatel&#195;&#169; nemaj&#195;&#173; mo&#197;&#190;nost volby.
+     &lt;/td&gt;
+   &lt;/tr&gt;
+ &lt;/table&gt;
+
+Modified: trunk/template/cs/default/bug/activity/table.html.tmpl
+===================================================================
+--- trunk/template/cs/default/bug/activity/table.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/bug/activity/table.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -33,7 +33,7 @@
+   #                  it was affected by an old Bugzilla bug.)
+   #%]
+ 
+-[% PROCESS global/variables.none.tmpl %]
++[% PROCESS &quot;global/field-descs.none.tmpl&quot; %]
+ 
+ [% PROCESS bug/time.html.tmpl %]
+ 
+@@ -72,7 +72,7 @@
+                 &lt;a href=&quot;attachment.cgi?id=[% change.attachid %]&amp;action=view&quot;&gt;
+                 P&#197;&#153;&#195;&#173;loha #[% change.attachid %]&lt;/a&gt;
+               [% END %]
+-              [% change.field %]
++              [% field_descs.${change.fieldname} %]
+             &lt;/td&gt;
+             &lt;td&gt;
+               [% IF change.removed %]
+@@ -80,7 +80,13 @@
+                       change.fieldname == 'remaining_time' ||
+                       change.fieldname == 'work_time' %]
+                   [% PROCESS formattimeunit time_unit=change.removed %]
+-                [% ELSE %]
++                [% ELSIF change.fieldname == 'bug_status' %]
++                  [% statuscs.${change.removed} FILTER html %]
++                [% ELSIF change.fieldname == 'resolution' %]
++                  [% resolutioncs.${change.removed} FILTER html %]
++                [% ELSIF change.fieldname == 'bug_severity' %]
++                  [% severitycs.${change.removed} FILTER html %]
++		[% ELSE %]
+                   [% change.removed FILTER html %]
+                 [% END %]
+               [% ELSE %]
+@@ -93,6 +99,12 @@
+                       change.fieldname == 'remaining_time' ||
+                       change.fieldname == 'work_time' %]
+                   [% PROCESS formattimeunit time_unit=change.added %]
++                [% ELSIF change.fieldname == 'bug_status' %]
++                  [% statuscs.${change.added} FILTER html %]
++                [% ELSIF change.fieldname == 'resolution' %]
++                  [% resolutioncs.${change.added} FILTER html %]
++                [% ELSIF change.fieldname == 'bug_severity' %]
++                  [% severitycs.${change.added} FILTER html %]
+                 [% ELSE %]
+                   [% change.added FILTER html %]
+                 [% END %]
+
+Modified: trunk/template/cs/default/bug/comments.html.tmpl
+===================================================================
+--- trunk/template/cs/default/bug/comments.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/bug/comments.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -48,7 +48,7 @@
+         &lt;br&gt;
+         &lt;span class=&quot;bz_comment&quot;&gt;
+           ------- &lt;i&gt;Dopl&#197;&#136;kov&#195;&#189; koment&#195;&#161;&#197;&#153;
+-          &lt;a name=&quot;c[% count %]&quot; href=&quot;#c[% count %]&quot;&gt;#[% count %]&lt;/a&gt; Od 
++          &lt;a name=&quot;c[% count %]&quot; href=&quot;#c[% count %]&quot;&gt;#[% count %]&lt;/a&gt; od 
+           &lt;a href=&quot;mailto:[% comment.email FILTER html %]&quot;&gt;
+             [% comment.name FILTER html %]&lt;/a&gt;
+           [%+ comment.time FILTER time %] 
+
+Modified: trunk/template/cs/default/bug/create/create-guided.html.tmpl
+===================================================================
+--- trunk/template/cs/default/bug/create/create-guided.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/bug/create/create-guided.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -30,7 +30,7 @@
+ [% cgi = Bugzilla.cgi %]
+ 
+ [% PROCESS global/header.html.tmpl
+-   title = &quot;Zadejte $terms.chyba_4sg&quot;
++   title = &quot;Zad&#195;&#161;n&#195;&#173; $terms.chyba_2sg&quot;
+    onload = &quot;PutDescription()&quot;
+  %]
+ 
+
+Modified: trunk/template/cs/default/bug/create/create.html.tmpl
+===================================================================
+--- trunk/template/cs/default/bug/create/create.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/bug/create/create.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -24,7 +24,7 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [% PROCESS global/header.html.tmpl
+-  title = &quot;Zadat $terms.chyba_4sg&quot;
++  title = &quot;Zad&#195;&#161;n&#195;&#173; $terms.chyba_2sg&quot;
+   h2 = &quot;Tato str&#195;&#161;nka v&#195;&#161;m umo&#197;&#190;n&#195;&#173; zadat nov${terms.x_chyba_4sg} do ${terms.Bugzilla_2sg}.&quot;
+   onload=&quot;set_assign_to();&quot;
+ %]
+
+Modified: trunk/template/cs/default/bug/edit.html.tmpl
+===================================================================
+--- trunk/template/cs/default/bug/edit.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/bug/edit.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -212,10 +212,10 @@
+     &lt;tr&gt;
+       &lt;td align=&quot;right&quot;&gt;
+         &lt;b&gt;
+-          &lt;a href=&quot;page.cgi?id=fields.html#status&quot;&gt;Status&lt;/a&gt;:
++          &lt;a href=&quot;page.cgi?id=fields.html#status&quot;&gt;Stav&lt;/a&gt;:
+         &lt;/b&gt;
+       &lt;/td&gt;
+-      &lt;td&gt;[% bug.bug_status FILTER html %]&lt;/td&gt;
++      &lt;td&gt;[% statuscs.${bug.bug_status} FILTER html %]&lt;/td&gt;
+       &lt;td&gt;&nbsp;&lt;/td&gt;
+ 
+       &lt;td align=&quot;right&quot;&gt;
+@@ -231,7 +231,7 @@
+         &lt;/b&gt;
+       &lt;/td&gt;
+       &lt;td&gt;
+-        [% bug.resolution FILTER html %]
++        [% resolutioncs.${bug.resolution} FILTER html %]
+         [% IF bug.resolution == &quot;DUPLICATE&quot; %]
+           [% terms.chyba_2sg %] [%+ &quot;${bug.dup_id}&quot; FILTER bug_link(bug.dup_id) %]
+         [% END %]
+@@ -241,7 +241,7 @@
+       &lt;td align=&quot;right&quot;&gt;
+         &lt;b&gt;&lt;a href=&quot;page.cgi?id=fields.html#bug_severity&quot;&gt;Z&#195;&#161;va&#197;&#190;nost&lt;/a&gt;:&lt;/b&gt;
+       &lt;/td&gt;
+-      [% PROCESS select selname = &quot;bug_severity&quot; %]
++      [% PROCESS filtselect selname = &quot;bug_severity&quot; selfilter = severitycs %]
+ 
+     &lt;/tr&gt;
+ 
+@@ -582,3 +582,18 @@
+   &lt;/td&gt;
+   &lt;td&gt;&nbsp;&lt;/td&gt;
+ [% END %]
++
++[% BLOCK filtselect %]
++  &lt;td&gt;
++    &lt;label for=&quot;[% selname %]&quot; accesskey=&quot;[% accesskey %]&quot;&gt;
++      &lt;select name=&quot;[% selname %]&quot; id=&quot;[% selname %]&quot;&gt;
++        [% FOREACH x = bug.choices.${selname} %]
++          &lt;option value=&quot;[% x FILTER html %]&quot;
++            [% &quot; selected&quot; IF x == bug.${selname} %]&gt;[% selfilter.$x FILTER html %]
++          &lt;/option&gt;
++        [% END %]
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++  &lt;td&gt;&nbsp;&lt;/td&gt;
++[% END %]
+
+Modified: trunk/template/cs/default/flag/list.html.tmpl
+===================================================================
+--- trunk/template/cs/default/flag/list.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/flag/list.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -169,7 +169,7 @@
+         [% separator_displayed = 1 %]
+     [% END %]
+     &lt;tr&gt;
+-      &lt;td colspan=&quot;2&quot;&gt;addl. [% type.name FILTER html %]&lt;/td&gt;
++      &lt;td colspan=&quot;2&quot;&gt;dal&#197;&#161;&#195;&#173; [% type.name FILTER html %]&lt;/td&gt;
+       &lt;td&gt;
+         &lt;select id=&quot;flag_type-[% type.id %]&quot; name=&quot;flag_type-[% type.id %]&quot; 
+                 onchange=&quot;toggleRequesteeField(this);&quot;&gt;
+
+Modified: trunk/template/cs/default/global/choose-product.html.tmpl
+===================================================================
+--- trunk/template/cs/default/global/choose-product.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/global/choose-product.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -27,7 +27,7 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [% IF target == &quot;enter_bug.cgi&quot; %]
+-  [% title = &quot;Zadejte $terms.chyba_4sg&quot; %]
++  [% title = &quot;Zad&#195;&#161;n&#195;&#173; $terms.chyba_2sg&quot; %]
+   [% h2 = BLOCK %]Nejd&#197;&#153;&#195;&#173;ve mus&#195;&#173;te zvolit produkt, ke kter&#195;&#169;mu budete [% terms.chyba_4sg %] zad&#195;&#161;vat. [% END %]
+ [% ELSIF target == &quot;describecomponents.cgi&quot; %]
+   [% title = &quot;Popisky komponent na $terms.Bugzilla_6sg&quot; %]
+
+Modified: trunk/template/cs/default/global/user-error.html.tmpl
+===================================================================
+--- trunk/template/cs/default/global/user-error.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/global/user-error.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -268,500 +268,516 @@
+     nepro&#197;&#161;la na&#197;&#161;&#195;&#173; kontrolou.
+     [%+ Param('emailregexpdesc') %]
+     Tak&#195;&#169; nesm&#195;&#173; obsahovat &#197;&#190;&#195;&#161;dn&#195;&#169; z n&#195;&#161;sleduj&#195;&#173;c&#195;&#173;ch speci&#195;&#161;ln&#195;&#173;ch znak&#197;&#175;:
+-    It must also not contain any of these special characters:
+     &lt;tt&gt;\ ( ) &amp; &lt; &gt; , ; : &quot; [ ]&lt;/tt&gt;, ani &#197;&#190;&#195;&#161;dn&#195;&#169; b&#195;&#173;l&#195;&#169; znaky.
+     
+   [% ELSIF error == &quot;illegal_frequency&quot; %]
+-    [% title = &quot;Too Frequent&quot; %]
+-    Unless you are an administrator, you may not create series which are 
+-    run more often than once every [% minimum FILTER html %] days.
++    [% title = &quot;P&#197;&#153;&#195;&#173;li&#197;&#161; &#196;&#141;ast&#195;&#189;&quot; %]
++    Pokud nejste spr&#195;&#161;vce, nem&#197;&#175;&#197;&#190;ete vytv&#195;&#161;&#197;&#153;et tabulky, kter&#195;&#169; se
++    prov&#195;&#161;d&#196;&#155;j&#195;&#173; &#196;&#141;ast&#196;&#155;ji ne&#197;&#190; jednou za [% minimum FILTER html %] d.
+     
+   [% ELSIF error == &quot;illegal_group_control_combination&quot; %]
+-    [% title = &quot;Your Group Control Combination Is Illegal&quot; %]
+-    Your group control combination for group &quot;
+-    [% groupname FILTER html %]&quot; is illegal.
++    [% title = &quot;Neplatn&#195;&#161; kombinace nastaven&#195;&#173; skupin&quot; %]
++    Va&#197;&#161;e zadan&#195;&#161; kombinace nastaven&#195;&#173; skupiny &#226;&#128;&#158;[% groupname FILTER html %]&#226;&#128;&#156;
++    je neplatn&#195;&#161;.
+ 
+   [% ELSIF error == &quot;illegal_is_obsolete&quot; %]
+-    [% title = &quot;Your Search Makes No Sense&quot; %]
+-    The only legal values for the &lt;em&gt;Attachment is obsolete&lt;/em&gt; field are
+-    0 and 1.
++    [% title = &quot;Va&#197;&#161;e hled&#195;&#161;n&#195;&#173; ned&#195;&#161;v&#195;&#161; smysl&quot; %]
++    Jedin&#195;&#169; platn&#195;&#169; hodnoty pro polo&#197;&#190;ku &lt;em&gt;P&#197;&#153;&#195;&#173;loha je neplatn&#195;&#161;&lt;/em&gt; jsou 0 a 1.
+ 
+   [% ELSIF error == &quot;illegal_query_name&quot; %]
+-    [% title = &quot;Illegal Search Name&quot; %]
+-    The name of your search cannot contain any of the following characters: 
++    [% title = &quot;Chybn&#195;&#189; n&#195;&#161;zev hled&#195;&#161;n&#195;&#173;&quot; %]
++    N&#195;&#161;zev hled&#195;&#161;n&#195;&#173; nesm&#195;&#173; obsahovat &#197;&#190;&#195;&#161;dn&#195;&#189; z n&#195;&#161;sleduj&#195;&#173;c&#195;&#173;ch znak&#197;&#175;:
+     &lt;, &gt;, &amp;.
+ 
+   [% ELSIF error == &quot;illegal_series_creation&quot; %]
+-    You are not authorised to create series.
++    Nejste opr&#195;&#161;vn&#196;&#155;ni vytv&#195;&#161;&#197;&#153;et tabulky.
+         
+   [% ELSIF error == &quot;illegal_series_edit&quot; %]
+-    You are not authorised to edit this series. To do this, you must either
+-    be its creator, or an administrator.
++    Nejste opr&#195;&#161;vn&#196;&#155;ni m&#196;&#155;nit tuto tabulku. K tomu mus&#195;&#173;te b&#195;&#189;t
++    jej&#195;&#173; autor nebo spr&#195;&#161;vce.
+         
+   [% ELSIF error == &quot;insufficient_data&quot; %]
+-    [% title = &quot;Insufficient Data&quot; %]
+-    None of the series you selected have any data associated with them, so a
+-    chart cannot be plotted.
++    [% title = &quot;Nedostate&#196;&#141;n&#195;&#161; data&quot; %]
++    &#197;&#189;&#195;&#161;dn&#195;&#161; vybran&#195;&#161; tabulka neobsahuje &#197;&#190;&#195;&#161;dn&#195;&#161; data, tak&#197;&#190;e graf nelze vykreslit.
+         
+   [% ELSIF error == &quot;insufficient_data_points&quot; %]
+-    We don't have enough data points to make a graph (yet).
++    Dosud nen&#195;&#173; k dispozici dostatek dat pro vytvo&#197;&#153;en&#195;&#173; grafu.
+         
+   [% ELSIF error == &quot;insufficient_privs_for_multi&quot; %]
+-    [% title = &quot;Insufficient Privileges&quot; %]
+-    Sorry, you do not have sufficient privileges to edit multiple 
+-    [% terms.bugs %].
++    [% title = &quot;Nedostate&#196;&#141;n&#195;&#161; opr&#195;&#161;vn&#196;&#155;n&#195;&#173;&quot; %]
++    Je mi l&#195;&#173;to, ale pro hromadnou editaci [% terms.chyba_2pl %]
++    nem&#195;&#161;te dostate&#196;&#141;n&#195;&#161; opr&#195;&#161;vn&#196;&#155;n&#195;&#173;.
+     
+   [% ELSIF error == &quot;invalid_attach_id&quot; %]
+-    [% title = &quot;Invalid Attachment ID&quot; %]
+-    The attachment id [% attach_id FILTER html %] is invalid.
++    [% title = &quot;Neplatn&#195;&#169; ID p&#197;&#153;&#195;&#173;lohy&quot; %]
++    ID [% attach_id FILTER html %] nen&#195;&#173; platn&#195;&#169; ozna&#196;&#141;en&#195;&#173; p&#197;&#153;&#195;&#173;lohy.
+ 
+   [% ELSIF error == &quot;invalid_bug_id_non_existent&quot; %]
+-    [% title = BLOCK %]Invalid [% terms.Bug %] ID[% END %]
+-    [% terms.Bug %] #[% bug_id FILTER html %] does not exist.
++    [% title = BLOCK %]Neplatn&#195;&#169; ID [% terms.chyba_2sg %][% END %]
++    [% terms.Chyba %] #[% bug_id FILTER html %] neexistuje.
+     
+   [% ELSIF error == &quot;invalid_bug_id_or_alias&quot; %]
+-    [% title = BLOCK %]Invalid [% terms.Bug %] ID[% END %]
++    [% title = BLOCK %]Neplatn&#195;&#169; ID [% terms.chyba_2sg %][% END %]
+     [% IF bug_id %]
+-      '[% bug_id FILTER html %]' is not a valid [% terms.bug %] number
++      '[% bug_id FILTER html %]' nen&#195;&#173; platn&#195;&#169; &#196;&#141;&#195;&#173;slo [% terms.chyba_2sg %]
+       [% IF Param(&quot;usebugaliases&quot;) %]
+-        nor an alias to [% terms.abug %] number
++        , ani alias k n&#196;&#155;jak&#195;&#169;mu &#196;&#141;&#195;&#173;slu [% terms.chyba_2sg %]
+       [% END %].
+     [% ELSE %]
+       [% IF field %]
+-        The '[% field_descs.$field FILTER html %]' field
+-        cannot be empty.
++        Polo&#197;&#190;ka &#226;&#128;&#158;[% field_descs.$field FILTER html %]&#226;&#128;&#156; nesm&#195;&#173;
++	b&#195;&#189;t pr&#195;&#161;zdn&#195;&#161;.
+       [% END %]
+-      You must enter a valid [% terms.bug %] number!
++      Mus&#195;&#173;te zadat platn&#195;&#169; &#196;&#141;&#195;&#173;slo [% terms.chyba_2sg %]!
+     [% END %]
+     &lt;noscript&gt;
+-      If you are trying to use QuickSearch, you need to enable
+-      JavaScript in your browser.
++      Pokud se pokou&#197;&#161;&#195;&#173;te pou&#197;&#190;&#195;&#173;t QuickSearch, mus&#195;&#173;te ve sv&#195;&#169;m prohl&#195;&#173;&#197;&#190;e&#196;&#141;i
++      povolit JavaScript.
+     &lt;/noscript&gt;
+ 
+   [% ELSIF error == &quot;invalid_changedsince&quot; %]
+-    [% title = &quot;Invalid 'Changed Since'&quot; %]
+-    The 'changed since' value, '[% changedsince FILTER html %]', must be an
+-    integer &gt;= 0.
++    [% title = &quot;Neplatn&#195;&#161; polo&#197;&#190;ka &#226;&#128;&#158;Zm&#196;&#155;n&#196;&#155;no od&#226;&#128;&#156;&quot; %]
++    Hodnota polo&#197;&#190;ky &#226;&#128;&#158;zm&#196;&#155;n&#196;&#155;no od&#226;&#128;&#156;, &#226;&#128;&#158;[% changedsince FILTER html %]&#226;&#128;&#156;, mus&#195;&#173;
++    b&#195;&#189;t cel&#195;&#169; nez&#195;&#161;porn&#195;&#169; &#196;&#141;&#195;&#173;slo.
+ 
+   [% ELSIF error == &quot;invalid_content_type&quot; %]
+-    [% title = &quot;Invalid Content-Type&quot; %]
+-    The content type &lt;em&gt;[% contenttype FILTER html %]&lt;/em&gt; is invalid.
+-    Valid types must be of the form &lt;em&gt;foo/bar&lt;/em&gt; where &lt;em&gt;foo&lt;/em&gt;
+-    is either &lt;em&gt;application, audio, image, message, model, multipart,
+-    text,&lt;/em&gt; or &lt;em&gt;video&lt;/em&gt;.
++    [% title = &quot;Neplatn&#195;&#189; typ obsahu&quot; %]
++    Typ obsahu &lt;em&gt;[% contenttype FILTER html %]&lt;/em&gt; nen&#195;&#173; platn&#195;&#189;.
++    Platn&#195;&#169; typy maj&#195;&#173; tvar &lt;em&gt;foo/bar&lt;/em&gt;, kde &lt;em&gt;foo&lt;/em&gt;
++    je jedno z &lt;em&gt;application, audio, image, message, model, multipart,
++    text, video&lt;/em&gt;.
+     
+   [% ELSIF error == &quot;invalid_context&quot; %]
+-    [% title = &quot;Invalid Context&quot; %]
+-    The context [% context FILTER html %] is invalid (must be a number,
+-    &quot;file&quot; or &quot;patch&quot;).
++    [% title = &quot;Neplatn&#195;&#189; kontext&quot; %]
++    Kontext [% context FILTER html %] nen&#195;&#173; platn&#195;&#189; (mus&#195;&#173; j&#195;&#173;m b&#195;&#189;t &#196;&#141;&#195;&#173;slo,
++    &#226;&#128;&#158;file&#226;&#128;&#156; nebo &#226;&#128;&#158;patch&#226;&#128;&#156;).
+ 
+   [% ELSIF error == &quot;invalid_format&quot; %]
+-    [% title = &quot;Invalid Format&quot; %]
+-    The format &quot;[% format FILTER html %]&quot; is invalid (must be one of
++    [% title = &quot;Neplatn&#195;&#189; form&#195;&#161;t&quot; %]
++    Form&#195;&#161;t &#226;&#128;&#158;[% format FILTER html %]&#226;&#128;&#156; je neplatn&#195;&#189; (mus&#195;&#173; j&#195;&#173;m byt jedno z 
+     [% FOREACH my_format = formats %]
+-      &quot;[% my_format FILTER html %]&quot;
++      &#226;&#128;&#158;[% my_format FILTER html %]&#226;&#128;&#156;
+     [% END %]
+     ).
+ 
+   [% ELSIF error == &quot;invalid_maxrows&quot; %]
+-    [% title = &quot;Invalid Max Rows&quot; %]
+-    The maximum number of rows, '[% maxrows FILTER html %]', must be
+-    a positive integer.
++    [% title = &quot;Neplatn&#195;&#189; maxim&#195;&#161;ln&#195;&#173; po&#196;&#141;et &#197;&#153;&#195;&#161;dk&#197;&#175;&quot; %]
++    Maxim&#195;&#161;ln&#195;&#173; po&#196;&#141;et &#197;&#153;&#195;&#161;dk&#197;&#175;, &#226;&#128;&#158;[% maxrows FILTER html %]&#226;&#128;&#156;, mus&#195;&#173; b&#195;&#189;t b&#195;&#189;t
++    kladn&#195;&#169; cel&#195;&#169; &#196;&#141;&#195;&#173;slo.
+ 
+   [% ELSIF error == &quot;invalid_product_name&quot; %]
+-    [% title = &quot;Invalid Product Name&quot; %]
+-    The product name '[% product FILTER html %]' is invalid or does not exist.
++    [% title = &quot;Neplatn&#195;&#189; n&#195;&#161;zev produktu&quot; %]
++    N&#195;&#161;zev produktu &#226;&#128;&#158;[% product FILTER html %]&#226;&#128;&#156; nen&#195;&#173; platn&#195;&#189;, nebo takov&#195;&#189; produkt
++    neexistuje.
+     
+   [% ELSIF error == &quot;invalid_username&quot; %]
+-    [% title = &quot;Invalid Username&quot; %]
+-    The name &lt;tt&gt;[% name FILTER html %]&lt;/tt&gt; is not a valid username.  
+-    Either you misspelled it, or the person has not
+-    registered for a [% terms.Bugzilla %] account.
++    [% title = &quot;Neplatn&#195;&#169; u&#197;&#190;ivatelsk&#195;&#169; jm&#195;&#169;no&quot; %]
++    &#197;&#189;&#195;&#161;dn&#195;&#189; u&#197;&#190;ivatel nem&#195;&#161; jm&#195;&#169;no &lt;tt&gt;[% name FILTER html %]&lt;/tt&gt;.
++    Bu&#196;&#143; jste jm&#195;&#169;no zadali nep&#197;&#153;esn&#196;&#155;, nebo tato osoba nem&#195;&#161;
++    na [% terms.Bugzilla_6sg %] zaregistrovan&#195;&#189; &#195;&#186;&#196;&#141;et.
+ 
+   [% ELSIF error == &quot;invalid_username_or_password&quot; %]
+-    [% title = &quot;Invalid Username Or Password&quot; %]
+-    The username or password you entered is not valid.
++    [% title = &quot;Neplatn&#195;&#169; u&#197;&#190;ivatelsk&#195;&#169; jm&#195;&#169;no &#196;&#141;i heslo&quot; %]
++    U&#197;&#190;ivatelsk&#195;&#169; jm&#195;&#169;no a heslo, kter&#195;&#169; jste zadali, nejsou platn&#195;&#169;.
+ 
+   [% ELSIF error == &quot;keyword_access_denied&quot; %]
+-    [% title = &quot;Access Denied&quot; %]
+-    Sorry, you aren't a member of the 'editkeywords' group, and so
+-    you aren't allowed to add, modify or delete keywords.
++    [% title = &quot;P&#197;&#153;&#195;&#173;stup zam&#195;&#173;tnut&quot; %]
++    Je mi l&#195;&#173;to, ale nejste &#196;&#141;lenem skupiny &#226;&#128;&#158;editkeywords&#226;&#128;&#156;, tak&#197;&#190;e
++    nem&#195;&#161;te dovoleno p&#197;&#153;id&#195;&#161;vat, m&#196;&#155;nit, ani mazat kl&#195;&#173;&#196;&#141;ov&#195;&#161; slova.
+ 
+   [% ELSIF error == &quot;keyword_already_exists&quot; %]
+-    [% title = &quot;Keyword Already Exists&quot; %]
+-    A keyword with the name [% name FILTER html %] already exists.
++    [% title = &quot;Kl&#195;&#173;&#196;&#141;ov&#195;&#169; slovo ji&#197;&#190; existuje&quot; %]
++    Kl&#195;&#173;&#196;&#141;ov&#195;&#169; slovo s n&#195;&#161;zvem [% name FILTER html %] ji&#197;&#190; existuje.
+ 
+   [% ELSIF error == &quot;keyword_blank_description&quot; %]
+-    [% title = &quot;Blank Keyword Description Not Allowed&quot; %]
+-    You must enter a non-blank description for the keyword.
+-     
++    [% title = &quot;Kl&#195;&#173;&#196;&#141;ov&#195;&#169; slovo mus&#195;&#173; m&#195;&#173;t popis&quot; %]
++    U kl&#195;&#173;&#196;&#141;ov&#195;&#169;ho slova mus&#195;&#173;te zadat nepr&#195;&#161;zdn&#195;&#189; popis.
++    
+   [% ELSIF error == &quot;keyword_blank_name&quot; %]
+-    [% title = &quot;Blank Keyword Name Not Allowed&quot; %]
+-    You must enter a non-blank name for the keyword.
++    [% title = &quot;Kl&#195;&#173;&#196;&#141;ov&#195;&#169; slovo mus&#195;&#173; m&#195;&#173;t n&#195;&#161;zev&quot; %]
++    U kl&#195;&#173;&#196;&#141;ov&#195;&#169;ho slova mus&#195;&#173;te zadat nepr&#195;&#161;zdn&#195;&#189; n&#195;&#161;zev.
+      
+   [% ELSIF error == &quot;keyword_invalid_name&quot; %]
+-    [% title = &quot;Invalid Keyword Name&quot; %]
+-    You may not use commas or whitespace in a keyword name.
++    [% title = &quot;Neplatn&#195;&#189; n&#195;&#161;zev kl&#195;&#173;&#196;&#141;ov&#195;&#169;ho slova&quot; %]
++    V n&#195;&#161;zvu kl&#195;&#173;&#196;&#141;ov&#195;&#169;ho slova nesm&#195;&#173;te pou&#197;&#190;&#195;&#173;vat &#196;&#141;&#195;&#161;rky ani b&#195;&#173;l&#195;&#169; znaky.
+      
+   [% ELSIF error == &quot;login_needed_for_password_change&quot; %]
+-    [% title = &quot;Login Name Required&quot; %]
+-    You must enter a login name when requesting to change your password.
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;no p&#197;&#153;ihla&#197;&#161;ovac&#195;&#173; jm&#195;&#169;no&quot; %]
++    P&#197;&#153;i &#197;&#190;&#195;&#161;d&#195;&#161;n&#195;&#173; o zm&#196;&#155;nu hesla mus&#195;&#173;te zadat sv&#195;&#169; p&#197;&#153;ihla&#197;&#161;ovac&#195;&#173; jm&#195;&#169;no.
+ 
+   [% ELSIF error == &quot;milestone_required&quot; %]
+-    [% title = &quot;Milestone Required&quot; %]
+-    You must determine a target milestone for [% terms.bug %] 
+-    [%+ bug_id FILTER html %]
+-    if you are going to accept it.  Part of accepting 
+-    [% terms.abug %] is giving an estimate of when it will be fixed.
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;n c&#195;&#173;lov&#195;&#189; miln&#195;&#173;k&quot; %]
++    Pokud chcete [% terms.chyba_4sg %] [%+ bug_id FILTER html %] p&#197;&#153;evz&#195;&#173;t,
++    mus&#195;&#173;te zadat c&#195;&#173;lov&#195;&#189; miln&#195;&#173;k. Sou&#196;&#141;&#195;&#161;st&#195;&#173; p&#197;&#153;evzet&#195;&#173; [% terms.chyba_2sg %] je
++    poskytnut&#195;&#173; odhadu, kdy bude opraven[% koncovky.verb %].
+ 
+   [% ELSIF error == &quot;misarranged_dates&quot; %]
+-    [% title = &quot;Misarranged Dates&quot; %]
+-    Your start date ([% datefrom FILTER html %]) is after 
+-    your end date ([% dateto FILTER html %]).
++    [% title = &quot;P&#197;&#153;ehozen&#195;&#161; data&quot; %]
++    Va&#197;&#161;e po&#196;&#141;&#195;&#161;te&#196;&#141;n&#195;&#173; datum ([% datefrom FILTER html %]) je a&#197;&#190; po
++    va&#197;&#161;em koncov&#195;&#169;m datu ([% dateto FILTER html %]).
+     
+   [% ELSIF error == &quot;missing_attachment_description&quot; %]
+-    [% title = &quot;Missing Attachment Description&quot; %]
+-    You must enter a description for the attachment.
++    [% title = &quot;Chyb&#195;&#173; popis p&#197;&#153;&#195;&#173;lohy&quot; %]
++    K p&#197;&#153;&#195;&#173;loze mus&#195;&#173;te dodat popis.
+     
+   [% ELSIF error == &quot;missing_category&quot; %]
+-    [% title = &quot;Missing Category&quot; %]
+-    You did not specify a category for this series.
++    [% title = &quot;Chyb&#195;&#173; kategorie&quot; %]
++    Pro tuto tabulku jste nezadali kategorii.
+                 
+   [% ELSIF error == &quot;missing_content_type&quot; %]
+-    [% title = &quot;Missing Content-Type&quot; %]
+-     You asked [% terms.Bugzilla %] to auto-detect the content type, but
+-     your browser did not specify a content type when uploading the file, 
+-     so you must enter a content type manually.
++    [% title = &quot;Chyb&#196;&#155;j&#195;&#173;c&#195;&#173; typ obsahu&quot; %]
++     &#197;&#189;&#195;&#161;dali jste, aby [% terms.Bugzilla %] automaticky detekovala
++     typ obsahu, ale v&#195;&#161;&#197;&#161; prohl&#195;&#173;&#197;&#190;e&#196;&#141; typ obsahu p&#197;&#153;i zas&#195;&#173;l&#195;&#161;n&#195;&#173; souboru
++     neur&#196;&#141;il, tak&#197;&#190;e ho mus&#195;&#173;te zadat ru&#196;&#141;n&#196;&#155;.
+                 
+   [% ELSIF error == &quot;missing_content_type_method&quot; %]
+-    [% title = &quot;Missing Content-Type Determination Method&quot; %]
+-    You must choose a method for determining the content type,
+-    either &lt;em&gt;auto-detect&lt;/em&gt;, &lt;em&gt;select from list&lt;/em&gt;, or &lt;em&gt;enter 
+-    manually&lt;/em&gt;.
++    [% title = &quot;Nevypln&#196;&#155;n&#195;&#189; zp&#197;&#175;sob ur&#196;&#141;en&#195;&#173; typu obsahu&quot; %]
++    Mus&#195;&#173;te si vybrat metodu, jak se m&#195;&#161; ur&#196;&#141;it typ obsahu, bu&#196;&#143;
++    &lt;em&gt;autodetekce&lt;/em&gt;, &lt;em&gt;vybrat ze seznamu&lt;/em&gt;, nebo &lt;em&gt;zadat
++    ru&#196;&#141;n&#196;&#155;&lt;/em&gt;.
+         
+   [% ELSIF error == &quot;missing_cookie&quot; %]
+-    [% title = &quot;Missing Cookie&quot; %]
+-    Sorry, I seem to have lost the cookie that recorded
+-    the results of your last search. I'm afraid you will have to start
+-    again on the &lt;a href=&quot;query.cgi&quot;&gt;search page&lt;/a&gt;.
++    [% title = &quot;Chyb&#196;&#155;j&#195;&#173;c&#195;&#173; cookie&quot; %]
++    Je mi l&#195;&#173;to, ale zd&#195;&#161; se, &#197;&#190;e se ztratila cookie, kter&#195;&#161;
++    uchov&#195;&#161;vala v&#195;&#189;sledky va&#197;&#161;eho posledn&#195;&#173;ho hled&#195;&#161;n&#195;&#173;. Ob&#195;&#161;v&#195;&#161;m se, &#197;&#190;e
++    budete muset za&#196;&#141;&#195;&#173;t od za&#196;&#141;&#195;&#161;tku &lt;a href=&quot;query.cgi&quot;&gt;hled&#195;&#161;n&#195;&#173;&lt;/a&gt;.
+           
+   [% ELSIF error == &quot;missing_datasets&quot; %]
+-    [% title = &quot;No Datasets Selected&quot; %]
+-    You must specify one or more datasets to plot.
++    [% title = &quot;Nebyly zvoleny &#197;&#190;&#195;&#161;dn&#195;&#169; tabulky&quot; %]
++    Pro vykreslen&#195;&#173; mus&#195;&#173;te vybrat nejm&#195;&#169;n&#196;&#155; jednu tabulku.
+     
+   [% ELSIF error == &quot;missing_email_type&quot; %]
+-    [% title = &quot;Your Search Makes No Sense&quot; %]
+-    You must specify one or more fields in which to search for
++    [% title = &quot;Va&#197;&#161;e hled&#195;&#161;n&#195;&#173; ned&#195;&#161;v&#195;&#161; smysl&quot; %]
++    Mus&#195;&#173;te ur&#196;&#141;it nejm&#195;&#169;n&#196;&#155; jedno pole, ve kter&#195;&#169;m se m&#195;&#161; hledat
+     &lt;tt&gt;[% email FILTER html %]&lt;/tt&gt;.
+     
+   [% ELSIF error == &quot;missing_frequency&quot; %]
+-    [% title = &quot;Missing Frequency&quot; %]
+-    You did not specify a valid frequency for this series.
++    [% title = &quot;Chyb&#196;&#155;j&#195;&#173;c&#195;&#173; frekvence&quot; %]
++    U t&#195;&#169;to tabulky jste nezadali platnou frekvenci.
+                 
+   [% ELSIF error == &quot;missing_name&quot; %]
+-    [% title = &quot;Missing Name&quot; %]
+-    You did not specify a name for this series.
++    [% title = &quot;Chyb&#196;&#155;j&#195;&#173;c&#195;&#173; n&#195;&#161;zev&quot; %]
++    U t&#195;&#169;to tabulky jste nezadali n&#195;&#161;zev.
+                 
+   [% ELSIF error == &quot;missing_query&quot; %]
+-    [% title = &quot;Missing Search&quot; %]
+-    The search named &lt;em&gt;[% queryname FILTER html %]&lt;/em&gt; does not
+-    exist.
++    [% title = &quot;Chyb&#196;&#155;j&#195;&#173;c&#195;&#173; hled&#195;&#161;n&#195;&#173;&quot; %]
++    Neexistuje hled&#195;&#161;n&#195;&#173; s n&#195;&#161;zvem &lt;em&gt;[% queryname FILTER html %]&lt;/em&gt;.
+         
+   [% ELSIF error == &quot;must_be_patch&quot; %]
+-    [% title = &quot;Attachment Must Be Patch&quot; %]
+-    Attachment #[% attach_id FILTER html %] must be a patch.
++    [% title = &quot;P&#197;&#153;&#195;&#173;loha mus&#195;&#173; b&#195;&#189;t patch&quot; %]
++    P&#197;&#153;&#195;&#173;loha #[% attach_id FILTER html %] mus&#195;&#173; b&#195;&#189;t patch.
+ 
+   [% ELSIF error == &quot;missing_subcategory&quot; %]
+-    [% title = &quot;Missing Subcategory&quot; %]
+-    You did not specify a subcategory for this series.
++    [% title = &quot;Chyb&#196;&#155;j&#195;&#173;c&#195;&#173; podkategorie&quot; %]
++    U t&#195;&#169;to tabulky jste nezadali podkategorii.
+                 
+   [% ELSIF error == &quot;need_component&quot; %]
+-    [% title = &quot;Component Required&quot; %]
+-    You must specify a component to help determine the new owner of these 
+-    [% terms.bugs %].
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;na komponenta&quot; %]
++    Pro ur&#196;&#141;en&#195;&#173; nov&#195;&#169;ho vlastn&#195;&#173;ka [% terms.tatochyba_2pl %] mus&#195;&#173;te ur&#196;&#141;it komponentu.
+ 
+   [% ELSIF error == &quot;need_product&quot; %]
+-    [% title = &quot;Product Required&quot; %]
+-    You must specify a product to help determine the new owner of these [% terms.bugs %].
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;n produkt&quot; %]
++    Pro ur&#196;&#141;en&#195;&#173; nov&#195;&#169;ho vlastn&#195;&#173;ka [% terms.tatochyba_2pl %] mus&#195;&#173;te ur&#196;&#141;it produkt.
+ 
+   [% ELSIF error == &quot;need_quip&quot; %]
+-    [% title = &quot;Quip Required&quot; %]
+-    Please enter a quip in the text field.
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;n vt&#195;&#173;pek&quot; %]
++    Laskav&#196;&#155; zadejte do textov&#195;&#169;ho pole vt&#195;&#173;pek.
+ 
+   [% ELSIF error == &quot;new_password_missing&quot; %]
+-    [% title = &quot;New Password Missing&quot; %]
+-    You must enter a new password.
++    [% title = &quot;Chyb&#195;&#173; nov&#195;&#169; heslo&quot; %]
++    Mus&#195;&#173;te zadat nov&#195;&#169; heslo.
+ 
+   [% ELSIF error == &quot;no_axes_defined&quot; %]
+-    [% title = &quot;No Axes Defined&quot; %]
+-    You didn't define any axes to plot.
++    [% title = &quot;Nejsou definov&#195;&#161;ny osy&quot; %]
++    Neur&#196;&#141;ili jste &#197;&#190;&#195;&#161;dn&#195;&#169; osy, kter&#195;&#169; by m&#196;&#155;ly b&#195;&#189;t vykresleny.
+ 
+   [% ELSIF error == &quot;no_bugs_chosen&quot; %]
+-    [% title = BLOCK %]No [% terms.Bugs %] Chosen[% END %]
+-    You apparently didn't choose any [% terms.bugs %] to modify.
++    [% title = BLOCK %]Nebyl[% koncovky.verb_pl %] vybr&#195;&#161;n[% koncovky.verb_pl %] &#197;&#190;&#195;&#161;dn[% koncovky.mlady_1pl %] [% terms.chyby %][% END %]
++    Evidentn&#196;&#155; jste nezvolili &#197;&#190;&#195;&#161;dn[% koncovky.mlady_1pl %] [% terms.chyby %],
++    kter[% koncovky.mlady_1pl %] by m&#196;&#155;l[% koncovky.verb_pl %] b&#195;&#189;t
++    upraven[% koncovky.verb_pl %].
+ 
+   [% ELSIF error == &quot;no_component_change_for_multiple_products&quot; %]
+-    [% title = &quot;Action Not Permitted&quot; %]
+-    You cannot change the component for a list of [% terms.bugs %] covering more than
+-    one product.
++    [% title = &quot;&#195;&#154;kon nen&#195;&#173; dovolen&quot; %]
++    Nem&#197;&#175;&#197;&#190;ete m&#196;&#155;nit komponenty v seznamu [% terms.chyba_2pl %], ve kter&#195;&#169;m se
++    vyskytuje v&#195;&#173;ce ne&#197;&#190; jeden produkt.
+ 
+   [% ELSIF error == &quot;no_components&quot; %]
+-    [% title = &quot;No Components&quot; %]
+-    Sorry; there needs to be at least one component for this product in order
+-    to create a new [% terms.bug %].
++    [% title = &quot;Chyb&#195;&#173; komponenty&quot; %]
++    Je mi l&#195;&#173;to, ale aby v tomto produktu &#197;&#161;lo vytv&#195;&#161;&#197;&#153;et [% terms.chyba_4pl %],
++    je v n&#196;&#155;m pot&#197;&#153;eba definovat nejm&#195;&#169;n&#196;&#155; jednu komponentu.
+     [% IF UserInGroup(&quot;editcomponents&quot;) %]
+-      &lt;a href=&quot;editcomponents.cgi?product=[% product FILTER url_quote %]&quot;&gt;Create
+-        a new component&lt;/a&gt;.
++      &lt;a href=&quot;editcomponents.cgi?product=[% product FILTER url_quote %]&quot;&gt;Vytvo&#197;&#153;it
++      novou komponentu&lt;/a&gt;.
+     [% ELSE %]
+-       Please contact [% Param(&quot;maintainer&quot;) %], giving the name of
+-       the product in which you tried to create a new [% terms.bug %].
++       Kontaktujte laskav&#196;&#155; spr&#195;&#161;vce ([% Param(&quot;maintainer&quot;) %]) a p&#197;&#153;edejte
++       mu n&#195;&#161;zev produktu, ve kter&#195;&#169;m jste se pokou&#197;&#161;eli vytvo&#197;&#153;it [% terms.chyba_4sg %].
+     [% END %]
+ 
+   [% ELSIF error == &quot;no_dupe_stats&quot; %]
+-    [% title = &quot;Cannot Find Duplicate Statistics&quot; %]
+-    There are no duplicate statistics for today ([% today FILTER html %]) 
+-    or yesterday.
++    [% title = &quot;Nepoda&#197;&#153;ilo se naj&#195;&#173;t statistiku o duplik&#195;&#161;tech&quot; %]
++    Pro dne&#197;&#161;ek ([% today FILTER html %]) ani v&#196;&#141;erej&#197;&#161;ek neexistuje
++    &#197;&#190;&#195;&#161;dn&#195;&#161; statistika o duplik&#195;&#161;tech.
+ 
+   [% ELSIF error == &quot;no_dupe_stats_error_today&quot; %]
+-    [% title = &quot;Error Reading Today's Dupes File&quot; %]
+-    An error occurred opening today's dupes file: [% error_msg FILTER html %].
++    [% title = &quot;Chyba p&#197;&#153;i &#196;&#141;ten&#195;&#173; souboru s dne&#197;&#161;n&#195;&#173;mi duplik&#195;&#161;ty&quot; %]
++    P&#197;&#153;i otev&#195;&#173;r&#195;&#161;n&#195;&#173; souboru s dne&#197;&#161;n&#195;&#173;mi duplik&#195;&#161;ty do&#197;&#161;lo k chyb&#196;&#155;: [% error_msg FILTER html %].
+ 
+   [% ELSIF error == &quot;no_dupe_stats_error_whenever&quot; %]
+-    [% title = &quot;Error Reading Previous Dupes File&quot; %]
+-    An error occurred opening [% changedsince FILTER html %] days ago
+-    ([% whenever FILTER html %])'s dupes file:
+-    [% error_msg FILTER html %].
++    [% title = &quot;Chyba p&#197;&#153;i &#196;&#141;ten&#195;&#173; souboru s p&#197;&#153;edchoz&#195;&#173;mi duplik&#195;&#161;ty&quot; %]
++    P&#197;&#153;i otev&#195;&#173;r&#195;&#161;n&#195;&#173; souboru s duplik&#195;&#161;ty z p&#197;&#153;ed [% changedsince FILTER html %] dn&#195;&#173;
++    ([% whenever FILTER html %]) do&#197;&#161;lo k chyb&#196;&#155;: [% error_msg FILTER html %].
+ 
+   [% ELSIF error == &quot;no_dupe_stats_error_yesterday&quot; %]
+     [% title = &quot;Error Reading Yesterday's Dupes File&quot; %]
+-    There are no duplicate statistics for today ([% today FILTER html %]), 
+-    and an error
+-    occurred opening yesterday's dupes file: [% error_msg FILTER html %].
++    Pro dne&#197;&#161;ek ([% today FILTER html %]) neexistuje
++    &#197;&#190;&#195;&#161;dn&#195;&#161; statistika o duplik&#195;&#161;tech a p&#197;&#153;i otev&#195;&#173;r&#195;&#161;n&#195;&#173; souboru
++    se v&#196;&#141;erej&#197;&#161;&#195;&#173;mi duplik&#195;&#161;ty do&#197;&#161;lo k chyb&#196;&#155;: [% error_msg FILTER html %].
+ 
+   [% ELSIF error == &quot;no_html_in_quips&quot; %]
+-    [% title = &quot;No HTML In Quips&quot; %]
+-    Sorry - for security reasons, support for HTML tags has been turned off
+-    in quips.
++    [% title = &quot;HTML je ve vt&#195;&#173;pc&#195;&#173;ch zak&#195;&#161;z&#195;&#161;no&quot; %]
++    Je mi l&#195;&#173;to, ale z bezpe&#196;&#141;nostn&#195;&#173;ch d&#197;&#175;vod&#197;&#175; nen&#195;&#173; ve vt&#195;&#173;pc&#195;&#173;ch dovoleno
++    pou&#197;&#190;&#195;&#173;vat HTML tagy.
+ 
+   [% ELSIF error == &quot;no_new_quips&quot; %]
+-    [% title = &quot;No New Quips&quot; %]
+-    This site does not permit the addition of new quips.
++    [% title = &quot;Nelze p&#197;&#153;id&#195;&#161;vat vt&#195;&#173;pky&quot; %]
++    Na tomto serveru nen&#195;&#173; dovoleno p&#197;&#153;id&#195;&#161;vat nov&#195;&#169; vt&#195;&#173;pky.
+ 
+   [% ELSIF error == &quot;no_page_specified&quot; %]
+-    [% title = &quot;No Page Specified&quot; %]
+-    You did not specify the id of a page to display.
++    [% title = &quot;Nebyla ur&#196;&#141;ena str&#195;&#161;nka&quot; %]
++    Neur&#196;&#141;ili jste ID str&#195;&#161;nky, kter&#195;&#161; se m&#195;&#161; zobrazit.
+ 
+   [% ELSIF error == &quot;no_products&quot; %]
+-    [% title = &quot;No Products&quot; %]
+-    Either no products have been defined to enter [% terms.bugs %] against or you have not
+-    been given access to any.
++    [% title = &quot;Chyb&#195;&#173; produkty&quot; %]
++    Bu&#196;&#143; nejsou definov&#195;&#161;ny &#197;&#190;&#195;&#161;dn&#195;&#169; produkty, do kter&#195;&#189;ch lze zad&#195;&#161;vat [% terms.chyba_4pl %],
++    nebo k &#197;&#190;&#195;&#161;dn&#195;&#189;m z nich nem&#195;&#161;te p&#197;&#153;&#195;&#173;stup.
+ 
+   [% ELSIF error == &quot;number_not_numeric&quot; %]
+-    [% title = &quot;Numeric Value Required&quot; %]
+-    The value '[% num FILTER html %]' in the 
+-    &lt;em&gt;[% field_descs.$field FILTER html %]&lt;/em&gt; field 
+-    is not a numeric value.
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;na &#196;&#141;&#195;&#173;seln&#195;&#161; hodnota&quot; %]
++    Hodnota &#226;&#128;&#158;[% num FILTER html %]&#226;&#128;&#156; polo&#197;&#190;ky
++    &lt;em&gt;[% field_descs.$field FILTER html %]&lt;/em&gt; nen&#195;&#173;
++    &#196;&#141;&#195;&#173;seln&#195;&#161; hodnota.
+ 
+   [% ELSIF error == &quot;number_too_large&quot; %]
+-    [% title = &quot;Number Too Large&quot; %]
+-    The value '[% num FILTER html %]' in the 
+-    &lt;em&gt;[% field_descs.$field FILTER html %]&lt;/em&gt; field 
+-    is more than the maximum allowable value of '[% max_num FILTER html %]'.
++    [% title = &quot;P&#197;&#153;&#195;&#173;li&#197;&#161; velk&#195;&#169; &#196;&#141;&#195;&#173;slo&quot; %]
++    Hodnota &#226;&#128;&#158;[% num FILTER html %]&#226;&#128;&#156; pol&#197;&#190;ky
++    &lt;em&gt;[% field_descs.$field FILTER html %]&lt;/em&gt;
++    p&#197;&#153;esahuje maxim&#195;&#161;ln&#195;&#173; dovolenou hodnotu &#226;&#128;&#158;[% max_num FILTER html %]&#226;&#128;&#156;.
+ 
+   [% ELSIF error == &quot;number_too_small&quot; %]
+-    [% title = &quot;Number Too Small&quot; %]
+-    The value '[% num FILTER html %]' 
+-    in the &lt;em&gt;[% field_descs.$field FILTER html %]&lt;/em&gt; field 
+-    is less than the minimum allowable value of '[% min_num FILTER html %]'.
++    [% title = &quot;P&#197;&#153;&#195;&#173;li&#197;&#161; mal&#195;&#169; &#196;&#141;&#195;&#173;slo&quot; %]
++    Hodnota &#226;&#128;&#158;[% num FILTER html %]&#226;&#128;&#156; pol&#197;&#190;ky
++    &lt;em&gt;[% field_descs.$field FILTER html %]&lt;/em&gt;
++    je men&#197;&#161;&#195;&#173; ne&#197;&#190; minim&#195;&#161;ln&#195;&#173; dovolen&#195;&#161; hodnota &#226;&#128;&#158;[% max_num FILTER html %]&#226;&#128;&#156;.
+ 
+   [% ELSIF error == &quot;old_password_incorrect&quot; %]
+-    [% title = &quot;Incorrect Old Password&quot; %]
+-    You did not enter your old password correctly.
++    [% title = &quot;P&#197;&#175;vodn&#195;&#173; heslo nesouhlas&#195;&#173;&quot; %]
++    Nezadali jste spr&#195;&#161;vn&#195;&#169; p&#197;&#175;vodn&#195;&#173; heslo.
+ 
+   [% ELSIF error == &quot;old_password_required&quot; %]
+-    [% title = &quot;Old Password Required&quot; %]
+-    You must enter your old password to change your email address.
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;no p&#197;&#175;vodn&#195;&#173; heslo&quot; %]
++    Pro zm&#196;&#155;nu e-mailov&#195;&#169; adresy je vy&#197;&#190;adov&#195;&#161;no zad&#195;&#161;n&#195;&#173; p&#197;&#175;vodn&#195;&#173;ho hesla.
+ 
+   [% ELSIF error == &quot;passwords_dont_match&quot; %]
+-    [% title = &quot;Passwords Don't Match&quot; %]
+-    The two passwords you entered did not match.
++    [% title = &quot;Hesla nesouhlas&#195;&#173;&quot; %]
++    Zadan&#195;&#161; dv&#196;&#155; hesla se li&#197;&#161;&#195;&#173;.
+ 
+   [% ELSIF error == &quot;password_too_long&quot; %]
+-    [% title = &quot;Password Too Long&quot; %]
+-    The password is more than 16 characters long. It must be no more than
+-    16 characters.
++    [% title = &quot;P&#197;&#153;&#195;&#173;li&#197;&#161; dlouh&#195;&#169; heslo&quot; %]
++    Zadan&#195;&#169; heslo je del&#197;&#161;&#195;&#173; ne&#197;&#190; 16 znak&#197;&#175;. Heslo sm&#195;&#173; b&#195;&#189;t nejv&#195;&#189;&#197;&#161;e
++    16 znak&#197;&#175; dlouh&#195;&#169;.
+ 
+   [% ELSIF error == &quot;password_too_short&quot; %]
+-    [% title = &quot;Password Too Short&quot; %]
+-    The password is less than three characters long. It must be at least
+-    three characters.
++    [% title = &quot;P&#197;&#153;&#195;&#173;li&#197;&#161; kr&#195;&#161;tk&#195;&#169; heslo&quot; %]
++    Zadan&#195;&#169; heslo je krat&#197;&#161;&#195;&#173; ne&#197;&#190; t&#197;&#153;i znaky. Heslo mus&#195;&#173; obsahovat
++    nejm&#195;&#169;n&#196;&#155; t&#197;&#153;i znaky.
+ 
+   [% ELSIF error == &quot;patch_too_large&quot; %]
+-    [% title = &quot;File Too Large&quot; %]
+-    The file you are trying to attach is [% filesize FILTER html %] 
+-    kilobytes (KB) in size.
+-    Patches cannot be more than [% Param('maxpatchsize') %] KB in size.
+-    Try breaking your patch into several pieces.
++    [% title = &quot;P&#197;&#153;&#195;&#173;li&#197;&#161; velk&#195;&#189; soubor&quot; %]
++    Soubor, kter&#195;&#189; chcete pou&#197;&#190;&#195;&#173;t jako p&#197;&#153;&#195;&#173;lohu, je p&#197;&#153;&#195;&#173;li&#197;&#161; velk&#195;&#189;
++    ([% filesize FILTER html %] KB). Patche mohou m&#195;&#173;t
++    maxim&#195;&#161;ln&#196;&#155; [% Param('maxpatchsize') %] KB. Zkuste sv&#197;&#175;j
++    patch rozd&#196;&#155;lit na n&#196;&#155;kolik d&#195;&#173;l&#197;&#175;.
+ 
+   [% ELSIF error == &quot;product_disabled&quot; %]
+-    [% title = BLOCK %]Product closed for [% terms.Bugs %] Entry[% END %]
+-    Sorry, entering [% terms.bugs %] into
+-    product &lt;em&gt;[% product FILTER html %]&lt;/em&gt; has been disabled.
++    [% title = BLOCK %]Tento produkt je uzav&#197;&#153;en zad&#195;&#161;v&#195;&#161;n&#195;&#173; [% terms.chyba_2pl %][% END %]
++    Je mi l&#195;&#173;to, ale do produktu &lt;em&gt;[% product FILTER html %]&lt;/em&gt;
++    nyn&#195;&#173; nelze zad&#195;&#161;vat [% terms.chyba_4pl %].
+ 
+   [% ELSIF error == &quot;product_edit_denied&quot; %]
+-    [% title = &quot;Product Edit Access Denied&quot; %]
+-    You are not permitted to edit [% terms.bugs %] in product 
+-    [% product FILTER html %].
++    [% title = &quot;Nedostate&#196;&#141;n&#195;&#161; opr&#195;&#161;vn&#196;&#155;n&#195;&#173; pro editaci produktu&quot; %]
++    Nejste opr&#195;&#161;vn&#196;&#155;ni k editaci [% terms.chyba_2pl %]
++    v produktu [% product FILTER html %].
+ 
+   [% ELSIF error == &quot;query_name_missing&quot; %]
+-    [% title = &quot;No Search Name Specified&quot; %]
+-    You must enter a name for your search.
++    [% title = &quot;Nebyl zad&#195;&#161;n n&#195;&#161;zev hled&#195;&#161;n&#195;&#173;&quot; %]
++    Pro sv&#195;&#169; hled&#195;&#161;n&#195;&#173; mus&#195;&#173;te uv&#195;&#169;st n&#195;&#161;zev.
+ 
+   [% ELSIF error == &quot;quips_disabled&quot; %]
+-    [% title = &quot;Quips Disabled&quot; %]
+-    Quips are disabled.
++    [% title = &quot;Vt&#195;&#173;pky vypnuty&quot; %]
++    Pou&#197;&#190;&#195;&#173;v&#195;&#161;n&#195;&#173; vt&#195;&#173;pk&#197;&#175; je vypnuto.
+ 
+   [% ELSIF error == &quot;quips_edit_denied&quot; %]
+-    [% title = &quot;Permission Denied&quot; %]
+-    You do not have permission to edit quips.
++    [% title = &quot;P&#197;&#153;&#195;&#173;stup odep&#197;&#153;en&quot; %]
++    Nem&#195;&#161;te opr&#195;&#161;vn&#196;&#155;n&#195;&#173; upravovat vt&#195;&#173;pky.
+ 
+   [% ELSIF error == &quot;reassign_to_empty&quot; %]
+-    [% title = &quot;Illegal Reassignment&quot; %]
+-    To reassign [% terms.abug %], you must provide an address for
+-    the new owner. If you did not intentionally clear out the 
+-    &quot;Reassign [% terms.bug %] to&quot; field, [% Param(&quot;browserbugmessage&quot;) %]
++    [% title = &quot;Neplatn&#195;&#161; zm&#196;&#155;na p&#197;&#153;id&#196;&#155;len&#195;&#173;&quot; %]
++    Pro zm&#196;&#155;nu p&#197;&#153;id&#196;&#155;len&#195;&#173; [% terms.chyba_2sg %] mus&#195;&#173;te uv&#195;&#169;st
++    adresu nov&#195;&#169;ho vlastn&#195;&#173;ka. Pokud jste jste pole
++    &#226;&#128;&#158;Zm&#196;&#155;nit p&#197;&#153;id&#196;&#155;len&#195;&#173; [% terms.chyba_2sg %] na&#226;&#128;&#156; ru&#196;&#141;n&#196;&#155;
++    nevypr&#195;&#161;zdnili, [% Param(&quot;browserbugmessage&quot;) %]
+ 
+   [% ELSIF error == &quot;report_access_denied&quot; %]
+-    [% title = &quot;Access Denied&quot; %]
+-    You do not have the permissions necessary to view reports for this product.
++    [% title = &quot;P&#197;&#153;&#195;&#173;stup odep&#197;&#153;en&quot; %]
++    Pro prohl&#195;&#173;&#197;&#190;en&#195;&#173; report&#197;&#175; tohoto produktu nem&#195;&#161;te dostate&#196;&#141;n&#195;&#161; opr&#195;&#161;vn&#196;&#155;n&#195;&#173;.
+ 
+   [% ELSIF error == &quot;require_component&quot; %]
+-    [% title = &quot;Component Needed&quot; %]
+-    You must choose a component to file this [% terms.bug %] in. If necessary,
+-    just guess.
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;na komponenta&quot; %]
++    Pro zad&#195;&#161;n&#195;&#173; [% terms.chyba_2sg %] mus&#195;&#173;te zvolit komponentu. Pokud
++    si nejste jisti, zkuste alespo&#197;&#136; h&#195;&#161;dat.
+ 
+   [% ELSIF error == &quot;require_new_password&quot; %]
+-    [% title = &quot;New Password Needed&quot; %]
+-    You cannot change your password without choosing a new one.
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;no nov&#195;&#169; heslo&quot; %]
++    Nem&#197;&#175;&#197;&#190;ete si zm&#196;&#155;nit heslo, kdy&#197;&#190; si nevyberete nov&#195;&#169;.
+ 
+   [% ELSIF error == &quot;require_summary&quot; %]
+-    [% title = &quot;Summary Needed&quot; %]
+-    You must enter a summary for this [% terms.bug %].
++    [% title = &quot;Vy&#197;&#190;adov&#195;&#161;no shrnut&#195;&#173;&quot; %]
++    U [% terms.chyba_2sg %] mus&#195;&#173;te zadat shrnut&#195;&#173;.
+ 
+   [% ELSIF error == &quot;resolving_remaining_time&quot; %]
+-    [% title = &quot;Trying to Resolve with Hours Remaining&quot; %]
+-    You cannot resolve [% terms.abug %] with hours still remaining.  Set
+-    Remaining Hours to zero if you want to resolve the [% terms.bug %].
++    [% title = &quot;Nelze vy&#197;&#153;e&#197;&#161;it a ponechat zb&#195;&#189;vaj&#195;&#173;c&#195;&#173; &#196;&#141;as&quot; %]
++    Nem&#197;&#175;&#197;&#190;ete [% terms.chyba_4sg %] ozna&#196;&#141;it jako vy&#197;&#153;e&#197;&#161;enou, a p&#197;&#153;itom
++    ponechat zb&#195;&#189;vaj&#195;&#173;c&#195;&#173; &#196;&#141;as. Pokud chcete [% terms.chyba_4sg %] vy&#197;&#153;e&#197;&#161;it,
++    nastavte pole &lt;em&gt;Zb&#195;&#189;vaj&#195;&#173;c&#195;&#173;ch hodin&lt;/em&gt; na nulu.
+ 
+   [% ELSIF error == &quot;sanity_check_access_denied&quot; %]
+-    [% title = &quot;Access Denied&quot; %]
+-    You do not have the permissions necessary to run a sanity check.
++    [% title = &quot;P&#197;&#153;&#195;&#173;stup odep&#197;&#153;en&quot; %]
++    Pro kontrolu platnosti nem&#195;&#161;te dostate&#196;&#141;n&#195;&#161; opr&#195;&#161;vn&#196;&#155;n&#195;&#173;.
+ 
+   [% ELSIF error == &quot;search_content_without_matches&quot; %]
+-    [% title = &quot;Illegal Search&quot; %]
+-    The &quot;content&quot; field can only be used with &quot;matches&quot; search 
+-    and the &quot;matches&quot; search can only be used with the &quot;content&quot;
+-    field.
++    [% title = &quot;Neplatn&#195;&#169; hled&#195;&#161;n&#195;&#173;&quot; %]
++    Pole &#226;&#128;&#158;obsah&#226;&#128;&#156; lze pou&#197;&#190;&#195;&#173;vat pouze p&#197;&#153;i hled&#195;&#161;n&#195;&#173; &#226;&#128;&#158;odpov&#195;&#173;d&#195;&#161;&#226;&#128;&#156;
++    a hled&#195;&#161;n&#195;&#173; &#226;&#128;&#158;odpov&#195;&#173;d&#195;&#161;&#226;&#128;&#156; lze pou&#197;&#190;&#195;&#173;vat pouze s polem &#226;&#128;&#158;obsah&#226;&#128;&#156;.
+ 
+   [% ELSIF error == &quot;series_already_exists&quot; %]
+-    [% title = &quot;Series Already Exists&quot; %]
+-      A series named &lt;em&gt;[% series.category FILTER html %] /
++    [% title = &quot;Tabulka ji&#197;&#190; existuje&quot; %]
++      Tabulka se jm&#195;&#169;nem &lt;em&gt;[% series.category FILTER html %] /
+       [%+ series.subcategory FILTER html %] / 
+       [%+ series.name FILTER html %]&lt;/em&gt;
+-      already exists.
++      ji&#197;&#190; existuje.
+     
+   [% ELSIF error == &quot;sidebar_supports_mozilla_only&quot; %]
+-    Sorry - sidebar.cgi currently only supports Mozilla based web browsers.
+-    &lt;a href=&quot;<A HREF="http://www.mozilla.org">http://www.mozilla.org</A>&quot;&gt;Upgrade today&lt;/a&gt;. :-)
++    Je mi l&#195;&#173;to, ale postrann&#195;&#173; li&#197;&#161;ta podporuje pouze prohl&#195;&#173;&#197;&#190;e&#196;&#141;e zalo&#197;&#190;en&#195;&#169; na
++    Mozille. &lt;a href=&quot;<A HREF="http://www.mozilla.org/">http://www.mozilla.org/</A>&quot;&gt;Po&#197;&#153;i&#196;&#143;te si jej je&#197;&#161;t&#196;&#155; dnes&lt;/a&gt;. :-)
+ 
+   [% ELSIF error == &quot;still_unresolved_bugs&quot; %]
+     [% IF dependency_count == 1 %]
+-      [% terms.Bug %]# &lt;a href=&quot;show_bug.cgi?id=[% dependencies.0.bug_id FILTER none %]&quot;&gt;[% dependencies.0.bug_id FILTER none %]&lt;/a&gt;
+-      has still [% dependencies.0.dependencies FILTER html %] unresolved
++      Na [% terms.chyba_6sg %] #&lt;a href=&quot;show_bug.cgi?id=[% dependencies.0.bug_id FILTER none %]&quot;&gt;[% dependencies.0.bug_id FILTER none %]&lt;/a&gt;
++      st&#195;&#161;le z&#195;&#161;vis&#195;&#173; [% dependencies.0.dependencies FILTER html %] nevy&#197;&#153;e&#197;&#161;en
+       [% IF dependencies.0.dependencies == 1 %]
+-        dependency
++        [% koncovky.mlady_2sg %] [%+ terms.chyba_2sg %]
+       [% ELSE %]
+-        dependencies
+-      [% END %]. Show
+-      &lt;a href=&quot;showdependencytree.cgi?id=[% dependencies.0.bug_id FILTER none %]&quot;&gt;Dependency Tree&lt;/a&gt;.
++        [% koncovky.mlady_2pl %] [%+ terms.chyba_2pl %]
++      [% END %]. Zobrazit
++      &lt;a href=&quot;showdependencytree.cgi?id=[% dependencies.0.bug_id FILTER none %]&quot;&gt;strom z&#195;&#161;vislost&#195;&#173;&lt;/a&gt;.
+     [% ELSE %]
+-      There are [% dependency_count FILTER none %] open [% terms.bugs %] which
+-      have unresolved dependencies.
++      [% IF dependency_count &gt;= 2 &amp;&amp; dependency_count &lt;= 4 %]
++        Je&#197;&#161;t&#196;&#155; existuj&#195;&#173; [% dependency_count FILTER none %] [% terms.chyby_1pl %] s nevy&#197;&#153;e&#197;&#161;en&#195;&#189;mi
++        z&#195;&#161;vislostmi.
++      [% ELSE %]
++        Je&#197;&#161;t&#196;&#155; existuje [% dependency_count FILTER none %] [% terms.chyby_2pl %] s nevy&#197;&#153;e&#197;&#161;en&#195;&#189;mi
++        z&#195;&#161;vislostmi.
++      [% END %]
+       &lt;br&gt;
+       [% FOREACH bug = dependencies %]
+-        [% terms.Bug %]# &lt;a href=&quot;show_bug.cgi?id=[% bug.bug_id FILTER none %]&quot;&gt;[% bug.bug_id FILTER none %]&lt;/a&gt;
+-        has [% bug.dependencies FILTER html %] open
++        [% terms.Chyba %] #&lt;a href=&quot;show_bug.cgi?id=[% bug.bug_id FILTER none %]&quot;&gt;[% bug.bug_id FILTER none %]&lt;/a&gt;
++	m&#195;&#161; [% bug.dependencies FILTER html %]
+         [% IF bug.dependencies == 1 %]
+-          dependency.
++          nevy&#197;&#153;e&#197;&#161;enou z&#195;&#161;vislost
++        [% ELSIF bug.dependencies &gt;= 2 &amp;&amp; bug.dependencies &lt;= 4 %]
++	  nevyre&#197;&#161;en&#195;&#169; z&#195;&#161;vislosti
+         [% ELSE %]
+-          dependencies.
++          nevy&#197;&#153;e&#197;&#161;en&#195;&#189;ch z&#195;&#161;vislost&#195;&#173;
+         [% END %]
+-        (&lt;a href=&quot;showdependencytree.cgi?id=[% bug.bug_id FILTER none %]&quot;&gt;Dependency Tree&lt;/a&gt;)&lt;br&gt;
++        (&lt;a href=&quot;showdependencytree.cgi?id=[% bug.bug_id FILTER none %]&quot;&gt;Strom z&#195;&#161;vislost&#195;&#173;&lt;/a&gt;).&lt;br&gt;
+       [% END %]
+     [% END %]
+ 
+   [% ELSIF error == &quot;too_many_votes_for_bug&quot; %]
+-    [% title = &quot;Illegal Vote&quot; %]
+-    You may only use at most [% max FILTER html %] votes for a single
+-    [%+ terms.bug %] in the
+-    &lt;tt&gt;[% prod FILTER html %]&lt;/tt&gt; product, but you are trying to
+-    use [% votes FILTER html %].
++    [% title = &quot;Neplatn&#195;&#169; hlasov&#195;&#161;n&#195;&#173;&quot; %]
++    U jedn[% koncovky.mlady_2sg %] [%+ terms.chyba_2sg %] m&#197;&#175;&#197;&#190;ete v produktu
++    &lt;tt&gt;[% prod FILTER html %]&lt;/tt&gt; pou&#197;&#190;&#195;&#173;t nejv&#195;&#189;&#197;&#161;e [% max FILTER html %]
++    [% IF max == 1 %]
++      hlas
++    [% ELSIF max &gt;= 2 &amp;&amp; max &lt;= 4 %]
++      hlasy
++    [% ELSE %]
++      hlas&#197;&#175;
++    [% END %], ale zadali jste [% votes FILTER html %].
+ 
+   [% ELSIF error == &quot;too_many_votes_for_product&quot; %]
+-    [% title = &quot;Illegal Vote&quot; %]
+-    You tried to use [% votes FILTER html %] votes,
+-    which exceeds the [% max FILTER html %] vote per [% terms.bug %] limit
+-    for the &lt;tt&gt;[% prod FILTER html %]&lt;/tt&gt; product.
++    [% title = &quot;Neplatn&#195;&#169; hlasov&#195;&#161;n&#195;&#173;&quot; %]
++    Pokusili jste se rozd&#196;&#155;lit [% votes FILTER html %]
++    [% IF votes == 1 %]
++      hlas
++    [% ELSIF votes &gt;= 2 &amp;&amp; votes &lt;= 4 %]
++      hlasy
++    [% ELSE %]
++      hlas&#197;&#175;
++    [% END %], co&#197;&#190; p&#197;&#153;esahuje limit [% max FILTER html %] platn&#195;&#189;
++    pro produkt &lt;tt&gt;[% prod FILTER html %]&lt;/tt&gt;.
+ 
+   [% ELSIF error == &quot;token_inexistent&quot; %]
+-    [% title = &quot;Token Does Not Exist&quot; %]
+-    The token you submitted does not exist, has expired, or has
+-    been cancelled.
++    [% title = &quot;&#197;&#189;eton neexistuje&quot; %]
++    &#197;&#189;eton, kter&#195;&#189; jste zadali, bu&#196;&#143; neexistuje, ji&#197;&#190; vypr&#197;&#161;el, nebo
++    byl zru&#197;&#161;en.
+ 
+   [% ELSIF error == &quot;too_soon_for_new_token&quot; %]
+-    [% title = &quot;Too Soon For New Token&quot; %]
+-    You have requested a password token too recently to request
+-    another.  Please wait a while and try again.
++    [% title = &quot;P&#197;&#153;&#195;&#173;li&#197;&#161; brzy na nov&#195;&#189; &#197;&#190;eton&quot; %]
++    O nov&#195;&#169; heslo jste po&#197;&#190;&#195;&#161;dali p&#197;&#153;&#195;&#173;li&#197;&#161; brzy po minul&#195;&#169;
++    &#197;&#190;&#195;&#161;dosti. Laskav&#196;&#155; chv&#195;&#173;li po&#196;&#141;kejte a zkuste to znovu.
+ 
+   [% ELSIF error == &quot;unknown_keyword&quot; %]
+-    [% title = &quot;Unknown Keyword&quot; %]
+-    &lt;code&gt;[% keyword FILTER html %]&lt;/code&gt; is not a known keyword.
+-    The legal keyword names are &lt;a href=&quot;describekeywords.cgi&quot;&gt;listed here&lt;/a&gt;.
++    [% title = &quot;Nezn&#195;&#161;m&#195;&#169; kl&#195;&#173;&#196;&#141;ov&#195;&#169; slovo&quot; %]
++    &lt;code&gt;[% keyword FILTER html %]&lt;/code&gt; nen&#195;&#173; platn&#195;&#169; kl&#195;&#173;&#196;&#141;ov&#195;&#169; slovo.
++    M&#197;&#175;&#197;&#190;ete si prohl&#195;&#169;dnout &lt;a href=&quot;describekeywords.cgi&quot;&gt;seznam existuj&#195;&#173;c&#195;&#173;ch
++    kl&#195;&#173;&#196;&#141;ov&#195;&#189;ch slov&lt;/a&gt;.
+ 
+   [% ELSIF error == &quot;unknown_tab&quot; %]
+-    [% title = &quot;Unknown Tab&quot; %]
+-    &lt;code&gt;[% current_tab_name FILTER html %]&lt;/code&gt; is not a legal tab name.
++    [% title = &quot;Nezn&#195;&#161;m&#195;&#161; z&#195;&#161;lo&#197;&#190;ka&quot; %]
++    &lt;code&gt;[% current_tab_name FILTER html %]&lt;/code&gt; nen&#195;&#173; platn&#195;&#189; n&#195;&#161;zev z&#195;&#161;lo&#197;&#190;ky.
+ 
+   [% ELSIF error == &quot;votes_must_be_nonnegative&quot; %]
+-    [% title = &quot;Votes Must Be Non-negative&quot; %]
+-    Only use non-negative numbers for your [% terms.bug %] votes.
++    [% title = &quot;Po&#196;&#141;et hlas&#197;&#175; mus&#195;&#173; b&#195;&#189;t nez&#195;&#161;porn&#195;&#189;&quot; %]
++    Ve sv&#195;&#169;m hlasov&#195;&#161;n&#195;&#173; m&#197;&#175;&#197;&#190;ete pou&#197;&#190;&#195;&#173;vat pouze nez&#195;&#161;porn&#195;&#161; &#196;&#141;&#195;&#173;sla.
+ 
+   [% ELSIF error == &quot;wrong_token_for_cancelling_email_change&quot; %]
+-    [% title = &quot;Wrong Token&quot; %]
+-    That token cannot be used to cancel an email address change.
++    [% title = &quot;Chybn&#195;&#189; &#197;&#190;eton&quot; %]
++    Tento &#197;&#190;eton nelze pou&#197;&#190;&#195;&#173;t pro zru&#197;&#161;en&#195;&#173; zm&#196;&#155;ny e-mailov&#195;&#169; adresy.
+ 
+   [% ELSIF error == &quot;wrong_token_for_changing_passwd&quot; %]
+-    [% title = &quot;Wrong Token&quot; %]
+-    That token cannot be used to change your password.
++    [% title = &quot;Chybn&#195;&#189; &#197;&#190;eton&quot; %]
++    Tento &#197;&#190;eton nelze pou&#197;&#190;&#195;&#173;t pro zm&#196;&#155;nu hesla.
+ 
+   [% ELSIF error == &quot;wrong_token_for_confirming_email_change&quot; %]
+-    [% title = &quot;Wrong Token&quot; %]
+-    That token cannot be used to change your email address.
++    [% title = &quot;Chybn&#195;&#189; &#197;&#190;eton&quot; %]
++    Tento &#197;&#190;eton nelze pou&#197;&#190;&#195;&#173;t pro zm&#196;&#155;nu e-mailov&#195;&#169; adresy.
+ 
+   [% ELSIF error == &quot;value_out_of_range&quot; %]
+-    [% title = &quot;Value Out Of Range&quot; %]
+-    Value is out of range for field 
+-    &lt;em&gt;[% field_descs.$field FILTER html %]&lt;/em&gt;.
++    [% title = &quot;Hodnota mimo povolen&#195;&#189; rozsah&quot; %]
++    Hodnota pole &lt;em&gt;[% field_descs.$field FILTER html %]&lt;/em&gt; je
++    mimo rozsah.
+ 
+   [% ELSIF error == &quot;zero_length_file&quot; %]
+-    [% title = &quot;File Is Empty&quot; %]
+-    The file you are trying to attach is empty!
++    [% title = &quot;Soubor je pr&#195;&#161;zdn&#195;&#189;&quot; %]
++    Sna&#197;&#190;&#195;&#173;te se jako p&#197;&#153;&#195;&#173;lohu nahr&#195;&#161;t pr&#195;&#161;zdn&#195;&#189; soubor!
+ 
+   [% ELSE %]
+-    [% title = &quot;Error string not found&quot; %]
+-    The user error string &lt;code&gt;[% error FILTER html %]&lt;/code&gt; was not found.
+-    Please send email to [% Param(&quot;maintainer&quot;) %] describing the steps taken
+-    to obtain this message.
++    [% title = &quot;Chybov&#195;&#169; hl&#195;&#161;&#197;&#161;en&#195;&#173; nebylo nalezeno&quot; %]
++    Text hl&#195;&#161;&#197;&#161;en&#195;&#173; o u&#197;&#190;ivatelsk&#195;&#169; chyb&#196;&#155; &lt;code&gt;[% error FILTER html %]&lt;/code&gt; nebyl
++    nalezen. Laskav&#196;&#155; za&#197;&#161;lete e-mail na [% Param(&quot;maintainer&quot;) %] a popi&#197;&#161;te kroky,
++    kter&#195;&#169; vedly k t&#195;&#169;to zpr&#195;&#161;v&#196;&#155;.
+   [% END %]
+ [% END %]
+ 
+@@ -780,29 +796,29 @@
+ &lt;/table&gt;
+ 
+ &lt;p&gt;
+-  Please press &lt;b&gt;Back&lt;/b&gt; and try again.
++  Stiskn&#196;&#155;te laskav&#196;&#155; tla&#196;&#141;&#195;&#173;tko &lt;b&gt;Zp&#196;&#155;t&lt;/b&gt; a zkuste to znovu.
+ &lt;/p&gt;
+ 
+-[%# If a saved search fails, people want the ability to edit or delete it. 
++[%# If a saved search fails, people want the ability to edit or delete it.
+   # This is the best way of getting information about that possible saved
+   # search from any error call location. %]
+-  
++
+ [% USE Bugzilla %]
+ [% namedcmd = Bugzilla.cgi.param(&quot;namedcmd&quot;) %]
+ [% IF namedcmd AND error != &quot;missing_query&quot; %]
+-  &lt;p&gt;  
+-    Alternatively, you can    
++  &lt;p&gt;
++    P&#197;&#153;&#195;&#173;padn&#196;&#155; tak&#195;&#169; m&#197;&#175;&#197;&#190;ete
+     &lt;a href=&quot;buglist.cgi?cmdtype=dorem&amp;remaction=forget&amp;namedcmd=
+-                  [% namedcmd FILTER html %]&quot;&gt;forget&lt;/a&gt;
+-                  
++                  [% namedcmd FILTER html %]&quot;&gt;zapomenout&lt;/a&gt;
++
+     [% FOREACH q = Bugzilla.user.queries %]
+       [% IF q.name == namedcmd %]
+-        or &lt;a href=&quot;query.cgi?[% q.query FILTER html %]&quot;&gt;edit&lt;/a&gt;
++        nebo &lt;a href=&quot;query.cgi?[% q.query FILTER html %]&quot;&gt;upravit&lt;/a&gt;
+       [% END %]
+     [% END %]
+-    
+-    the saved search '[% namedcmd FILTER html %]'.
++
++    ulo&#197;&#190;en&#195;&#169; hled&#195;&#161;n&#195;&#173; s n&#195;&#161;zvem &#226;&#128;&#158;[% namedcmd FILTER html %]&#226;&#128;&#156;.
+   &lt;/p&gt;
+-[% END %]            
++[% END %]
+ 
+ [% PROCESS global/footer.html.tmpl %]
+
+Modified: trunk/template/cs/default/global/variables.none.tmpl
+===================================================================
+--- trunk/template/cs/default/global/variables.none.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/global/variables.none.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -81,6 +81,20 @@
+   &quot;tatochyba_5sg&quot; =&gt; &quot;tato chybo&quot;,
+   &quot;tatochyba_6sg&quot; =&gt; &quot;t&#195;&#169;to chyb&#196;&#155;&quot;,
+   &quot;tatochyba_7sg&quot; =&gt; &quot;touto chybou&quot;,
++  &quot;tatochyba_1pl&quot; =&gt; &quot;tyto chyby&quot;,
++  &quot;tatochyba_2pl&quot; =&gt; &quot;t&#196;&#155;chto chyb&quot;,
++  &quot;tatochyba_3pl&quot; =&gt; &quot;t&#196;&#155;mto chyb&#195;&#161;m&quot;,
++  &quot;tatochyba_4pl&quot; =&gt; &quot;tyto chyby&quot;,
++  &quot;tatochyba_5pl&quot; =&gt; &quot;tyto chyby&quot;,
++  &quot;tatochyba_6pl&quot; =&gt; &quot;t&#196;&#155;chto chyb&#195;&#161;ch&quot;,
++  &quot;tatochyba_7pl&quot; =&gt; &quot;t&#196;&#155;mito chybami&quot;,
++  &quot;zajmeno_1sg&quot; =&gt; &quot;ona&quot;,
++  &quot;zajmeno_2sg&quot; =&gt; &quot;j&#195;&#173;&quot;,
++  &quot;zajmeno_3sg&quot; =&gt; &quot;j&#195;&#173;&quot;,
++  &quot;zajmeno_4sg&quot; =&gt; &quot;ji&quot;,
++  &quot;zajmeno_5sg&quot; =&gt; &quot;ona&quot;,
++  &quot;zajmeno_6sg&quot; =&gt; &quot;n&#195;&#173;&quot;,
++  &quot;zajmeno_7sg&quot; =&gt; &quot;n&#195;&#173;&quot;,
+   &quot;zeroSearchResults&quot; =&gt; &quot;Nenaleseni &#197;&#190;&#195;&#161;dne chibi&quot;,
+   &quot;Bugzilla&quot; =&gt; &quot;Bugzilla&quot;,
+   &quot;Bugzilla_1sg&quot; =&gt; &quot;Bugzilla&quot;,
+@@ -95,6 +109,7 @@
+ 
+ [% koncovky = {
+   &quot;verb&quot; =&gt; &quot;a&quot;				# koncovka slovesa (M-&gt;&quot;&quot;, F-&gt;&quot;a&quot;, N-&gt;&quot;o&quot;)
++  &quot;verb_pl&quot; =&gt; &quot;y&quot;			# koncovka slovesa v plur&#195;&#161;lu (M&#197;&#190;-&gt;&quot;i&quot;, Mn-&gt;&quot;y&quot;, F-&gt;&quot;y&quot;, N-&gt;&quot;a&quot;)
+   &quot;jarni_1sg&quot; =&gt; &quot;&quot;			# koncovka p&#197;&#153;&#195;&#173;d. jmen vzoru 'jarn&#195;&#173;' (jarn&#195;&#173;_)
+   &quot;jarni_2sg&quot; =&gt; &quot;&quot;
+   &quot;mlady_1sg&quot; =&gt; &quot;&#195;&#161;&quot;			# koncovka p&#197;&#153;&#195;&#173;d. jmen vzoru 'mlad&#195;&#189;' (mlad_)
+@@ -135,6 +150,7 @@
+   &quot;MOVED&quot; =&gt; &quot;P&#197;&#152;ESUNUTO&quot;,
+   &quot;LATER&quot; =&gt; &quot;POZD&#196;&#154;JI&quot;,
+   &quot;REMIND&quot; =&gt; &quot;P&#197;&#152;IPOMENOUT&quot;
++  &quot;---&quot; =&gt; &quot;&#226;&#128;&#148;&quot;
+   }
+ %]
+ 
+
+Modified: trunk/template/cs/default/list/table.html.tmpl
+===================================================================
+--- trunk/template/cs/default/list/table.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/list/table.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -40,17 +40,17 @@
+ 
+ [% abbrev = 
+   {
+-    &quot;bug_severity&quot;         =&gt; { maxlength =&gt; 3 , title =&gt; &quot;Z&#195;&#161;v&quot; } , 
++    &quot;bug_severity&quot;         =&gt; { maxlength =&gt; 3 , title =&gt; &quot;Z&#195;&#161;v&quot;, translate =&gt; severitycs } , 
+     &quot;priority&quot;             =&gt; { maxlength =&gt; 3 , title =&gt; &quot;Pri&quot; } , 
+     &quot;rep_platform&quot;         =&gt; { maxlength =&gt; 3 , title =&gt; &quot;Plt&quot; } , 
+-    &quot;bug_status&quot;           =&gt; { maxlength =&gt; 4 } , 
++    &quot;bug_status&quot;           =&gt; { maxlength =&gt; 4 , translate =&gt; statuscs } , 
+     &quot;assigned_to&quot;          =&gt; { maxlength =&gt; 30 , ellipsis =&gt; &quot;&#226;&#128;&#166;&quot; } , 
+     &quot;assigned_to_realname&quot; =&gt; { maxlength =&gt; 20 , ellipsis =&gt; &quot;&#226;&#128;&#166;&quot; } , 
+     &quot;reporter&quot;             =&gt; { maxlength =&gt; 30 , ellipsis =&gt; &quot;&#226;&#128;&#166;&quot; } , 
+     &quot;reporter_realname&quot;    =&gt; { maxlength =&gt; 20 , ellipsis =&gt; &quot;&#226;&#128;&#166;&quot; } , 
+     &quot;qa_contact&quot;           =&gt; { maxlength =&gt; 30 , ellipsis =&gt; &quot;&#226;&#128;&#166;&quot; , title =&gt; &quot;QA&quot; } , 
+     &quot;qa_contact_realname&quot;  =&gt; { maxlength =&gt; 20 , ellipsis =&gt; &quot;&#226;&#128;&#166;&quot; , title =&gt; &quot;QA&quot; } , 
+-    &quot;resolution&quot;        =&gt; { maxlength =&gt; 4 } , 
++    &quot;resolution&quot;        =&gt; { maxlength =&gt; 4, translate =&gt; resolutioncs } , 
+     &quot;short_desc&quot;        =&gt; { wrap =&gt; 1 } ,
+     &quot;short_short_desc&quot;  =&gt; { maxlength =&gt; 60 , ellipsis =&gt; &quot;&#226;&#128;&#166;&quot; , wrap =&gt; 1 } ,
+     &quot;status_whiteboard&quot; =&gt; { title =&gt; &quot;Tabule&quot; , wrap =&gt; 1 } , 
+@@ -177,8 +177,10 @@
+     [% FOREACH column = displaycolumns %]
+     &lt;td&gt;
+       [% '&lt;nobr&gt;' IF NOT abbrev.$column.wrap %]
+-      [% IF abbrev.$column.format_value %] 
++      [% IF abbrev.$column.format_value %]
+         [%- bug.$column FILTER format(abbrev.$column.format_value) FILTER html -%] 
++      [% ELSIF abbrev.$column.translate %]
++        [%- abbrev.$column.translate.${bug.$column}.truncate(abbrev.$column.maxlength, abbrev.$column.ellipsis) FILTER html -%] 
+       [% ELSIF column == 'actual_time' ||
+                column == 'remaining_time' ||
+                column == 'estimated_time' %]
+
+Modified: trunk/template/cs/default/pages/bug-writing.html.tmpl
+===================================================================
+--- trunk/template/cs/default/pages/bug-writing.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/pages/bug-writing.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -26,266 +26,250 @@
+   #%]
+   
+ [% PROCESS global/variables.none.tmpl %] 
+-[% INCLUDE global/header.html.tmpl title = &quot;$terms.Bug Writing Guidelines&quot; %] 
++[% INCLUDE global/header.html.tmpl title = &quot;Rady pro hl&#195;&#161;&#197;&#161;en&#195;&#173; $terms.chyba_2pl&quot; %] 
+ 
+-&lt;h3&gt;Why You Should Read This&lt;/h3&gt;
++&lt;h3&gt;Pro&#196;&#141; byste si tohle m&#196;&#155;li p&#197;&#153;e&#196;&#141;&#195;&#173;st&lt;/h3&gt;
+ 
+ &lt;blockquote&gt;
+-  &lt;p&gt;Simply put, the more effectively you report [% terms.abug %], the more
+-  likely an
+-  engineer will actually fix it.&lt;/p&gt;
++  &lt;p&gt;Jednodu&#197;&#161;e &#197;&#153;e&#196;&#141;eno, &#196;&#141;&#195;&#173;m l&#195;&#169;pe [% terms.chyba_2sg %] nahl&#195;&#161;s&#195;&#173;te, t&#195;&#173;m v&#196;&#155;t&#197;&#161;&#195;&#173;
++  &#197;&#161;ance m&#195;&#161;te na to, &#197;&#190;e [% terms.chyba_4sg %] n&#196;&#155;kdo oprav&#195;&#173;.&lt;/p&gt;
+ 
+-  &lt;p&gt;These guidelines are a general tutorial to teach novice and
+-  intermediate [% terms.bug %] reporters how to compose effective 
+-  [% terms.bug %] reports. Not
+-  every sentence may precisely apply to your software project.&lt;/p&gt;
++  &lt;p&gt;Tento n&#195;&#161;vod obsahuje obecn&#195;&#169; rady pro nov&#195;&#161;&#196;&#141;ky a m&#195;&#173;rn&#196;&#155; pokro&#196;&#141;il&#195;&#169;.
++  Pro v&#195;&#161;&#197;&#161; konkr&#195;&#169;tn&#195;&#173; projekt nemus&#195;&#173; p&#197;&#153;esn&#196;&#155; platit &#195;&#186;pln&#196;&#155; ka&#197;&#190;d&#195;&#161; v&#196;&#155;ta.&lt;/p&gt;
+ &lt;/blockquote&gt;
+ 
+-&lt;h3&gt;How to Write a Useful [% terms.Bug %] Report&lt;/h3&gt;
++&lt;h3&gt;Jak napsat u&#197;&#190;ite&#196;&#141;n&#195;&#169; hl&#195;&#161;&#197;&#161;en&#195;&#173; o [% terms.chyba_6sg %]&lt;/h3&gt;
+ 
+ &lt;blockquote&gt;
+-  &lt;p&gt;Useful [% terms.bug %] reports are ones that get [% terms.bugs %] fixed. 
+-  A useful [% terms.bug %] report normally has two qualities:&lt;/p&gt;
++  &lt;p&gt;U&#197;&#190;ite&#196;&#141;n&#195;&#169; hl&#195;&#161;&#197;&#161;en&#195;&#173; je takov&#195;&#169;, d&#195;&#173;ky kter&#195;&#169;mu se [% terms.chyba_4sg %] povede
++  opravit. U&#197;&#190;ite&#196;&#141;n&#195;&#169; hl&#195;&#161;&#197;&#161;en&#195;&#173; obvykle spl&#197;&#136;uje dv&#196;&#155; podm&#195;&#173;nky:&lt;/p&gt;
+ 
+   &lt;ol&gt;
+-    &lt;li&gt;&lt;b&gt;Reproducible.&lt;/b&gt; If an engineer can't see the [% terms.bug %]
+-    herself to prove that it exists, she'll probably stamp your [% terms.bug %]
+-    report &quot;WORKSFORME&quot; or &quot;INVALID&quot; and move on to the next [% terms.bug %].
+-    Every detail you can provide helps.&lt;br&gt;
++    &lt;li&gt;&lt;b&gt;Je reprodukovateln&#195;&#169;.&lt;/b&gt; Pokud se v&#195;&#189;voj&#195;&#161;&#197;&#153;i nepoda&#197;&#153;&#195;&#173; [% terms.chyba_4sg %]
++    ani spat&#197;&#153;it, pravd&#196;&#155;podobn&#196;&#155; situaci vy&#197;&#153;e&#197;&#161;&#195;&#173; ozna&#196;&#141;en&#195;&#173;m &#226;&#128;&#158;[% resolutioncs.WORKSFORME %]&#226;&#128;&#156;
++    nebo &#226;&#128;&#158;[% resolutioncs.INVALID %]&#226;&#128;&#156; a p&#197;&#153;esune se na dal&#197;&#161;&#195;&#173; [% terms.chyba_4sg %].
++    Ka&#197;&#190;d&#195;&#161; mali&#196;&#141;kost, kterou m&#197;&#175;&#197;&#190;ete poskytnout, m&#197;&#175;&#197;&#190;e pomoci.&lt;br&gt;
+     &lt;br&gt;
+     &lt;/li&gt;
+ 
+-    &lt;li&gt;&lt;b&gt;Specific.&lt;/b&gt; The quicker the engineer can isolate the 
+-    [% terms.bug %] to a specific area, the more likely she'll expediently 
+-    fix it. (If a programmer or tester has to decipher [% terms.abug %], 
+-    they may spend more time cursing the submitter than solving the 
+-    problem.)&lt;br&gt;
++    &lt;li&gt;&lt;b&gt;Je konkr&#195;&#169;tn&#195;&#173;.&lt;/b&gt; &#196;&#140;&#195;&#173;m rychleji dok&#195;&#161;&#197;&#190;e v&#195;&#189;voj&#195;&#161;&#197;&#153; lokalizovat [% terms.chyba_4sg %],
++    t&#195;&#173;m sp&#195;&#173;&#197;&#161;e dok&#195;&#161;&#197;&#190;e probl&#195;&#169;m rychle vy&#197;&#153;e&#197;&#161;it. (Pokud program&#195;&#161;tor &#196;&#141;i tester mus&#195;&#173;
++    hl&#195;&#161;&#197;&#161;en&#195;&#173; de&#197;&#161;ifrovat, pravd&#196;&#155;podobn&#196;&#155; str&#195;&#161;v&#195;&#173; v&#195;&#173;ce &#196;&#141;asu prokl&#195;&#173;n&#195;&#161;n&#195;&#173;m zadavatele nam&#195;&#173;sto
++    &#197;&#153;e&#197;&#161;en&#195;&#173; probl&#195;&#169;mu.)&lt;br&gt;
+     &lt;br&gt;
+-    [ &lt;a href=&quot;#tips&quot; name=&quot;Anchor&quot;&gt;Tell Me More&lt;/a&gt; ]&lt;/li&gt;
++    [ &lt;a href=&quot;#tips&quot; name=&quot;Anchor&quot;&gt;Cht&#196;&#155;l bych v&#196;&#155;d&#196;&#155;t v&#195;&#173;c&lt;/a&gt; ]&lt;/li&gt;
+   &lt;/ol&gt;
+ 
+-  &lt;p&gt;Let's say the application you're testing is a web browser. You crash
+-  at foo.com, and want to write up a [% terms.bug %] report:&lt;/p&gt;
++  &lt;p&gt;&#197;&#152;ekn&#196;&#155;me, &#197;&#190;e testuje webov&#195;&#189; prohl&#195;&#173;&#197;&#190;e&#196;&#141;. Na str&#195;&#161;nce foo.com v&#195;&#161;m zhavaruje
++  a vy chcete napsat hl&#195;&#161;&#197;&#161;en&#195;&#173; [% terms.chyba_2sg %]:&lt;/p&gt;
+ 
+   &lt;blockquote&gt;
+-    &lt;p&gt;&lt;b&gt;BAD:&lt;/b&gt; &quot;My browser crashed. I think I was on www.foo.com. I
+-    play golf with Bill Gates, so you better fix this problem, or I'll
+-    report you to him. By the way, your Back icon looks like a squashed
+-    rodent. UGGGLY. And my grandmother's home page is all messed up in your
+-    browser. Thx 4 UR help.&quot;&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;&#197;&#160;PATN&#196;&#154;:&lt;/b&gt; M&#197;&#175;j prohl&#195;&#173;&#197;&#190;e&#196;&#141; havaroval. Mysl&#195;&#173;m, &#197;&#190;e to bylo na www.foo.com.
++    Hraju golf s Billem Gatesem, tak si posp&#196;&#155;&#197;&#161;te, nebo si mu budu st&#196;&#155;&#197;&#190;ovat.
++    Mimochodem, va&#197;&#161;e ikonka Zp&#196;&#155;t vypad&#195;&#161; jako uschl&#195;&#189; kaktus. HNUUS. A dom&#195;&#161;c&#195;&#173; str&#195;&#161;nka
++    moj&#195;&#173; babi&#196;&#141;ky se ve va&#197;&#161;em prohl&#195;&#173;&#197;&#190;e&#196;&#141;i zobrazuje blb&#196;&#155;. d&#195;&#173;ki&lt;/p&gt;
+ 
+-    &lt;p&gt;&lt;b&gt;GOOD:&lt;/b&gt; &quot;I crashed each time I went to www.foo.com, using the
+-    2002-02-25 build on a Windows 2000 system. I also rebooted into Linux,
+-    and reproduced this problem using the 2002-02-24 Linux build.&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;SPR&#195;&#129;VN&#196;&#154;:&lt;/b&gt; Prohl&#195;&#173;&#197;&#190;e&#196;&#141; havaruje poka&#197;&#190;d&#195;&#169;, kdy&#197;&#190; nav&#197;&#161;t&#195;&#173;v&#195;&#173;m www.foo.com,
++    pou&#197;&#190;&#195;&#173;v&#195;&#161;m verzi 2002-02-25 na po&#196;&#141;&#195;&#173;ta&#196;&#141;i s Windows 2000. Tak&#195;&#169; jsem zkusil nabootovat
++    do Linuxu a tent&#195;&#189;&#197;&#190; probl&#195;&#169;m se d&#196;&#155;je na linuxov&#195;&#169; verzi 2002-02-24.&lt;/p&gt;
+ 
+-    &lt;p&gt;It again crashed each time upon drawing the Foo banner at the top of
+-    the page. I broke apart the page, and discovered that the following
+-    image link will crash the application reproducibly, unless you remove
+-    the &quot;border=0&quot; attribute:&lt;/p&gt;
++    &lt;p&gt;Poka&#197;&#190;d&#195;&#169; havaruje ve chv&#195;&#173;li, kdy se vykresluje obr&#195;&#161;zek navrchu str&#195;&#161;nky.
++    Rozebral jsem str&#195;&#161;nku a zjistil jsem, &#197;&#190;e n&#195;&#161;sleduj&#195;&#173;c&#195;&#173; odkaz na obr&#195;&#161;zek
++    v&#197;&#190;dy shod&#195;&#173; aplikaci, pokud z n&#196;&#155;j neodstran&#195;&#173;te atribut &quot;border=0&quot;:&lt;/p&gt;
+ 
+     &lt;p&gt;&lt;tt&gt;&lt;IMG SRC=&quot;<A HREF="http://www.foo.com/images/topics/topicfoos.gif">http://www.foo.com/images/topics/topicfoos.gif</A>&quot;
+-    width=&quot;34&quot; height=&quot;44&quot; border=&quot;0&quot; alt=&quot;News&quot;&gt;&lt;/tt&gt;&lt;/p&gt;
++    width=&quot;34&quot; height=&quot;44&quot; border=&quot;0&quot; alt=&quot;Novinky&quot;&gt;&lt;/tt&gt;&lt;/p&gt;
+   &lt;/blockquote&gt;
+ &lt;/blockquote&gt;
+ 
+-&lt;h3&gt;How to Enter your Useful [% terms.Bug %] Report 
+-    into [% terms.Bugzilla %]:&lt;/h3&gt;
++&lt;h3&gt;Jak do [% terms.Bugzilla_2sg %] zad&#195;&#161;vat u&#197;&#190;ite&#196;&#141;n&#195;&#161; hl&#195;&#161;&#197;&#161;en&#195;&#173;:&lt;/h3&gt;
+ 
+ &lt;blockquote&gt;
+-  &lt;p&gt;Before you enter your [% terms.bug %], use [% terms.Bugzilla %]'s 
+-  &lt;a href=&quot;query.cgi&quot;&gt;search page&lt;/a&gt; to determine whether the defect 
+-  you've discovered is a known, already-reported [% terms.bug %]. If 
+-  your [% terms.bug %] is the 37th duplicate of a known issue,
+-  you're more likely to annoy the engineer. (Annoyed engineers fix fewer
+-  [% terms.bugs %].)&lt;/p&gt;
++  &lt;p&gt;P&#197;&#153;ed t&#195;&#173;m, ne&#197;&#190; ohl&#195;&#161;s&#195;&#173;te [% terms.chyba_4sg %], pou&#197;&#190;ijte funkci
++  &lt;a href=&quot;query.cgi&quot;&gt;hled&#195;&#161;n&#195;&#173;&lt;/a&gt; a pokuste se zjistit, zda se nejedn&#195;&#161;
++  o zn&#195;&#161;m[% koncovky.mlady_4sg %], ji&#197;&#190; hl&#195;&#161;&#197;&#161;en[% koncovky.mlady_4sg %] [%+ terms.chyba_4sg %].
++  Pokud se pokus&#195;&#173;te zadat 37. duplik&#195;&#161;t zn&#195;&#161;m&#195;&#169;ho probl&#195;&#169;mu, je vy&#197;&#161;&#197;&#161;&#195;&#173;
++  &#197;&#161;ance, &#197;&#190;e t&#195;&#173;m budete v&#195;&#189;voj&#195;&#161;&#197;&#153;e pon&#196;&#155;kud otravovat. (Otr&#195;&#161;ven&#195;&#173; v&#195;&#189;voj&#195;&#161;&#197;&#153;i
++  odstra&#197;&#136;uj&#195;&#173; m&#195;&#169;n&#196;&#155; [% terms.chyba_2pl %].)&lt;/p&gt;
+ 
+-  &lt;p&gt;Next, be sure to reproduce your [% terms.bug %] using a recent build. 
+-  Engineers tend to be most interested in problems affecting the code base 
+-  that they're actively working on. After all, the [% terms.bug %] you're 
+-  reporting may already be fixed.&lt;/p&gt;
++  &lt;p&gt;Pot&#195;&#169; se ujist&#196;&#155;te, &#197;&#190;e se [% terms.chyba %] vyskytuje v nejnov&#196;&#155;j&#197;&#161;&#195;&#173;
++  verzi. V&#195;&#189;voj&#195;&#161;&#197;&#153;e zaj&#195;&#173;maj&#195;&#173; hlavn&#196;&#155; probl&#195;&#169;my, kter&#195;&#169; jsou v programu, na
++  kter&#195;&#169;m pracuj&#195;&#173;. Kone&#196;&#141;n&#196;&#155;, [% terms.chyba %], kter[% koncovky.mlady_4sg %]
++  hl&#195;&#161;s&#195;&#173;te, mohl[% koncovky.verb %] ji&#197;&#190; b&#195;&#189;t v aktu&#195;&#161;ln&#195;&#173; verzi
++  opraven[% koncovky.verb %].&lt;/p&gt;
+ 
+-  &lt;p&gt;If you've discovered a new [% terms.bug %] using a current build, report 
+-  it in [% terms.Bugzilla %]:&lt;/p&gt;
++  &lt;p&gt;Pokud jste opravdu odhalili nov[% koncovky.mlady_4sg %] [%+ terms.chyba_4sg %]
++  aktu&#195;&#161;ln&#195;&#173; verze, vytvo&#197;&#153;te nov&#195;&#169; hl&#195;&#161;&#197;&#161;en&#195;&#173;:&lt;/p&gt;
+ 
+   &lt;ol&gt;
+-    &lt;li&gt;From your [% terms.Bugzilla %] main page, choose 
+-    &quot;&lt;a href=&quot;enter_bug.cgi&quot;&gt;Enter a new [% terms.bug %]&lt;/a&gt;&quot;.&lt;/li&gt;
++    &lt;li&gt;Na hlavn&#195;&#173; strany [% terms.Bugzilla_2sg %] zvolte
++    &#226;&#128;&#158;&lt;a href=&quot;enter_bug.cgi&quot;&gt;Ohl&#195;&#161;sit nov[% koncovky.mlady_4sg %] [%+ terms.chyba_4sg %]&lt;/a&gt;&#226;&#128;&#156;.&lt;/li&gt;
+ 
+-    &lt;li&gt;Select the product that you've found a [% terms.bug %] in.&lt;/li&gt;
++    &lt;li&gt;Zvolte produkt, ve kter&#195;&#169;m jste [% terms.chyba_4sg %] nalezli.&lt;/li&gt;
+ 
+-    &lt;li&gt;Enter your e-mail address, password, and press the &quot;Login&quot; button.
+-    (If you don't yet have a password, leave the password field empty, and
+-    press the &quot;E-mail me a password&quot; button instead. You'll quickly receive
+-    an e-mail message with your password.)&lt;/li&gt;
++    &lt;li&gt;Zadejte svou e-mailovou adresu, heslo a stiskn&#196;&#155;te tla&#196;&#141;&#195;&#173;tko
++    &#226;&#128;&#158;P&#197;&#153;ihl&#195;&#161;sit se&#226;&#128;&#156;. (Pokud dosud nem&#195;&#161;te &#195;&#186;&#196;&#141;et, m&#197;&#175;&#197;&#190;ete si ho
++    &lt;a href=&quot;createaccount.cgi&quot;&gt;zalo&#197;&#190;it&lt;/a&gt;.)&lt;/li&gt;
+   &lt;/ol&gt;
+ 
+-  &lt;p&gt;Now, fill out the form. Here's what it all means:&lt;/p&gt;
++  &lt;p&gt;Nyn&#195;&#173; vypl&#197;&#136;te formul&#195;&#161;&#197;&#153;. Co jednotliv&#195;&#169; polo&#197;&#190;ky znamenaj&#195;&#173;:&lt;/p&gt;
+ 
+-  &lt;p&gt;&lt;b&gt;Where did you find the [% terms.bug %]?&lt;/b&gt;&lt;/p&gt;
++  &lt;p&gt;&lt;b&gt;Kde jste [% terms.chyba_4sg %] nalezli?&lt;/b&gt;&lt;/p&gt;
+ 
+   &lt;blockquote&gt;
+-    &lt;p&gt;&lt;b&gt;Product: In which product did you find the [% terms.bug %]?&lt;/b&gt;&lt;br&gt;
+-     You just specified this on the last page, so you can't edit it
+-    here.&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;Produkt: Ve kter&#195;&#169;m produktu jste [% terms.chyba_4sg %] nalezli?&lt;/b&gt;&lt;br&gt;
++     To jste ur&#196;&#141;ili na p&#197;&#153;edchoz&#195;&#173; str&#195;&#161;nce, tak&#197;&#190;e to zde ji&#197;&#190; zm&#196;&#155;nit nem&#197;&#175;&#197;&#190;ete.&lt;/p&gt;
+ 
+-    &lt;p&gt;&lt;b&gt;Version: In which product version did you find 
+-          the [% terms.bug %]?&lt;/b&gt;&lt;br&gt;
+-     (If applicable)&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;Verze: Ve kter&#195;&#169; verzi produktu jste [% terms.chyba_4sg %] nalezli?&lt;/b&gt;&lt;br&gt;&lt;/p&gt;
+ 
+-    &lt;p&gt;&lt;b&gt;Component: In which component does the [% terms.bug %] 
+-          exist?&lt;/b&gt;&lt;br&gt;
+-    [% terms.Bugzilla %] requires that you select a component to enter 
+-    a [% terms.bug %]. (Not sure which to choose? Click on the Component link. 
+-    You'll see a description of each component, to help you make the best 
+-    choice.)&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;Komponenta: Ve kter&#195;&#169; komponent&#196;&#155; se [% terms.chyba %] vyskytuje?&lt;/b&gt;&lt;br&gt;
++    [% terms.Bugzilla %] vy&#197;&#190;aduje, abyste komponentu vyplnili. (Nejste si jisti,
++    co si m&#195;&#161;te vybrat? Klikn&#196;&#155;te na odkaz Komponenta, zobraz&#195;&#173; se popisy v&#197;&#161;ech komponent,
++    abyste se dok&#195;&#161;zali spr&#195;&#161;vn&#196;&#155; rozhodnout.)&lt;/p&gt;
+ 
+-    &lt;p&gt;&lt;b&gt;OS: On which Operating System (OS) did you find 
+-          this [% terms.bug %]?&lt;/b&gt;
+-    (e.g. Linux, Windows 2000, Mac OS 9.)&lt;br&gt;
+-    If you know the [% terms.bug %] happens on all OSs, choose 'All'. 
+-    Otherwise, select the OS that you found the [% terms.bug %] on, or 
+-    &quot;Other&quot; if your OS isn't listed.&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;OS: Na kter&#195;&#169;m opera&#196;&#141;n&#195;&#173;m syst&#195;&#169;mu (OS) jste [% terms.tatochyba_4sg %] nalezli?&lt;/b&gt;
++    (nap&#197;&#153;. Linux, Windows 2000, Mac OS 9.)&lt;br&gt;
++    Pokud v&#195;&#173;te, &#197;&#190;e se [% terms.chyba %] objevuje na v&#197;&#161;ech OS, zvolte &#226;&#128;&#158;V&#197;&#161;echny&#226;&#128;&#156;.
++    Jinak vyberte ze seznamu OS, na kter&#195;&#169;m jste [% terms.chyba_4sg %] nalezli, p&#197;&#153;&#195;&#173;padn&#196;&#155;
++    &#226;&#128;&#158;Jin&#195;&#189;&#226;&#128;&#156;, pokud v&#195;&#161;&#197;&#161; OS nen&#195;&#173; v seznamu.&lt;/p&gt;
+   &lt;/blockquote&gt;
+ 
+-  &lt;p&gt;&lt;b&gt;How important is the [% terms.bug %]?&lt;/b&gt;&lt;/p&gt;
++  &lt;p&gt;&lt;b&gt;Jak z&#195;&#161;va&#197;&#190;n&#195;&#161; je [% terms.chyba %]?&lt;/b&gt;&lt;/p&gt;
+ 
+   &lt;blockquote&gt;
+-    &lt;p&gt;&lt;b&gt;Severity: How damaging is the [% terms.bug %]?&lt;/b&gt;&lt;br&gt;
+-     This item defaults to 'normal'. If you're not sure what severity your
+-    [% terms.bug %] deserves, click on the Severity link. You'll see a
+-    description of each severity rating.&lt;br&gt;
+-    &lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;Z&#195;&#161;va&#197;&#190;nost: Jak &#197;&#161;kodliv&#195;&#161; je [% terms.tatochyba_1sg %]?&lt;/b&gt;&lt;br&gt;
++    Implicitn&#195;&#173; hodnotou je &#226;&#128;&#158;norm&#195;&#161;ln&#195;&#173;&#226;&#128;&#156;. Pokud si nejste jisti, jak
++    z&#195;&#161;va&#197;&#190;nost [% terms.chyba_2sg %] ohodnotit, klikn&#196;&#155;te na odkaz Z&#195;&#161;va&#197;&#190;nost,
++    zobraz&#195;&#173; se popis v&#197;&#161;ech &#195;&#186;rovn&#195;&#173;.&lt;/p&gt;
+   &lt;/blockquote&gt;
+ 
+-  &lt;p&gt;&lt;b&gt;Who will be following up on the [% terms.bug %]?&lt;/b&gt;&lt;/p&gt;
++  &lt;p&gt;&lt;b&gt;Kdo bude [% terms.chyba_4sg %] sledovat?&lt;/b&gt;&lt;/p&gt;
+ 
+   &lt;blockquote&gt;
+-    &lt;p&gt;&lt;b&gt;Assigned To: Which engineer should be responsible for fixing
+-    this [% terms.bug %]?&lt;/b&gt;&lt;br&gt;
+-    [% terms.Bugzilla %] will automatically assign the [% terms.bug %] to a
+-    default engineer upon submitting [% terms.abug %] report. If you'd prefer
+-    to directly assign the [% terms.bug %] to someone else, enter their e-mail
+-    address into this field. (To see the list of default engineers for each
+-    component, click on the Component link.)&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;P&#197;&#153;id&#196;&#155;lit: Kter&#195;&#189; v&#195;&#189;voj&#195;&#161;&#197;&#153; by m&#196;&#155;l b&#195;&#189;t zodpov&#196;&#155;dn&#195;&#189; za opravu
++    [% terms.tatochyba_2sg %]?&lt;/b&gt;&lt;br&gt;
++    [% terms.Bugzilla %] ve chv&#195;&#173;li vypln&#196;&#155;n&#195;&#173; &#197;&#190;&#195;&#161;dosti [% terms.chyba_4sg %] automaticky
++    p&#197;&#153;id&#196;&#155;l&#195;&#173; implicitn&#195;&#173;mu v&#195;&#189;voj&#195;&#161;&#197;&#153;i. Pokud rad&#196;&#155;ji chcete [% terms.chyba_4sg %] p&#197;&#153;id&#196;&#155;lit
++    n&#196;&#155;komu jin&#195;&#169;mu, zadejte jeho e-mailovou adresu do tohoto pole. (Seznam
++    implicitn&#195;&#173;ch v&#195;&#189;voj&#195;&#161;&#197;&#153;&#197;&#175; jednotliv&#195;&#189;ch komponent z&#195;&#173;sk&#195;&#161;te kliknut&#195;&#173;m na odkaz
++    Komponenta.)&lt;/p&gt;
+ 
+-    &lt;p&gt;&lt;b&gt;Cc: Who else should receive e-mail updates on changes to this
+-    [% terms.bug %]?&lt;/b&gt;&lt;br&gt;
+-     List the full e-mail addresses of other individuals who should receive
+-    an e-mail update upon every change to the [% terms.bug %] report. You can
+-    enter as many e-mail addresses as you'd like, separated by spaces or 
+-    commas, as long as those people have [% terms.Bugzilla %] accounts.&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;Cc: Komu dal&#197;&#161;&#195;&#173;mu by m&#196;&#155;ly b&#195;&#189;t pos&#195;&#173;l&#195;&#161;ny e-mailov&#195;&#169; zpr&#195;&#161;vy o zm&#196;&#155;n&#195;&#161;ch
++    [% terms.tatochyba_2sg %]?&lt;/b&gt;&lt;br&gt;
++    Uve&#196;&#143;te &#195;&#186;pln&#195;&#169; e-mailov&#195;&#169; adresy dal&#197;&#161;&#195;&#173;ch osob, kter&#195;&#189;m by m&#196;&#155;ly b&#195;&#189;t zas&#195;&#173;l&#195;&#161;ny
++    zpr&#195;&#161;vy o ka&#197;&#190;d&#195;&#169; zm&#196;&#155;n&#196;&#155; [% terms.tatochyba_2sg %]. M&#197;&#175;&#197;&#190;ete zadat libovoln&#195;&#189; po&#196;&#141;et
++    adres, odd&#196;&#155;len&#195;&#189;ch mezerami &#196;&#141;i &#196;&#141;&#195;&#161;rkami. V&#197;&#161;echny osoby v&#197;&#161;ak mus&#195;&#173; m&#195;&#173;t
++    na [% terms.Bugzilla_6sg %] registrov&#195;&#161;n &#195;&#186;&#196;&#141;et.&lt;/p&gt;
+   &lt;/blockquote&gt;
+ 
+-  &lt;p&gt;&lt;b&gt;What else can you tell the engineer about the [% terms.bug %]?&lt;/b&gt;&lt;/p&gt;
++  &lt;p&gt;&lt;b&gt;Co m&#197;&#175;&#197;&#190;ete v&#195;&#189;voj&#195;&#161;&#197;&#153;i o [% terms.chyba_6sg %] sd&#196;&#155;lit?&lt;/b&gt;&lt;/p&gt;
+ 
+   &lt;blockquote&gt;
+-    &lt;p&gt;&lt;b&gt;Summary:&lt;/b&gt; &lt;b&gt;How would you describe the [% terms.bug %], in 
+-    approximately 60 or fewer characters?&lt;/b&gt;&lt;br&gt;
+-     A good summary should &lt;b&gt;quickly and uniquely identify [% terms.abug %]
+-    report&lt;/b&gt;. Otherwise, an engineer cannot meaningfully identify your
+-    [% terms.bug %] by its summary, and will often fail to pay attention to 
+-    your [% terms.bug %] report when skimming through a 10 
+-    page [% terms.bug %] list.&lt;br&gt;
++    &lt;p&gt;&lt;b&gt;Shrnut&#195;&#173;: Jak byste popsali [% terms.chyba_4sg %] v p&#197;&#153;ibli&#197;&#190;n&#196;&#155;
++    60 znac&#195;&#173;ch?&lt;/b&gt;&lt;br&gt;
++    U&#197;&#190;ite&#196;&#141;n&#195;&#169; shrnut&#195;&#173; &lt;b&gt;rychle a jednozna&#196;&#141;n&#196;&#155; popisuje [% terms.chyba_4sg %]&lt;/b&gt;.
++    V opa&#196;&#141;n&#195;&#169;m p&#197;&#153;&#195;&#173;pad&#196;&#155; nen&#195;&#173; v&#195;&#189;voj&#195;&#161;&#197;&#153; schopen [% terms.chyba_4sg %] smyslupln&#196;&#155;
++    identifikovat a m&#197;&#175;&#197;&#190;e [% terms.zajmeno_4sg %] v desetistr&#195;&#161;nkov&#195;&#169;m seznamu
++    snadno p&#197;&#153;ehl&#195;&#169;dnout.&lt;br&gt;
+     &lt;br&gt;
+-     A useful summary might be &quot;&lt;tt&gt;PCMCIA install fails on Tosh Tecra
+-    780DVD w/ 3c589C&lt;/tt&gt;&quot;. &quot;&lt;tt&gt;Software fails&lt;/tt&gt;&quot; or &quot;&lt;tt&gt;install
+-    problem&lt;/tt&gt;&quot; would be examples of a bad summary.&lt;br&gt;
++    U&#197;&#190;ite&#196;&#141;n&#195;&#169; shrnut&#195;&#173; m&#197;&#175;&#197;&#190;e vypadat nap&#197;&#153;. &#226;&#128;&#158;&lt;tt&gt;Nefunguje instalace PCMCIA
++    na Tosh Tecra 780DVD s 3c589C&lt;/tt&gt;&#226;&#128;&#156;. &#226;&#128;&#158;&lt;tt&gt;Program nefunguje&lt;/tt&gt;&#226;&#128;&#156; nebo
++    &#226;&#128;&#158;&lt;tt&gt;probl&#195;&#169;my s instalac&#195;&#173;&lt;/tt&gt;&#226;&#128;&#156; jsou p&#197;&#153;&#195;&#173;klady &#197;&#161;patn&#195;&#169;ho shrnut&#195;&#173;.&lt;br&gt;
+     &lt;br&gt;
+-     [ &lt;a href=&quot;#summary&quot;&gt;Tell Me More&lt;/a&gt; ]&lt;br&gt;
++     [ &lt;a href=&quot;#summary&quot;&gt;Cht&#196;&#155;l bych v&#196;&#155;d&#196;&#155;t v&#195;&#173;c&lt;/a&gt; ]&lt;br&gt;
+     &lt;br&gt;
+-     &lt;b&gt;Description:&lt;/b&gt;&lt;br&gt;
+-     Please provide a detailed problem report in this field. Your 
+-     [% terms.bug %]'s recipients will most likely expect the following 
+-     information:&lt;/p&gt;
++     &lt;b&gt;Popis:&lt;/b&gt;&lt;br&gt;
++     V tomto poli laskav&#196;&#155; poskytn&#196;&#155;te detailn&#195;&#173; popis probl&#195;&#169;mu. P&#197;&#153;&#195;&#173;jemci
++     va&#197;&#161;eho hl&#195;&#161;&#197;&#161;en&#195;&#173; budou nejsp&#195;&#173;&#197;&#161;e o&#196;&#141;ek&#195;&#161;vat n&#195;&#161;sleduj&#195;&#173;c&#195;&#173; informace:&lt;/p&gt;
+ 
+     &lt;blockquote&gt;
+-      &lt;p&gt;&lt;b&gt;Overview Description:&lt;/b&gt; More detailed expansion of
+-      summary.&lt;/p&gt;
++      &lt;p&gt;&lt;b&gt;Hrub&#195;&#189; popis:&lt;/b&gt; Podrobn&#196;&#155;ji rozepsan&#195;&#169; shrnut&#195;&#173;.&lt;/p&gt;
+ 
+       &lt;blockquote&gt;
+ &lt;pre&gt;
+-Drag-selecting any page crashes Mac builds in NSGetFactory
++P&#197;&#153;i ozna&#196;&#141;ov&#195;&#161;n&#195;&#173; textu na str&#195;&#161;nce my&#197;&#161;&#195;&#173; verze pro Macintosh havaruje v NSGetFactory.
+ &lt;/pre&gt;
+       &lt;/blockquote&gt;
+ 
+-      &lt;p&gt;&lt;b&gt;Steps to Reproduce:&lt;/b&gt; Minimized, easy-to-follow steps that
+-      will trigger the [% terms.bug %]. Include any special setup steps.&lt;/p&gt;
++      &lt;p&gt;&lt;b&gt;Jak [% terms.chyba_4sg %] zopakovat:&lt;/b&gt; Minimalizovan&#195;&#189; seznam jednoduch&#195;&#189;ch krok&#197;&#175;,
++      jak [% terms.chyba_4sg %] vyvolat. Nezapome&#197;&#136;te zm&#195;&#173;nit p&#197;&#153;&#195;&#173;padn&#195;&#169;
++      zvl&#195;&#161;&#197;&#161;tn&#195;&#173; postupy p&#197;&#153;i instalaci.&lt;/p&gt;
+ 
+       &lt;blockquote&gt;
+ &lt;pre&gt;
+-1) View any web page. (I used the default sample page,
++1) Zobrazte libovolnou webovou str&#195;&#161;nku. (Pou&#197;&#190;&#195;&#173;val jsem
++standardn&#195;&#173; testovac&#195;&#173; str&#195;&#161;nku,
+ resource:/res/samples/test0.html)
+ 
+-2) Drag-select the page. (Specifically, while holding down 
+-the mouse button, drag the mouse pointer downwards from any 
+-point in the browser's content region to the bottom of the 
+-browser's content region.)                   
++2) Ozna&#196;&#141;te text str&#195;&#161;nky my&#197;&#161;&#195;&#173;. (P&#197;&#153;esn&#196;&#155;ji &#197;&#153;e&#196;&#141;eno: dr&#197;&#190;te tla&#196;&#141;&#195;&#173;tko my&#197;&#161;i
++a pohybujte my&#197;&#161;&#195;&#173; z libovoln&#195;&#169;ho m&#195;&#173;sta v zobrazen&#195;&#169; str&#195;&#161;nce sm&#196;&#155;rem
++dol&#197;&#175; ke konec zobrazovan&#195;&#169; plochy.)
+ &lt;/pre&gt;
+       &lt;/blockquote&gt;
+ 
+-      &lt;p&gt;&lt;b&gt;Actual Results:&lt;/b&gt; What the application did after performing
+-      the above steps.&lt;/p&gt;
++      &lt;p&gt;&lt;b&gt;Co se d&#196;&#155;je:&lt;/b&gt; Jak se aplikace chov&#195;&#161; po proveden&#195;&#173;
++      v&#195;&#189;&#197;&#161;e uveden&#195;&#189;ch krok&#197;&#175;.&lt;/p&gt;
+ 
+       &lt;blockquote&gt;
+ &lt;pre&gt;
+-The application crashed. Stack crawl appended below from MacsBug.
++Aplikace havarovala, n&#195;&#173;&#197;&#190;e je uveden v&#195;&#189;pis z&#195;&#161;sobn&#195;&#173;ku z programu MacsBug.
+ &lt;/pre&gt;
+       &lt;/blockquote&gt;
+ 
+-      &lt;p&gt;&lt;b&gt;Expected Results:&lt;/b&gt; What the application should have done,
+-      were the [% terms.bug %] not present.&lt;/p&gt;
++      &lt;p&gt;&lt;b&gt;Co jsem &#196;&#141;ekal, &#197;&#190;e se stane:&lt;/b&gt; Co by aplikace m&#196;&#155;la d&#196;&#155;lat,
++      pokud by v n&#195;&#173; nebyl[% koncovky.verb %] [% terms.chyba %].&lt;/p&gt;
+ 
+       &lt;blockquote&gt;
+ &lt;pre&gt;
+-The window should scroll downwards. Scrolled content should be selected. 
+-(Or, at least, the application should not crash.)
++Okno by m&#196;&#155;lo za&#196;&#141;&#195;&#173;t posouvat sv&#197;&#175;j obsah a nov&#196;&#155; zobrazovan&#195;&#189; obsah by m&#196;&#155;l
++b&#195;&#189;t vybr&#195;&#161;n. (Nebo by p&#197;&#153;inejmen&#197;&#161;&#195;&#173;m aplikace nem&#196;&#155;la havarovat.)
+ &lt;/pre&gt;
+       &lt;/blockquote&gt;
+ 
+-      &lt;p&gt;&lt;b&gt;Build Date &amp; Platform:&lt;/b&gt; Date and platform of the build
+-      that you first encountered the [% terms.bug %] in.&lt;/p&gt;
++      &lt;p&gt;&lt;b&gt;Verze &amp; platforma:&lt;/b&gt; Ozna&#196;&#141;en&#195;&#173; verze a platformy,
++      na kter&#195;&#169; jste poprv&#195;&#169; [% terms.chyba_4sg %] zaznamenali.&lt;/p&gt;
+ 
+       &lt;blockquote&gt;
+ &lt;pre&gt;
+-Build 2002-03-15 on Mac OS 9.0
++Build 2002-03-15 na Mac OS 9.0
+ &lt;/pre&gt;
+       &lt;/blockquote&gt;
+ 
+-      &lt;p&gt;&lt;b&gt;Additional Builds and Platforms:&lt;/b&gt; Whether or not 
+-      the [% terms.bug %] takes place on other platforms (or browsers, 
+-      if applicable).&lt;/p&gt;
++      &lt;p&gt;&lt;b&gt;Dal&#197;&#161;&#195;&#173; verze a platformy:&lt;/b&gt; Uve&#196;&#143;te, zda se [% terms.chyba %]
++      objevuje i na jin&#195;&#189;ch platform&#195;&#161;ch.&lt;/p&gt;
+ 
+       &lt;blockquote&gt;
+ &lt;pre&gt;
+-- Also Occurs On        
+-Mozilla (2002-03-15 build on Windows NT 4.0) 
++- Vyskytuje se tak&#195;&#169; na
++Mozilla (build 2002-03-15 na Windows NT 4.0) 
+ 
+-- Doesn't Occur On        
+-Mozilla (2002-03-15 build on Red Hat Linux; feature not supported)        
+-Internet Explorer 5.0 (shipping build on Windows NT 4.0)        
+-Netscape Communicator 4.5 (shipping build on Mac OS 9.0)
++- Nevyskytuje se na
++Mozilla (build 2002-03-15 na Red Hat Linuxu; tuto funkci postr&#195;&#161;d&#195;&#161;)
++Internet Explorer 5.0 (verze u Windows NT 4.0)        
++Netscape Communicator 4.5 (verze u Mac OS 9.0)
+ &lt;/pre&gt;
+       &lt;/blockquote&gt;
+ 
+-      &lt;p&gt;&lt;b&gt;Additional Information:&lt;/b&gt; Any other debugging information.
+-      For crashing [% terms.bugs %]:&lt;/p&gt;
++      &lt;p&gt;&lt;b&gt;Dodate&#196;&#141;n&#195;&#169; informace:&lt;/b&gt; Libovoln&#195;&#169; dal&#197;&#161;&#195;&#173; informace,
++      kter&#195;&#169; mohou pomoci lad&#196;&#155;n&#195;&#173;. U [% terms.chyba_2pl %] zp&#197;&#175;sobuj&#195;&#173;c&#195;&#173;ch
++      p&#195;&#161;d aplikace:&lt;/p&gt;
+ 
+       &lt;ul&gt;
+-        &lt;li&gt;&lt;b&gt;Win32:&lt;/b&gt; if you receive a Dr. Watson error, please note
+-        the type of the crash, and the module that the application crashed
+-        in. (e.g. access violation in apprunner.exe)&lt;/li&gt;
++        &lt;li&gt;&lt;b&gt;Win32:&lt;/b&gt; pokud se objevilo hl&#195;&#161;&#197;&#161;en&#195;&#173; Dr. Watsona, poznamenejte
++	si laskav&#196;&#155; typ hav&#195;&#161;rie a modul, ve kter&#195;&#169;m aplikace havarovala
++        (nap&#197;&#153;. neplatn&#195;&#161; operace v aplikace.exe)&lt;/li&gt;
+ 
+-        &lt;li&gt;&lt;b&gt;Mac OS:&lt;/b&gt; if you're running MacsBug, please provide the
+-        results of a &lt;b&gt;how&lt;/b&gt; and an &lt;b&gt;sc&lt;/b&gt;:&lt;/li&gt;
++        &lt;li&gt;&lt;b&gt;Mac OS:&lt;/b&gt; pokud pou&#197;&#190;&#195;&#173;v&#195;&#161;te program MacsBug, poskytn&#196;&#155;te laskav&#196;&#155;
++	v&#195;&#189;sledky p&#197;&#153;&#195;&#173;kaz&#197;&#175; &lt;b&gt;how&lt;/b&gt; a &lt;b&gt;sc&lt;/b&gt;:&lt;/li&gt;
+       &lt;/ul&gt;
+ 
+       &lt;blockquote&gt;
+ &lt;pre&gt;
+ *** MACSBUG STACK CRAWL OF CRASH (Mac OS)
+-Calling chain using A6/R1 links 
+-Back chain  ISA  Caller 
+-00000000    PPC  0BA85E74   
+-03AEFD80    PPC  0B742248   
++Calling chain using A6/R1 links
++Back chain  ISA  Caller
++00000000    PPC  0BA85E74
++03AEFD80    PPC  0B742248
+ 03AEFD30    PPC  0B50FDDC  NSGetFactory+027FC
+ PowerPC unmapped memory exception at 0B512BD0 NSGetFactory+055F0
+ &lt;/pre&gt;
+@@ -293,38 +277,36 @@
+     &lt;/blockquote&gt;
+   &lt;/blockquote&gt;
+ 
+-  &lt;p&gt;You're done!&lt;br&gt;
++  &lt;p&gt;Hotovo!&lt;br&gt;
+   &lt;br&gt;
+-   After double-checking your entries for any possible errors, press the
+-  &quot;Commit&quot; button, and your [% terms.bug %] report will now be in 
+-  the [% terms.Bugzilla %] database.&lt;br&gt;
++   Pot&#195;&#169;, co p&#197;&#153;ekontrolujete p&#197;&#153;&#195;&#173;padn&#195;&#169; chyby ve sv&#195;&#169;m p&#197;&#153;&#195;&#173;p&#196;&#155;vku, stiskn&#196;&#155;te tla&#196;&#141;&#195;&#173;tko
++   &#226;&#128;&#158;Ulo&#197;&#190;it&#226;&#128;&#156; a [% terms.chyba %] bude ulo&#197;&#190;en[% koncovky.verb %] do datab&#195;&#161;ze [% terms.Bugzilla_2sg %].
+   &lt;/p&gt;
+ &lt;/blockquote&gt;
+ &lt;hr&gt;
+ 
+-&lt;h3&gt;More Information on Writing Good [% terms.Bugs %]&lt;/h3&gt;
++&lt;h3&gt;Dal&#197;&#161;&#195;&#173; informace o psan&#195;&#173; u&#197;&#190;ite&#196;&#141;n&#195;&#189;ch hl&#195;&#161;&#197;&#161;en&#195;&#173;&lt;/h3&gt;
+ 
+ &lt;blockquote&gt;
+-  &lt;p&gt;&lt;b&gt;&lt;a name=&quot;tips&quot;&gt;&lt;/a&gt; 1. General Tips for a Useful [% terms.Bug %] 
+-     Report&lt;/b&gt;&lt;/p&gt;
++  &lt;p&gt;&lt;b&gt;&lt;a name=&quot;tips&quot;&gt;&lt;/a&gt; 1. Obecn&#195;&#169; tipy&lt;/b&gt;&lt;/p&gt;
+ 
+   &lt;blockquote&gt;
+-    &lt;p&gt;&lt;b&gt;Use an explicit structure, so your [% terms.bug %] reports are easy
+-    to skim.&lt;/b&gt; [% terms.Bug %] report users often need immediate access to 
+-    specific sections of your [% terms.bug %]. If your [% terms.Bugzilla %] 
+-    installation supports the [% terms.Bugzilla %] Helper, use it.&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;Pou&#197;&#190;&#195;&#173;vejte standardizovan&#195;&#189; z&#197;&#153;eteln&#196;&#155; strukturovan&#195;&#189; form&#195;&#161;t, tak&#197;&#190;e
++    lze va&#197;&#161;e hl&#195;&#161;&#197;&#161;en&#195;&#173; snadno p&#197;&#153;el&#195;&#169;tnout zrakem. U&#197;&#190;ivatel&#195;&#169; &#196;&#141;asto pot&#197;&#153;ebuj&#195;&#173;
++    z hl&#195;&#161;&#197;&#161;en&#195;&#173; z&#195;&#173;skat jednu konkr&#195;&#169;tn&#195;&#173; informaci. S udr&#197;&#190;ov&#195;&#161;n&#195;&#173;m standardizovan&#195;&#169;ho
++    form&#195;&#161;tu v&#195;&#161;m m&#197;&#175;&#197;&#190;e pomoci Pr&#197;&#175;vodce, pokud ho va&#197;&#161;e instalace podporuje.&lt;/p&gt;
+ 
+-    &lt;p&gt;&lt;b&gt;Avoid cuteness if it costs clarity.&lt;/b&gt; Nobody will be laughing
+-    at your funny [% terms.bug %] title at 3:00 AM when they can't remember how 
+-    to find your [% terms.bug %].&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;Vyhn&#196;&#155;te se srandi&#196;&#141;k&#195;&#161;m, pokud jsou na &#195;&#186;kor srozumitelnosti.&lt;/b&gt;
++    Va&#197;&#161;emu vtipn&#195;&#169;mu nadpisu [% terms.chyba_2sg %] se ve 3 hodiny r&#195;&#161;no nikdo
++    sm&#195;&#161;t nebude, pokud nejsou schopni si ani zapamatovat, podle &#196;&#141;eho [% terms.chyba_4sg %]
++    naj&#195;&#173;t.&lt;/p&gt;
+ 
+-    &lt;p&gt;&lt;b&gt;One [% terms.bug %] per report.&lt;/b&gt; Completely different people 
+-    typically fix, verify, and prioritize different [% terms.bugs %]. If you 
+-    mix a handful of [% terms.bugs %] into a single report, the right people 
+-    probably won't discover your [% terms.bugs %] in a timely fashion, or at 
+-    all. Certain [% terms.bugs %] are also more important than others. It's 
+-    impossible to prioritize [% terms.abug %] report when
+-    it contains four different issues, all of differing importance.&lt;/p&gt;
++    &lt;p&gt;&lt;b&gt;1 [% terms.chyba %], 1 hl&#195;&#161;&#197;&#161;en&#195;&#173;.&lt;/b&gt; R&#197;&#175;zn[% koncovky.mlady_4pl %] [%+ terms.chyba_4pl %]
++    obvykle opravuj&#195;&#173;, ov&#196;&#155;&#197;&#153;uj&#195;&#173; a p&#197;&#153;id&#196;&#155;luj&#195;&#173; &#195;&#186;pln&#196;&#155; r&#197;&#175;zn&#195;&#173; lid&#195;&#169;. Pokud do jednoho
++    hl&#195;&#161;&#197;&#161;en&#195;&#173; zam&#195;&#173;ch&#195;&#161;te n&#196;&#155;kolik [% terms.chyba_2pl %], pravd&#196;&#155;podobn&#196;&#155; ti spr&#195;&#161;vn&#195;&#173;
++    lid&#195;&#169; neobjev&#195;&#173; va&#197;&#161;e hl&#195;&#161;&#197;&#161;en&#195;&#173; v&#196;&#141;as, p&#197;&#153;&#195;&#173;padn&#196;&#155; v&#197;&#175;bec. Jist&#195;&#169; druhy [% terms.chyba_2pl %]
++    jsou d&#197;&#175;le&#197;&#190;it&#196;&#155;j&#197;&#161;&#195;&#173; ne&#197;&#190; jin&#195;&#169;. Je nemo&#197;&#190;n&#195;&#169; p&#197;&#153;id&#196;&#155;lit hl&#195;&#161;&#197;&#161;en&#195;&#173; spr&#195;&#161;vnou prioritu,
++    pokud obsahuje &#196;&#141;ty&#197;&#153;i r&#197;&#175;zn&#195;&#169; probl&#195;&#169;my, ka&#197;&#190;d&#195;&#189; s jinou z&#195;&#161;va&#197;&#190;nost&#195;&#173;.&lt;/p&gt;
+ 
+     &lt;p&gt;&lt;b&gt;No [% terms.bug %] is too trivial to report.&lt;/b&gt; Unless you're 
+     reading the source code, you can't see actual software [% terms.bugs %], 
+
+Modified: trunk/template/cs/default/pages/voting.html.tmpl
+===================================================================
+--- trunk/template/cs/default/pages/voting.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/pages/voting.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -25,7 +25,7 @@
+ 
+ &lt;p&gt;Mezi schopnostmi [% terms.Bugzilla_2sg %] je tak&#233; &#132;hlasov&#225;n&#237;&#147;. V ka&#158;d&#233;m produktu
+ m&#249;&#158;e ka&#158;d&#253; u&#158;ivatel rozd&#236;lit jist&#253; po&#232;et hlas&#249;. (N&#236;kter&#233; produkty hlasov&#225;n&#237; v&#249;bec
+-nepodporuj&#237;.) Sv&#253;m hlasov&#225;n&#237;m ukazujete [% terms.4pl %] s pro v&#225;s nejvy&#154;&#154;&#237; d&#249;le&#158;itost&#237;.&lt;/p&gt;
++nepodporuj&#237;.) Sv&#253;m hlasov&#225;n&#237;m ukazujete [% terms.chyba_4pl %] s pro v&#225;s nejvy&#154;&#154;&#237; d&#249;le&#158;itost&#237;.&lt;/p&gt;
+ 
+ &lt;p&gt;Podle nastaven&#237;, kter&#233; spr&#225;vce pro p&#248;&#237;slu&#154;n&#253; projekt zvolil, m&#249;&#158;ete pro 
+ Depending on how the administrator has configured the relevant product,
+
+Modified: trunk/template/cs/default/reports/duplicates.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/duplicates.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
++++ trunk/template/cs/default/reports/duplicates.html.tmpl	2005-11-01 18:52:50 UTC (rev 4)
+@@ -137,7 +137,7 @@
+ 
+ &lt;blockquote&gt;
+   Str&#195;&#161;nka &#226;&#128;&#158;Nej&#196;&#141;ast&#196;&#155;ji hl&#195;&#161;&#197;&#161;en[% koncovky.mlady_1pl %] [%+ terms.chyby %]&#226;&#128;&#156; obsahuje seznam v&#197;&#161;ech
+-  otev&#197;&#153;en&#195;&#189;ch [% terms.2pl %], pro kter[% koncovky.mlady_4pl %] existuje nejv&#195;&#173;ce opakovan&#195;&#189;ch
++  otev&#197;&#153;en&#195;&#189;ch [% terms.chyba_2pl %], pro kter[% koncovky.mlady_4pl %] existuje nejv&#195;&#173;ce opakovan&#195;&#189;ch
+   hl&#195;&#161;&#197;&#161;en&#195;&#173;. Tento seznam se generuje z datab&#195;&#161;ze [% terms.Bugzilla_2sg %] automaticky ka&#197;&#190;d&#195;&#189;ch
+   24 hodin tak, &#197;&#190;e se po&#196;&#141;&#195;&#173;taj&#195;&#173; v&#197;&#161;echny p&#197;&#153;&#195;&#173;m&#195;&#169; a nep&#197;&#153;&#195;&#173;m&#195;&#169; duplik&#195;&#161;ty v&#197;&#161;ech [% terms.chyba_2pl %].
+   C&#195;&#173;lem takto poskytovan&#195;&#189;ch informac&#195;&#173; je omezit mno&#197;&#190;stv&#195;&#173; duplik&#195;&#161;t&#197;&#175; zad&#195;&#161;van&#195;&#189;ch do [% terms.Bugzilla_2sg %],
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/bugzilla-cs-svn">More information about the Bugzilla-cs-svn
+mailing list</a><br>
+</body></html>

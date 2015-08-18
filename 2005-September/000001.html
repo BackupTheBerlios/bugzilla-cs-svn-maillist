@@ -1,0 +1,1729 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Bugzilla-cs-svn] r3 - in trunk/template/cs/default: account/prefs attachment bug bug/create flag global pages reports search
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/bugzilla-cs-svn/2005-September/index.html" >
+   <LINK REL="made" HREF="mailto:bugzilla-cs-svn%40lists.berlios.de?Subject=Re%3A%20%5BBugzilla-cs-svn%5D%20r3%20-%20in%20trunk/template/cs/default%3A%20account/prefs%20attachment%20bug%20bug/create%20flag%20global%20pages%20reports%20search&In-Reply-To=%3C200509141825.j8EIPK5W005584%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000000.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Bugzilla-cs-svn] r3 - in trunk/template/cs/default: account/prefs attachment bug bug/create flag global pages reports search</H1>
+    <B>Petr Kadlec at BerliOS</B> 
+    <A HREF="mailto:bugzilla-cs-svn%40lists.berlios.de?Subject=Re%3A%20%5BBugzilla-cs-svn%5D%20r3%20-%20in%20trunk/template/cs/default%3A%20account/prefs%20attachment%20bug%20bug/create%20flag%20global%20pages%20reports%20search&In-Reply-To=%3C200509141825.j8EIPK5W005584%40sheep.berlios.de%3E"
+       TITLE="[Bugzilla-cs-svn] r3 - in trunk/template/cs/default: account/prefs attachment bug bug/create flag global pages reports search">mormegil at berlios.de
+       </A><BR>
+    <I>Wed Sep 14 20:25:20 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000000.html">[Bugzilla-cs-svn] r2 - in trunk/template/cs/default: account account/auth account/email account/password account/prefs admin/keywords bug/create bug/process global list pages request search
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: mormegil
+Date: 2005-09-14 20:25:19 +0200 (Wed, 14 Sep 2005)
+New Revision: 3
+
+Modified:
+   trunk/template/cs/default/account/prefs/email.html.tmpl
+   trunk/template/cs/default/attachment/create.html.tmpl
+   trunk/template/cs/default/attachment/created.html.tmpl
+   trunk/template/cs/default/attachment/updated.html.tmpl
+   trunk/template/cs/default/bug/create/create.html.tmpl
+   trunk/template/cs/default/bug/knob.html.tmpl
+   trunk/template/cs/default/bug/navigate.html.tmpl
+   trunk/template/cs/default/flag/list.html.tmpl
+   trunk/template/cs/default/global/useful-links.html.tmpl
+   trunk/template/cs/default/global/user-error.html.tmpl
+   trunk/template/cs/default/global/variables.none.tmpl
+   trunk/template/cs/default/pages/fields.html.tmpl
+   trunk/template/cs/default/reports/chart.csv.tmpl
+   trunk/template/cs/default/reports/chart.html.tmpl
+   trunk/template/cs/default/reports/chart.png.tmpl
+   trunk/template/cs/default/reports/components.html.tmpl
+   trunk/template/cs/default/reports/create-chart.html.tmpl
+   trunk/template/cs/default/reports/duplicates-simple.html.tmpl
+   trunk/template/cs/default/reports/duplicates-table.html.tmpl
+   trunk/template/cs/default/reports/duplicates.html.tmpl
+   trunk/template/cs/default/reports/edit-series.html.tmpl
+   trunk/template/cs/default/reports/keywords.html.tmpl
+   trunk/template/cs/default/reports/menu.html.tmpl
+   trunk/template/cs/default/reports/report-bar.png.tmpl
+   trunk/template/cs/default/reports/report-line.png.tmpl
+   trunk/template/cs/default/reports/report-table.html.tmpl
+   trunk/template/cs/default/reports/report.html.tmpl
+   trunk/template/cs/default/reports/series.html.tmpl
+   trunk/template/cs/default/search/form.html.tmpl
+   trunk/template/cs/default/search/search-create-series.html.tmpl
+Log:
+Dalsi kousek prekladu, uz zbyva jenom kousek...
+
+Modified: trunk/template/cs/default/account/prefs/email.html.tmpl
+===================================================================
+--- trunk/template/cs/default/account/prefs/email.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/account/prefs/email.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -187,7 +187,7 @@
+       { name = 'Attachments',
+         description = &quot;&#226;&#128;&#166;je p&#197;&#153;id&#195;&#161;na nov&#195;&#161; p&#197;&#153;&#195;&#173;loha.&quot; },
+       { name = 'Status',
+-        description = &quot;&#226;&#128;&#166;je zm&#196;&#155;n&#196;&#155;na priorita, status, z&#195;&#161;va&#197;&#190;nost &#196;&#141;i miln&#195;&#173;k.&quot; },
++        description = &quot;&#226;&#128;&#166;je zm&#196;&#155;n&#196;&#155;na priorita, stav, z&#195;&#161;va&#197;&#190;nost &#196;&#141;i miln&#195;&#173;k.&quot; },
+       { name = 'Resolved',
+         description = &quot;&#226;&#128;&#166;${bugLabelLower} je vy&#197;&#153;e&#197;&#161;en${koncovka} &#196;&#141;i ov&#196;&#155;&#197;&#153;en${koncovka}.&quot; },
+       { name = 'Keywords',
+
+Modified: trunk/template/cs/default/attachment/create.html.tmpl
+===================================================================
+--- trunk/template/cs/default/attachment/create.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/attachment/create.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -22,8 +22,8 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [%# Define strings that will serve as the title and header of this page %]
+-[% title = BLOCK %]Vytvo&#248;it novou p&#248;&#237;lohu k [% terms.chyba_3sg %] #[% bugid %][% END %]
+-[% h1 = BLOCK %]Vytvo&#248;it novou p&#248;&#237;lohu k
++[% title = BLOCK %]Vytvo&#197;&#153;it novou p&#197;&#153;&#195;&#173;lohu k [% terms.chyba_3sg %] #[% bugid %][% END %]
++[% h1 = BLOCK %]Vytvo&#197;&#153;it novou p&#197;&#153;&#195;&#173;lohu k
+   [%+ GetBugLink(bugid, &quot;$terms.chyba_3sg $bugid&quot;) %][% END %]
+ [% h2 = BLOCK %][% bugsummary FILTER html %][% END %]
+ 
+@@ -55,14 +55,14 @@
+     &lt;tr&gt;
+       &lt;th&gt;Soubor:&lt;/th&gt;
+       &lt;td&gt;
+-        &lt;em&gt;Zadejte cestu k souboru na va&#154;em po&#232;&#237;ta&#232;i.&lt;/em&gt;&lt;br&gt;
++        &lt;em&gt;Zadejte cestu k souboru na va&#197;&#161;em po&#196;&#141;&#195;&#173;ta&#196;&#141;i.&lt;/em&gt;&lt;br&gt;
+         &lt;input type=&quot;file&quot; name=&quot;data&quot; size=&quot;50&quot;&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+       &lt;th&gt;Popis:&lt;/th&gt;
+       &lt;td&gt;
+-        &lt;em&gt;Stru&#232;n&#236; popi&#154;te p&#248;&#237;lohu.&lt;/em&gt;&lt;br&gt;
++        &lt;em&gt;Stru&#196;&#141;n&#196;&#155; popi&#197;&#161;te p&#197;&#153;&#195;&#173;lohu.&lt;/em&gt;&lt;br&gt;
+         &lt;input type=&quot;text&quot; name=&quot;description&quot; size=&quot;60&quot; maxlength=&quot;200&quot;&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+@@ -74,12 +74,12 @@
+     &lt;tr&gt;
+       &lt;th&gt;Typ obsahu:&lt;/th&gt;
+       &lt;td&gt;
+-        &lt;em&gt;Pokud je tato p&#248;&#237;loha patch, za&#154;krtn&#236;te n&#225;sleduj&#237;c&#237; &#232;tvere&#232;ek.&lt;/em&gt;&lt;br&gt;
++        &lt;em&gt;Pokud je tato p&#197;&#153;&#195;&#173;loha patch, za&#197;&#161;krtn&#196;&#155;te n&#195;&#161;sleduj&#195;&#173;c&#195;&#173; &#196;&#141;tvere&#196;&#141;ek.&lt;/em&gt;&lt;br&gt;
+         &lt;input type=&quot;checkbox&quot; id=&quot;ispatch&quot; name=&quot;ispatch&quot; value=&quot;1&quot;
+                onchange=&quot;setContentTypeDisabledState();&quot;&gt;
+         &lt;label for=&quot;ispatch&quot;&gt;patch&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+ 
+-        &lt;em&gt;Jinak zvolte, jak se m&#225; ur&#232;it typ obsahu.&lt;/em&gt;&lt;br&gt;
++        &lt;em&gt;Jinak zvolte, jak se m&#195;&#161; ur&#196;&#141;it typ obsahu.&lt;/em&gt;&lt;br&gt;
+         &lt;input type=&quot;radio&quot; id=&quot;autodetect&quot;
+                name=&quot;contenttypemethod&quot; value=&quot;autodetect&quot;&gt;
+           &lt;label for=&quot;autodetect&quot;&gt;autodetekce&lt;/label&gt;&lt;br&gt;
+@@ -92,25 +92,25 @@
+           &lt;/select&gt;&lt;br&gt;
+         &lt;input type=&quot;radio&quot; id=&quot;manual&quot;
+                      name=&quot;contenttypemethod&quot; value=&quot;manual&quot;&gt;
+-          &lt;label for=&quot;manual&quot;&gt;zadat ru&#232;n&#236;:&lt;/label&gt;
++          &lt;label for=&quot;manual&quot;&gt;zadat ru&#196;&#141;n&#196;&#155;:&lt;/label&gt;
+           &lt;input type=&quot;text&quot; name=&quot;contenttypeentry&quot; size=&quot;30&quot; maxlength=&quot;200&quot;
+                  onchange=&quot;if (this.value) this.form.contenttypemethod[2].checked = true;&quot;&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+     [% IF (Param(&quot;insidergroup&quot;) &amp;&amp; UserInGroup(Param(&quot;insidergroup&quot;))) %]
+       &lt;tr&gt;
+-        &lt;th&gt;Soukrom&#237;:&lt;/th&gt;
++        &lt;th&gt;Soukrom&#195;&#173;:&lt;/th&gt;
+         &lt;td&gt;
+-          &lt;em&gt;Pokud je p&#248;&#237;loha soukrom&#225;, za&#154;krtn&#236;te n&#225;sleduj&#237;c&#237; &#232;tvere&#232;ek.&lt;/em&gt;&lt;br&gt;
++          &lt;em&gt;Pokud je p&#197;&#153;&#195;&#173;loha soukrom&#195;&#161;, za&#197;&#161;krtn&#196;&#155;te n&#195;&#161;sleduj&#195;&#173;c&#195;&#173; &#196;&#141;tvere&#196;&#141;ek.&lt;/em&gt;&lt;br&gt;
+           &lt;input type=&quot;checkbox&quot; name=&quot;isprivate&quot; id=&quot;isprivate&quot; value=&quot;1&quot;&gt;
+-        &lt;label for=&quot;isprivate&quot;&gt;Soukrom&#225;&lt;/label&gt;
++        &lt;label for=&quot;isprivate&quot;&gt;Soukrom&#195;&#161;&lt;/label&gt;
+         &lt;/td&gt;
+       &lt;/tr&gt;
+     [% END %]
+     &lt;tr&gt;
+-      &lt;th&gt;Zneplat&#242;uje:&lt;/th&gt;
++      &lt;th&gt;Zneplat&#197;&#136;uje:&lt;/th&gt;
+       &lt;td&gt;
+-        &lt;em&gt;(voliteln&#233;) Za&#154;krtn&#236;te ka&#158;dou existuj&#237;c&#237; p&#248;&#237;lohu, kter&#225; se nahr&#225;n&#237;m va&#154;&#237; p&#248;&#237;lohy st&#225;v&#225; neplatnou.&lt;/em&gt;&lt;br&gt;
++        &lt;em&gt;(voliteln&#195;&#169;) Za&#197;&#161;krtn&#196;&#155;te ka&#197;&#190;dou existuj&#195;&#173;c&#195;&#173; p&#197;&#153;&#195;&#173;lohu, kter&#195;&#161; se nahr&#195;&#161;n&#195;&#173;m va&#197;&#161;&#195;&#173; p&#197;&#153;&#195;&#173;lohy st&#195;&#161;v&#195;&#161; neplatnou.&lt;/em&gt;&lt;br&gt;
+         [% IF attachments.size %]
+           [% FOREACH attachment = attachments %]
+             [% IF ((attachment.isprivate == 0) || (Param(&quot;insidergroup&quot;)
+@@ -121,26 +121,26 @@
+             [% END %]
+           [% END %]
+         [% ELSE %]
+-            [neexistuj&#237; &#158;&#225;dn&#233; p&#248;&#237;lohy, kter&#233; by bylo mo&#158;no zneplatnit]
++            [neexistuj&#195;&#173; &#197;&#190;&#195;&#161;dn&#195;&#169; p&#197;&#153;&#195;&#173;lohy, kter&#195;&#169; by bylo mo&#197;&#190;no zneplatnit]
+         [% END %]
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+     [% IF (user.id != bugassignee_id) AND user.groups.editbugs %]
+       &lt;tr&gt;
+-        &lt;th&gt;Zm&#236;nit p&#248;id&#236;len&#237;:&lt;/th&gt;
++        &lt;th&gt;Zm&#196;&#155;nit p&#197;&#153;id&#196;&#155;len&#195;&#173;:&lt;/th&gt;
+         &lt;td&gt;
+-          &lt;em&gt;Pokud si p&#248;ejete p&#248;id&#236;lit [% terms.tatochyba_4sg %] sob&#236;,
+-              za&#154;krtn&#236;te n&#225;sleduj&#237;c&#237; &#232;tvere&#232;ek.&lt;/em&gt;&lt;br&gt;
++          &lt;em&gt;Pokud si p&#197;&#153;ejete p&#197;&#153;id&#196;&#155;lit [% terms.tatochyba_4sg %] sob&#196;&#155;,
++              za&#197;&#161;krtn&#196;&#155;te n&#195;&#161;sleduj&#195;&#173;c&#195;&#173; &#196;&#141;tvere&#196;&#141;ek.&lt;/em&gt;&lt;br&gt;
+           &lt;input type=&quot;checkbox&quot; id=&quot;takebug&quot; name=&quot;takebug&quot; value=&quot;1&quot;&gt;
+-          &lt;label for=&quot;takebug&quot;&gt;p&#248;evz&#237;t [% terms.chyba_4sg %]&lt;/label&gt;
++          &lt;label for=&quot;takebug&quot;&gt;p&#197;&#153;evz&#195;&#173;t [% terms.chyba_4sg %]&lt;/label&gt;
+         &lt;/td&gt;
+       &lt;/tr&gt;
+     [% END %]
+     &lt;tr&gt;
+-      &lt;th&gt;Koment&#225;&#248;:&lt;/th&gt;
++      &lt;th&gt;Koment&#195;&#161;&#197;&#153;:&lt;/th&gt;
+       &lt;td&gt;
+-        &lt;em&gt;(voliteln&#253;) P&#248;idejte koment&#225;&#248; o t&#233;to p&#248;&#237;loze do [% terms.chyba_2sg %].&lt;/em&gt;&lt;br&gt;
++        &lt;em&gt;(voliteln&#195;&#189;) P&#197;&#153;idejte koment&#195;&#161;&#197;&#153; o t&#195;&#169;to p&#197;&#153;&#195;&#173;loze do [% terms.chyba_2sg %].&lt;/em&gt;&lt;br&gt;
+         &lt;textarea wrap=&quot;soft&quot; name=&quot;comment&quot; rows=&quot;6&quot; cols=&quot;80&quot;&gt;&lt;/textarea&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+
+Modified: trunk/template/cs/default/attachment/created.html.tmpl
+===================================================================
+--- trunk/template/cs/default/attachment/created.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/attachment/created.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -31,7 +31,7 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [% PROCESS global/header.html.tmpl
+-  title = &quot;Zm&#236;ny ulo&#158;eny&quot;
++  title = &quot;Zm&#196;&#155;ny ulo&#197;&#190;eny&quot;
+   style = &quot;th { text-align: left; }&quot;
+ %]
+ 
+@@ -39,30 +39,30 @@
+   &lt;tr&gt;
+     &lt;td&gt;
+       &lt;h2&gt;
+-        &lt;a title=&quot;[% description FILTER html %]&quot; href=&quot;attachment.cgi?id=[% attachid %]&amp;action=edit&quot;&gt;P&#248;&#237;loha #[% attachid %]&lt;/a&gt;
+-        &lt;a href=&quot;show_bug.cgi?id=[% bugid %]&quot;&gt;[% terms.chyba_2sg %] #[% bugid %]&lt;/a&gt; vytvo&#248;ena
++        &lt;a title=&quot;[% description FILTER html %]&quot; href=&quot;attachment.cgi?id=[% attachid %]&amp;action=edit&quot;&gt;P&#197;&#153;&#195;&#173;loha #[% attachid %]&lt;/a&gt;
++        &lt;a href=&quot;show_bug.cgi?id=[% bugid %]&quot;&gt;[% terms.chyba_2sg %] #[% bugid %]&lt;/a&gt; vytvo&#197;&#153;ena
+       &lt;/h2&gt;
+ 
+       [% PROCESS &quot;bug/process/bugmail.html.tmpl&quot; mailing_bugid = bugid %]
+ 
+       [% IF contenttypemethod == 'autodetect' %]
+         &lt;p&gt;
+-          &lt;b&gt;Pozn&#225;mka:&lt;/b&gt; [% terms.Bugzilla %] automaticky rozpoznala typ t&#233;to p&#248;&#237;lohy jako 
++          &lt;b&gt;Pozn&#195;&#161;mka:&lt;/b&gt; [% terms.Bugzilla %] automaticky rozpoznala typ t&#195;&#169;to p&#197;&#153;&#195;&#173;lohy jako 
+           &lt;em&gt;[% contenttype %]&lt;/em&gt;. Pokud je to
+-          &#154;patn&#236;, opravte typ
+-          &lt;a href=&quot;attachment.cgi?id=[% attachid %]&amp;action=edit&quot;&gt;editac&#237; p&#248;&#237;lohy&lt;/a&gt;.
++          &#197;&#161;patn&#196;&#155;, opravte typ
++          &lt;a href=&quot;attachment.cgi?id=[% attachid %]&amp;action=edit&quot;&gt;editac&#195;&#173; p&#197;&#153;&#195;&#173;lohy&lt;/a&gt;.
+         &lt;/p&gt;
+       [% END %]
+     &lt;/td&gt;
+     &lt;td&gt;
+-      &lt;a href=&quot;show_bug.cgi?id=[% bugid %]&quot;&gt;Zp&#236;t k [% terms.chyba_3sg %] #[% bugid %]&lt;/a&gt;
++      &lt;a href=&quot;show_bug.cgi?id=[% bugid %]&quot;&gt;Zp&#196;&#155;t k [% terms.chyba_3sg %] #[% bugid %]&lt;/a&gt;
+     &lt;/td&gt;
+   &lt;/tr&gt;
+ &lt;/table&gt;
+ 
+ &lt;p&gt;
+-&lt;a href=&quot;attachment.cgi?bugid=[% bugid %]&amp;action=enter&quot;&gt;Vytvo&#248;it
+- dal&#154;&#237; p&#248;&#237;lohu [% terms.chyba_2sg %] #[% bugid %]&lt;/a&gt;
++&lt;a href=&quot;attachment.cgi?bugid=[% bugid %]&amp;action=enter&quot;&gt;Vytvo&#197;&#153;it
++ dal&#197;&#161;&#195;&#173; p&#197;&#153;&#195;&#173;lohu [% terms.chyba_2sg %] #[% bugid %]&lt;/a&gt;
+ &lt;/p&gt;
+ 
+ [% PROCESS global/footer.html.tmpl %]
+
+Modified: trunk/template/cs/default/attachment/updated.html.tmpl
+===================================================================
+--- trunk/template/cs/default/attachment/updated.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/attachment/updated.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -28,7 +28,7 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [% PROCESS global/header.html.tmpl
+-  title = &quot;Zm&#236;ny ulo&#158;eny&quot;
++  title = &quot;Zm&#196;&#155;ny ulo&#197;&#190;eny&quot;
+   style = &quot;th { text-align: left; }&quot;
+ %]
+ 
+@@ -37,15 +37,15 @@
+ &lt;table border=&quot;1&quot;&gt;
+   &lt;tr&gt;
+     &lt;td&gt;
+-      &lt;h2&gt;Zm&#236;ny
+-        &lt;a href=&quot;attachment.cgi?id=[% attachid %]&amp;action=edit&quot;&gt;p&#248;&#237;lohy [% attachid %]&lt;/a&gt;
+-        of [% terms.bug %] [%+ bugid %] ulo&#158;eny
++      &lt;h2&gt;Zm&#196;&#155;ny
++        &lt;a href=&quot;attachment.cgi?id=[% attachid %]&amp;action=edit&quot;&gt;p&#197;&#153;&#195;&#173;lohy [% attachid %]
++	&lt;/a&gt; [% terms.chyba_2sg %] [%+ bugid %] ulo&#197;&#190;eny
+       &lt;/h2&gt;
+       [% PROCESS &quot;bug/process/bugmail.html.tmpl&quot; mailing_bugid = bugid %]
+     &lt;/td&gt;
+ 
+     &lt;td&gt;
+-      &lt;a href=&quot;show_bug.cgi?id=[% bugid %]&quot;&gt;Zp&#236;t k [% terms.chyba_2sg %] #[% bugid %]&lt;/a&gt;
++      &lt;a href=&quot;show_bug.cgi?id=[% bugid %]&quot;&gt;Zp&#196;&#155;t k [% terms.chyba_3sg %] #[% bugid %]&lt;/a&gt;
+     &lt;/td&gt;
+   &lt;/tr&gt;
+ &lt;/table&gt;
+
+Modified: trunk/template/cs/default/bug/create/create.html.tmpl
+===================================================================
+--- trunk/template/cs/default/bug/create/create.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/bug/create/create.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -154,8 +154,8 @@
+            value=&quot;[% default.priority FILTER html %]&quot;&gt;
+   [% END %]
+ 
+-  [% sel = { description =&gt; 'Z&#195;&#161;va&#197;&#190;nost', name =&gt; 'bug_severity' } %]
+-  [% INCLUDE select %]
++  [% sel = { description =&gt; 'Z&#195;&#161;va&#197;&#190;nost', name =&gt; 'bug_severity', filter =&gt; severitycs } %]
++  [% INCLUDE filtselect %]
+   &lt;/tr&gt;
+ 
+   &lt;tr&gt;
+@@ -167,11 +167,11 @@
+ [% IF bug_status.size &lt;= 1 %]
+   &lt;input type=&quot;hidden&quot; name=&quot;bug_status&quot; 
+          value=&quot;[% default.bug_status FILTER html %]&quot;&gt;
+-    &lt;td align=&quot;right&quot; valign=&quot;top&quot;&gt;&lt;strong&gt;Po&#196;&#141;&#195;&#161;te&#196;&#141;n&#195;&#173; status:&lt;/strong&gt;&lt;/td&gt;
+-    &lt;td valign=&quot;top&quot;&gt;[% default.bug_status FILTER html %]&lt;/td&gt;
++    &lt;td align=&quot;right&quot; valign=&quot;top&quot;&gt;&lt;strong&gt;Po&#196;&#141;&#195;&#161;te&#196;&#141;n&#195;&#173; stav:&lt;/strong&gt;&lt;/td&gt;
++    &lt;td valign=&quot;top&quot;&gt;[% statuscs.${default.bug_status} FILTER html %]&lt;/td&gt;
+ [% ELSE %]
+-    [% sel = { description =&gt; 'Po&#196;&#141;&#195;&#161;te&#196;&#141;n&#195;&#173; status', name =&gt; 'bug_status' } %]
+-    [% INCLUDE select %]
++    [% sel = { description =&gt; 'Po&#196;&#141;&#195;&#161;te&#196;&#141;n&#195;&#173; stav', name =&gt; 'bug_status', filter =&gt; statuscs } %]
++    [% INCLUDE filtselect %]
+ [% END %]
+     &lt;td colspan=&quot;2&quot;&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+@@ -368,3 +368,24 @@
+     &lt;/select&gt;
+   &lt;/td&gt;
+ [% END %]
++
++[% BLOCK filtselect %]
++  [% IF sel.description %]
++  &lt;td align=&quot;right&quot;&gt;
++    &lt;strong&gt;
++      &lt;a href=&quot;page.cgi?id=fields.html#[% sel.name %]&quot;&gt;
++        [% sel.description %]&lt;/a&gt;:
++    &lt;/strong&gt;
++  &lt;/td&gt;
++  [% END %]
++
++  &lt;td&gt;
++    &lt;select name=&quot;[% sel.name %]&quot;&gt;
++    [%- FOREACH x = ${sel.name} %]
++      &lt;option value=&quot;[% x FILTER html %]&quot;
++        [% &quot; selected=\&quot;selected\&quot;&quot; IF x == default.${sel.name} %]&gt;[% sel.filter.$x FILTER html -%]
++      &lt;/option&gt;
++    [%- END %]
++    &lt;/select&gt;
++  &lt;/td&gt;
++[% END %]
+
+Modified: trunk/template/cs/default/bug/knob.html.tmpl
+===================================================================
+--- trunk/template/cs/default/bug/knob.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/bug/knob.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -27,8 +27,8 @@
+   &lt;br&gt;
+   &lt;input type=&quot;radio&quot; id=&quot;knob-leave&quot; name=&quot;knob&quot; value=&quot;none&quot; checked=&quot;checked&quot;&gt;
+   &lt;label for=&quot;knob-leave&quot;&gt;
+-    Ponechat &lt;b&gt;[% bug.bug_status FILTER html %]&nbsp;
+-                [% bug.resolution FILTER html %]&lt;/b&gt;
++    Ponechat &lt;b&gt;[% statuscs.${bug.bug_status} FILTER html %]&nbsp;
++                [% resolutioncs.${bug.resolution} FILTER html %]&lt;/b&gt;
+   &lt;/label&gt;
+   &lt;br&gt;
+ 
+@@ -37,7 +37,7 @@
+   [% IF bug.isunconfirmed &amp;&amp; bug.user.canconfirm %]
+     &lt;input type=&quot;radio&quot; id=&quot;knob-confirm&quot; name=&quot;knob&quot; value=&quot;confirm&quot;&gt;
+     &lt;label for=&quot;knob-confirm&quot;&gt;
+-      Potvrdit [% terms.chyba_4sg %] (zm&#196;&#155;nit status na &lt;b&gt;NOV&#195;&#129;&lt;/b&gt;)
++      Potvrdit [% terms.chyba_4sg %] (zm&#196;&#155;nit stav na &lt;b&gt;[% statuscs.NEW %]&lt;/b&gt;)
+     &lt;/label&gt;
+     &lt;br&gt;
+     [% knum = knum + 1 %]
+@@ -45,12 +45,12 @@
+ 
+   [% IF bug.user.canedit %]
+     [% IF bug.isopened %]
+-      [% IF bug.bug_status != &quot;P&#197;&#152;ID&#196;&#154;LENO&quot; &amp;&amp; bug.user.canconfirm %]
++      [% IF bug.bug_status != &quot;ASSIGNED&quot; &amp;&amp; bug.user.canconfirm %]
+         &lt;input type=&quot;radio&quot; id=&quot;knob-accept&quot; name=&quot;knob&quot; value=&quot;accept&quot;&gt;
+         &lt;label for=&quot;knob-accept&quot;&gt;
+           P&#197;&#153;evz&#195;&#173;t [% terms.chyba_4sg %] (
+           [% IF bug.isunconfirmed %]potvrdit [% terms.chyba_4sg %], [% END %]zm&#196;&#155;nit
+-          status na &lt;b&gt;P&#197;&#152;ID&#196;&#154;LENO&lt;/b&gt;)
++          stav na &lt;b&gt;[% statuscs.ASSIGNED %]&lt;/b&gt;)
+         &lt;/label&gt;
+         &lt;br&gt;
+         [% knum = knum + 1 %]
+@@ -74,7 +74,7 @@
+       &lt;select name=&quot;resolution&quot;
+               onchange=&quot;document.changeform.knob[[% knum %]].checked=true&quot;&gt;
+         [% FOREACH r = bug.choices.resolution %]
+-          &lt;option value=&quot;[% r FILTER html %]&quot;&gt;[% r FILTER html %]&lt;/option&gt;
++          &lt;option value=&quot;[% r FILTER html %]&quot;&gt;[% resolutioncs.$r FILTER html %]&lt;/option&gt;
+         [% END %]
+       &lt;/select&gt;
+       &lt;br&gt;
+@@ -92,7 +92,7 @@
+ 
+       &lt;input type=&quot;radio&quot; id=&quot;knob-reassign&quot; name=&quot;knob&quot; value=&quot;reassign&quot;&gt;
+       &lt;label for=&quot;knob-reassign&quot;&gt;
+-        &lt;a href=&quot;page.cgi?id=fields.html#assigned_to&quot;&gt;Zm&#196;&#155;nit p&#197;&#153;id&#196;&#155;len&#195;&#173;&lt;/a&gt; 
++        Zm&#196;&#155;nit &lt;a href=&quot;page.cgi?id=fields.html#assigned_to&quot;&gt;p&#197;&#153;id&#196;&#155;len&#195;&#173;&lt;/a&gt; 
+         [% terms.chyba_2sg %] na
+       &lt;/label&gt;
+       &lt;input name=&quot;assigned_to&quot; size=&quot;32&quot;
+@@ -105,7 +105,7 @@
+       [% IF bug.isunconfirmed &amp;&amp; bug.user.canconfirm %]
+         &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type=&quot;checkbox&quot; id=&quot;andconfirm&quot; name=&quot;andconfirm&quot;&gt;
+         &lt;label for=&quot;andconfirm&quot;&gt;
+-          a potvrdit [% terms.chyba_4sg %] (zm&#196;&#155;nit status na &lt;b&gt;NOV&#195;&#129;&lt;/b&gt;)
++          a potvrdit [% terms.chyba_4sg %] (zm&#196;&#155;nit stav na &lt;b&gt;[% statuscs.CONFIRMED %]&lt;/b&gt;)
+         &lt;/label&gt;
+         &lt;br&gt;
+       [% END %]
+@@ -121,14 +121,14 @@
+       [% IF bug.isunconfirmed &amp;&amp; bug.user.canconfirm %]
+         &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type=&quot;checkbox&quot; id=&quot;compconfirm&quot; name=&quot;compconfirm&quot;&gt;
+         &lt;label for=&quot;compconfirm&quot;&gt;
+-          a potvrdit [% terms.chyba_4sg %] (zm&#196;&#155;nit status na &lt;b&gt;NOV&#195;&#129;&lt;/b&gt;)
++          a potvrdit [% terms.chyba_4sg %] (zm&#196;&#155;nit stav na &lt;b&gt;[% statuscs.NEW %]&lt;/b&gt;)
+         &lt;/label&gt;
+         &lt;br&gt;
+       [% END %]
+       [% knum = knum + 1 %]
+     [% ELSE %]
+-      [% IF bug.resolution != &quot;P&#197;&#152;ESUNUTO&quot; ||
+-           (bug.resolution == &quot;P&#197;&#152;ESUNUTO&quot; &amp;&amp; bug.user.canmove) %]
++      [% IF bug.resolution != &quot;MOVED&quot; ||
++           (bug.resolution == &quot;MOVED&quot; &amp;&amp; bug.user.canmove) %]
+         &lt;input type=&quot;radio&quot; id=&quot;knob-reopen&quot; name=&quot;knob&quot; value=&quot;reopen&quot;&gt;
+         &lt;label for=&quot;knob-reopen&quot;&gt;
+           Znovuotev&#197;&#153;&#195;&#173;t [% terms.chyba_4sg %]
+@@ -139,15 +139,15 @@
+       [% IF bug.bug_status == &quot;RESOLVED&quot; %]
+         &lt;input type=&quot;radio&quot; id=&quot;knob-verify&quot; name=&quot;knob&quot; value=&quot;verify&quot;&gt;
+         &lt;label for=&quot;knob-verify&quot;&gt;
+-          Ozna&#196;&#141;it [% terms.chyba_4sg %] jako &lt;b&gt;OV&#196;&#154;&#197;&#152;ENO&lt;/b&gt;
++          Ozna&#196;&#141;it [% terms.chyba_4sg %] jako &lt;b&gt;[% statuscs.VERIFIED %]&lt;/b&gt;
+         &lt;/label&gt;
+         &lt;br&gt;
+         [% knum = knum + 1 %]
+       [% END %]
+-      [% IF bug.bug_status != &quot;UZAV&#197;&#152;ENO&quot; %]
++      [% IF bug.bug_status != &quot;CLOSED&quot; %]
+         &lt;input type=&quot;radio&quot; id=&quot;knob-close&quot; name=&quot;knob&quot; value=&quot;close&quot;&gt;
+         &lt;label for=&quot;knob-close&quot;&gt;
+-          Ozna&#196;&#141;it [% terms.chyba_4sg %] jako &lt;b&gt;UZAV&#197;&#152;ENO&lt;/b&gt;
++          Ozna&#196;&#141;it [% terms.chyba_4sg %] jako &lt;b&gt;[% statuscs.CLOSED %]&lt;/b&gt;
+         &lt;/label&gt;
+         &lt;br&gt;
+         [% knum = knum + 1 %]
+
+Modified: trunk/template/cs/default/bug/navigate.html.tmpl
+===================================================================
+--- trunk/template/cs/default/bug/navigate.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/bug/navigate.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -23,9 +23,9 @@
+ 
+ [% IF bug_list &amp;&amp; bug_list.size &gt; 0 %]
+   [% this_bug_idx = lsearch(bug_list, bug.bug_id) %]
+-  &lt;b&gt;[% terms.Bug %] List:&lt;/b&gt;
++  &lt;b&gt;Seznam [% terms.chyba_2pl %]:&lt;/b&gt;
+   [% IF this_bug_idx != -1 %]
+-    ([% this_bug_idx + 1 %] of [% bug_list.size %])
++    ([% this_bug_idx + 1 %] z [% bug_list.size %])
+   [% END %]
+ 
+   &lt;a href=&quot;show_bug.cgi?id=[% bug_list.first %]&quot;&gt;Prvn&#195;&#173;&lt;/a&gt;
+@@ -37,14 +37,14 @@
+         [% prev_bug = this_bug_idx - 1 %]
+         &lt;a href=&quot;show_bug.cgi?id=[% bug_list.$prev_bug %]&quot;&gt;P&#197;&#153;edchoz&#195;&#173;&lt;/a&gt;
+       [% ELSE %]
+-        &lt;i&gt;&lt;font color=&quot;#777777&quot;&gt;Prev&lt;/font&gt;&lt;/i&gt;
++        &lt;i&gt;&lt;font color=&quot;#777777&quot;&gt;P&#197;&#153;edchoz&#195;&#173;&lt;/font&gt;&lt;/i&gt;
+       [% END %]
+ 
+       [% IF this_bug_idx + 1 &lt; bug_list.size %]
+         [% next_bug = this_bug_idx + 1 %]
+         &lt;a href=&quot;show_bug.cgi?id=[% bug_list.$next_bug %]&quot;&gt;Dal&#197;&#161;&#195;&#173;&lt;/a&gt;
+       [% ELSE %]
+-        &lt;i&gt;&lt;font color=&quot;#777777&quot;&gt;Next&lt;/font&gt;&lt;/i&gt;
++        &lt;i&gt;&lt;font color=&quot;#777777&quot;&gt;Dal&#197;&#161;&#195;&#173;&lt;/font&gt;&lt;/i&gt;
+       [% END %]
+     [% ELSE %]
+       (Ve va&#197;&#161;em seznamu [% terms.tatochyba_1sg %] nen&#195;&#173;)
+
+Modified: trunk/template/cs/default/flag/list.html.tmpl
+===================================================================
+--- trunk/template/cs/default/flag/list.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/flag/list.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -76,11 +76,11 @@
+ &lt;table id=&quot;flags&quot;&gt;
+   &lt;tr&gt;
+     &lt;th colspan=&quot;3&quot;&gt;
+-      Flags:
++      P&#197;&#153;&#195;&#173;znaky:
+     &lt;/th&gt;
+     [% IF any_flags_requesteeble %]
+       &lt;th&gt;
+-        Requestee:
++        &#197;&#189;&#195;&#161;dan&#195;&#189;:
+       &lt;/th&gt;
+     [% END %]
+   &lt;/tr&gt;
+
+Modified: trunk/template/cs/default/global/useful-links.html.tmpl
+===================================================================
+--- trunk/template/cs/default/global/useful-links.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/global/useful-links.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -31,7 +31,7 @@
+     &lt;div class=&quot;label&quot;&gt;&#196;&#140;innosti:&lt;/div&gt;
+     &lt;div class=&quot;links&quot;&gt;
+         &lt;a href=&quot;[% Param('urlbase') %]&quot;&gt;Hlavn&#195;&#173;&nbsp;strana&lt;/a&gt; | 
+-        &lt;a href=&quot;enter_bug.cgi&quot;&gt;Nov[% koncovky.adj_1sg %]&lt;/a&gt; | 
++        &lt;a href=&quot;enter_bug.cgi&quot;&gt;Nov[% koncovky.mlady_1sg %]&lt;/a&gt; | 
+         &lt;a href=&quot;query.cgi&quot;&gt;Hledat&lt;/a&gt; |
+         
+         &lt;input class=&quot;btn&quot; type=&quot;submit&quot; value=&quot;Naj&#195;&#173;t&quot;&gt; [% terms.chyba_4sg %] # 
+
+Modified: trunk/template/cs/default/global/user-error.html.tmpl
+===================================================================
+--- trunk/template/cs/default/global/user-error.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/global/user-error.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -194,17 +194,7 @@
+     v&#197;&#161;echny u&#197;&#190;ivatele na seznamu CC: a p&#197;&#153;idejte doty&#196;&#141;n&#195;&#169;ho u&#197;&#190;ivatele na tento seznam.
+ 
+   [% ELSIF error == &quot;flag_requestee_unauthorized_attachment&quot; %]
+-    [% title = &quot;Flag Requestee Not Authorized&quot; %]
+-
+-    You asked [% requestee.identity FILTER html %]
+-    for &lt;code&gt;[% flag_type.name FILTER html %]&lt;/code&gt; on 
+-    [%+ terms.bug %] [%+ bug_id FILTER html %],
+-    attachment [% attach_id FILTER html %], but that attachment is restricted 
+-    to users
+-    in the [% Param(&quot;insidergroup&quot;) FILTER html %] group, and the user
+-    you asked isn't in that group.  Please choose someone else to ask,
+-    or ask an administrator to add the user to the group.
+-
++    [% title = &quot;Neautorizovan&#195;&#189; &#197;&#190;&#195;&#161;dan&#195;&#189; o p&#197;&#153;&#195;&#173;znak&quot; %]
+     Po&#197;&#190;&#195;&#161;dali jste u&#197;&#190;ivatele [% requestee.identity FILTER html %]
+     o p&#197;&#153;&#195;&#173;znak &lt;code&gt;[% flag_type.name FILTER html %]&lt;/code&gt; na [%+ terms.chyba_6sg %] 
+     [%+ bug_id FILTER html -%],
+@@ -214,72 +204,72 @@
+     do t&#195;&#169;to skupiny.
+ 
+   [% ELSIF error == &quot;flag_type_cc_list_invalid&quot; %]
+-    [% title = &quot;Flag Type CC List Invalid&quot; %]
+-    The CC list [% cc_list FILTER html %] must be less than 200 characters long.
++    [% title = &quot;Neplatn&#195;&#189; seznam CC typu p&#197;&#153;&#195;&#173;znaku&quot; %]
++    Seznam CC [% cc_list FILTER html %] mus&#195;&#173; b&#195;&#189;t krat&#197;&#161;&#195;&#173; ne&#197;&#190; 200 znak&#197;&#175;.
+ 
+   [% ELSIF error == &quot;flag_type_description_invalid&quot; %]
+-    [% title = &quot;Flag Type Description Invalid&quot; %]
+-    The description must be less than 32K.
++    [% title = &quot;Neplatn&#195;&#189; popis typu p&#197;&#153;&#195;&#173;znaku&quot; %]
++    Popis mus&#195;&#173; b&#195;&#189;t krat&#197;&#161;&#195;&#173; ne&#197;&#190; 32 KB.
+ 
+   [% ELSIF error == &quot;flag_type_name_invalid&quot; %]
+-    [% title = &quot;Flag Type Name Invalid&quot; %]
+-    The name &lt;em&gt;[% name FILTER html %]&lt;/em&gt; must be 1-50 characters long
+-    and must not contain any spaces or commas.
++    [% title = &quot;Neplatn&#195;&#189; n&#195;&#161;zev typu p&#197;&#153;&#195;&#173;znaku&quot; %]
++    N&#195;&#161;zev &lt;em&gt;[% name FILTER html %]&lt;/em&gt; mus&#195;&#173; m&#195;&#173;t 1&#226;&#128;&#147;50 znak&#197;&#175;
++    a nesm&#195;&#173; obsahovat &#197;&#190;&#195;&#161;dn&#195;&#169; mezery ani &#196;&#141;&#195;&#161;rky.
+ 
+   [% ELSIF error == &quot;format_not_found&quot; %]
+-    [% title = &quot;Format Not Found&quot; %]
+-    The requested format &lt;em&gt;[% format FILTER html %]&lt;/em&gt; does not exist with
+-    a content type of &lt;em&gt;[% ctype FILTER html %]&lt;/em&gt;.
++    [% title = &quot;Form&#195;&#161;t nenalezen&quot; %]
++    Po&#197;&#190;adovan&#195;&#189; form&#195;&#161;t &lt;em&gt;[% format FILTER html %]&lt;/em&gt; u typu obsahu
++    &lt;em&gt;[% ctype FILTER html %]&lt;/em&gt; neexistuje.
+     
+   [% ELSIF error == &quot;flag_type_sortkey_invalid&quot; %]
+-    [% title = &quot;Flag Type Sort Key Invalid&quot; %]
+-    The sort key must be an integer between 0 and 32767 inclusive.
+-    It cannot be &lt;em&gt;[% sortkey FILTER html %]&lt;/em&gt;.
++    [% title = &quot;Kl&#195;&#173;&#196;&#141; &#197;&#153;azen&#195;&#173; typu p&#197;&#153;&#195;&#173;znaku neplatn&#195;&#189;&quot; %]
++    Kl&#195;&#173;&#196;&#141; &#197;&#153;azen&#195;&#173; mus&#195;&#173; b&#195;&#189;t cel&#195;&#169; &#196;&#141;&#195;&#173;slo mezi 0 a 32767 v&#196;&#141;etn&#196;&#155;.
++    Nem&#197;&#175;&#197;&#190;e b&#195;&#189;t &lt;em&gt;[% sortkey FILTER html %]&lt;/em&gt;.
+   
+   [% ELSIF error == &quot;illegal_at_least_x_votes&quot; %]
+-    [% title = &quot;Your Search Makes No Sense&quot; %]
+-    The &lt;em&gt;At least ___ votes&lt;/em&gt; field must be a simple number. 
+-    You entered &lt;tt&gt;[% value FILTER html %]&lt;/tt&gt;, which isn't.
++    [% title = &quot;Va&#197;&#161;e hled&#195;&#161;n&#195;&#173; ned&#195;&#161;v&#195;&#161; smysl&quot; %]
++    Polo&#197;&#190;ka &lt;em&gt;Nejm&#195;&#169;n&#196;&#155; ___ hlas&#197;&#175;&lt;/em&gt; mus&#195;&#173; obsahovat prost&#195;&#169; &#196;&#141;&#195;&#173;slo.
++    Zadali jste &lt;tt&gt;[% value FILTER html %]&lt;/tt&gt;, co&#197;&#190; &#196;&#141;&#195;&#173;slem nen&#195;&#173;.
+     
+   [% ELSIF error == &quot;illegal_attachment_edit&quot; %]
+-    [% title = &quot;Unauthorised Action&quot; %]
+-    You are not authorised to edit attachment [% attach_id FILTER html %].
++    [% title = &quot;Neautorizovan&#195;&#161; &#196;&#141;innost&quot; %]
++    Nem&#195;&#161;te opr&#195;&#161;vn&#196;&#155;n&#195;&#173; upravovat p&#197;&#153;&#195;&#173;lohu [% attach_id FILTER html %].
+ 
+   [% ELSIF error == &quot;illegal_attachment_edit_bug&quot; %]
+-    [% title = &quot;Unauthorised Action&quot; %]
+-    You are not authorised to edit attachments on [% terms.bug %] 
++    [% title = &quot;Neautorizovan&#195;&#161; &#196;&#141;innost&quot; %]
++    Nem&#195;&#161;te opr&#195;&#161;vn&#196;&#155;n&#195;&#173; upravovat p&#197;&#153;&#195;&#173;lohy [% terms.chyba_2sg %] 
+     [%+ bug_id FILTER html %].
+          
+   [% ELSIF error == &quot;illegal_attachment_is_patch&quot; %]
+-    [% title = &quot;Your Search Makes No Sense&quot; %]
+-    The only legal values for the &lt;em&gt;Attachment is patch&lt;/em&gt; field are
+-    0 and 1.
++    [% title = &quot;Va&#197;&#161;e hled&#195;&#161;n&#195;&#173; ned&#195;&#161;v&#195;&#161; smysl&quot; %]
++    Jedin&#195;&#169; platn&#195;&#169; hodnoty pro pole &lt;em&gt;P&#197;&#153;&#195;&#173;loha je patch&lt;/em&gt; jsou 0 a 1.
+          
+   [% ELSIF error == &quot;illegal_change&quot; %]
+-    [% title = &quot;Not allowed&quot; %]
+-    You tried to change the 
+-    &lt;strong&gt;[% field_descs.$field FILTER html %]&lt;/strong&gt; field 
+-    from &lt;em&gt;[% oldvalue FILTER html %]&lt;/em&gt; to 
++    [% title = &quot;Nepovoleno&quot; %]
++    Pokusili jste se zm&#196;&#155;nit pole
++    &lt;strong&gt;[% field_descs.$field FILTER html %]&lt;/strong&gt;
++    z &lt;em&gt;[% oldvalue FILTER html %]&lt;/em&gt; na
+     &lt;em&gt;[% newvalue FILTER html %]&lt;/em&gt;, 
+-    but only the owner or submitter of the [% terms.bug %], or a 
+-    sufficiently empowered user, may change that field.
++    ale toto pole sm&#195;&#173; m&#196;&#155;nit jen vlastn&#195;&#173;k &#196;&#141;i ohla&#197;&#161;ovatel [% terms.chyba_2sg %]
++    nebo u&#197;&#190;ivatel s dostate&#196;&#141;n&#195;&#189;mi pr&#195;&#161;vy.
+   
+   [% ELSIF error == &quot;illegal_changed_in_last_x_days&quot; %]
+-    [% title = &quot;Your Search Makes No Sense&quot; %]
+-    The &lt;em&gt;Changed in last ___ days&lt;/em&gt; field must be a simple number. 
+-    You entered &lt;tt&gt;[% value FILTER html %]&lt;/tt&gt;, which isn't.
++    [% title = &quot;Va&#197;&#161;e hled&#195;&#161;n&#195;&#173; ned&#195;&#161;v&#195;&#161; smysl&quot; %]
++    Polo&#197;&#190;ka &lt;em&gt;Zm&#196;&#155;n&#196;&#155;no v posledn&#195;&#173;ch ___ dnech&lt;/em&gt; mus&#195;&#173; obsahovat prost&#195;&#169; &#196;&#141;&#195;&#173;slo.
++    Zadali jste &lt;tt&gt;[% value FILTER html %]&lt;/tt&gt;, co&#197;&#190; &#196;&#141;&#195;&#173;slem nen&#195;&#173;.
+     
+   [% ELSIF error == &quot;illegal_date&quot; %]
+-    [% title = &quot;Illegal Date&quot; %]
+-    '&lt;tt&gt;[% date FILTER html %]&lt;/tt&gt;' is not a legal date.
++    [% title = &quot;Neplatn&#195;&#169; datum&quot; %]
++    &#226;&#128;&#158;&lt;tt&gt;[% date FILTER html %]&lt;/tt&gt;&#226;&#128;&#156; nen&#195;&#173; platn&#195;&#169; datum.
+     
+   [% ELSIF error == &quot;illegal_email_address&quot; %]
+-    [% title = &quot;Invalid Email Address&quot; %]
+-    The e-mail address you entered (&lt;b&gt;[% addr FILTER html %]&lt;/b&gt;) 
+-    didn't pass our syntax checking for a legal email address. 
++    [% title = &quot;Neplatn&#195;&#189; e-mail&quot; %]
++    V&#195;&#161;mi zadan&#195;&#161; e-mailov&#195;&#161; adresa (&lt;b&gt;[% addr FILTER html %]&lt;/b&gt;) 
++    nepro&#197;&#161;la na&#197;&#161;&#195;&#173; kontrolou.
+     [%+ Param('emailregexpdesc') %]
++    Tak&#195;&#169; nesm&#195;&#173; obsahovat &#197;&#190;&#195;&#161;dn&#195;&#169; z n&#195;&#161;sleduj&#195;&#173;c&#195;&#173;ch speci&#195;&#161;ln&#195;&#173;ch znak&#197;&#175;:
+     It must also not contain any of these special characters:
+-    &lt;tt&gt;\ ( ) &amp; &lt; &gt; , ; : &quot; [ ]&lt;/tt&gt;, or any whitespace.
++    &lt;tt&gt;\ ( ) &amp; &lt; &gt; , ; : &quot; [ ]&lt;/tt&gt;, ani &#197;&#190;&#195;&#161;dn&#195;&#169; b&#195;&#173;l&#195;&#169; znaky.
+     
+   [% ELSIF error == &quot;illegal_frequency&quot; %]
+     [% title = &quot;Too Frequent&quot; %]
+
+Modified: trunk/template/cs/default/global/variables.none.tmpl
+===================================================================
+--- trunk/template/cs/default/global/variables.none.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/global/variables.none.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -95,25 +95,28 @@
+ 
+ [% koncovky = {
+   &quot;verb&quot; =&gt; &quot;a&quot;				# koncovka slovesa (M-&gt;&quot;&quot;, F-&gt;&quot;a&quot;, N-&gt;&quot;o&quot;)
+-  &quot;adj_1sg&quot; =&gt; &quot;&#195;&#161;&quot;,			# koncovky p&#197;&#153;&#195;&#173;d. jmen (velk_)
+-  &quot;adj_2sg&quot; =&gt; &quot;&#195;&#169;&quot;,
+-  &quot;adj_3sg&quot; =&gt; &quot;&#195;&#169;&quot;,
+-  &quot;adj_4sg&quot; =&gt; &quot;ou&quot;,
+-  &quot;adj_5sg&quot; =&gt; &quot;&#195;&#161;&quot;,
+-  &quot;adj_6sg&quot; =&gt; &quot;&#195;&#169;&quot;,
+-  &quot;adj_7sg&quot; =&gt; &quot;ou&quot;,
+   &quot;jarni_1sg&quot; =&gt; &quot;&quot;			# koncovka p&#197;&#153;&#195;&#173;d. jmen vzoru 'jarn&#195;&#173;' (jarn&#195;&#173;_)
+   &quot;jarni_2sg&quot; =&gt; &quot;&quot;
+   &quot;mlady_1sg&quot; =&gt; &quot;&#195;&#161;&quot;			# koncovka p&#197;&#153;&#195;&#173;d. jmen vzoru 'mlad&#195;&#189;' (mlad_)
++  &quot;mlady_2sg&quot; =&gt; &quot;&#195;&#169;&quot;
++  &quot;mlady_3sg&quot; =&gt; &quot;&#195;&#169;&quot;
++  &quot;mlady_4sg&quot; =&gt; &quot;ou&quot;
++  &quot;mlady_5sg&quot; =&gt; &quot;&#195;&#161;&quot;
++  &quot;mlady_6sg&quot; =&gt; &quot;&#195;&#169;&quot;
++  &quot;mlady_7sg&quot; =&gt; &quot;ou&quot;
++  &quot;mlady_1pl&quot; =&gt; &quot;&#195;&#169;&quot;
+   &quot;mlady_2pl&quot; =&gt; &quot;&#195;&#189;ch&quot;
+   &quot;mlady_3pl&quot; =&gt; &quot;&#195;&#189;m&quot;
+   &quot;mlady_4pl&quot; =&gt; &quot;&#195;&#169;&quot;
++  &quot;mlady_5pl&quot; =&gt; &quot;&#195;&#169;&quot;
++  &quot;mlady_6pl&quot; =&gt; &quot;&#195;&#189;ch&quot;
++  &quot;mlady_7pl&quot; =&gt; &quot;&#195;&#189;mi&quot;
+   &quot;Bugzilla&quot; =&gt; &quot;a&quot;,			# koncovka slovesa s podm&#196;&#155;tem=Bugzilla (M-&gt;&quot;&quot;, F-&gt;&quot;a&quot;, N-&gt;&quot;o&quot;)
+   }
+ %]
+ 
+ [% statuscs = {
+-  &quot;UNCONFIRMED&quot; =&gt; &quot;NEOV&#196;&#154;&#197;&#152;EN&#195;&#129;&quot;,
++  &quot;UNCONFIRMED&quot; =&gt; &quot;NEPOTVRZEN&#195;&#129;&quot;,
+   &quot;NEW&quot; =&gt; &quot;NOV&#195;&#129;&quot;,
+   &quot;ASSIGNED&quot; =&gt; &quot;P&#197;&#152;ID&#196;&#154;LEN&#195;&#129;&quot;,
+   &quot;REOPENED&quot; =&gt; &quot;ZNOVUOTEV&#197;&#152;EN&#195;&#129;&quot;,
+@@ -129,16 +132,19 @@
+   &quot;WONTFIX&quot; =&gt; &quot;ZAM&#195;&#141;TNUTO&quot;,
+   &quot;DUPLICATE&quot; =&gt; &quot;DUPLIK&#195;&#129;T&quot;,
+   &quot;WORKSFORME&quot; =&gt; &quot;MN&#196;&#154;FUNGUJE&quot;,
+-  &quot;MOVED&quot; =&gt; &quot;P&#197;&#152;ESUNUTO&quot;
++  &quot;MOVED&quot; =&gt; &quot;P&#197;&#152;ESUNUTO&quot;,
++  &quot;LATER&quot; =&gt; &quot;POZD&#196;&#154;JI&quot;,
++  &quot;REMIND&quot; =&gt; &quot;P&#197;&#152;IPOMENOUT&quot;
+   }
+ %]
+ 
+ [% severitycs = {
+-  &quot;Blocker&quot; =&gt; &quot;Blokuje&quot;,
+-  &quot;Critical&quot; =&gt; &quot;Kritick&#195;&#161;&quot;,
+-  &quot;Major&quot; =&gt; &quot;V&#196;&#155;t&#197;&#161;&#195;&#173;&quot;,
+-  &quot;Minor&quot; =&gt; &quot;Men&#197;&#161;&#195;&#173;&quot;,
+-  &quot;Trivial&quot; =&gt; &quot;Drobnost&quot;,
+-  &quot;Enhancement&quot; =&gt; &quot;Vylep&#197;&#161;en&#195;&#173;&quot;
++  &quot;blocker&quot; =&gt; &quot;blokuje&quot;,
++  &quot;critical&quot; =&gt; &quot;kritick&#195;&#161;&quot;,
++  &quot;major&quot; =&gt; &quot;v&#196;&#155;t&#197;&#161;&#195;&#173;&quot;,
++  &quot;normal&quot; =&gt; &quot;norm&#195;&#161;ln&#195;&#173;&quot;,
++  &quot;minor&quot; =&gt; &quot;men&#197;&#161;&#195;&#173;&quot;,
++  &quot;trivial&quot; =&gt; &quot;drobnost&quot;,
++  &quot;enhancement&quot; =&gt; &quot;vylep&#197;&#161;en&#195;&#173;&quot;
+   }
+ %]
+
+Modified: trunk/template/cs/default/pages/fields.html.tmpl
+===================================================================
+--- trunk/template/cs/default/pages/fields.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/pages/fields.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -201,38 +201,38 @@
+ 
+ &lt;table&gt;
+   &lt;tr&gt;
+-    &lt;th&gt;[% severitycs.Blocker %]&lt;/th&gt;
++    &lt;th&gt;[% severitycs.blocker %]&lt;/th&gt;
+ 
+     &lt;td&gt;Blokuje dal&#197;&#161;&#195;&#173; v&#195;&#189;voj nebo testov&#195;&#161;n&#195;&#173;&lt;/td&gt;
+   &lt;/tr&gt;
+ 
+   &lt;tr&gt;
+-    &lt;th&gt;[% severitycs.Critical %]&lt;/th&gt;
++    &lt;th&gt;[% severitycs.critical %]&lt;/th&gt;
+ 
+     &lt;td&gt;Hav&#195;&#161;rie, ztr&#195;&#161;ta dat, z&#195;&#161;va&#197;&#190;n&#195;&#169; pam&#196;&#155;&#197;&#165;ov&#195;&#169; leaky&lt;/td&gt;
+   &lt;/tr&gt;
+ 
+   &lt;tr&gt;
+-    &lt;th&gt;[% severitycs.Major %]&lt;/th&gt;
++    &lt;th&gt;[% severitycs.major %]&lt;/th&gt;
+ 
+     &lt;td&gt;Z&#195;&#161;va&#197;&#190;n&#195;&#169; nedostatky funk&#196;&#141;nosti&lt;/td&gt;
+   &lt;/tr&gt;
+ 
+   &lt;tr&gt;
+-    &lt;th&gt;[% severitycs.Minor %]&lt;/th&gt;
++    &lt;th&gt;[% severitycs.minor %]&lt;/th&gt;
+ 
+     &lt;td&gt;Men&#197;&#161;&#195;&#173; nedostatky funk&#196;&#141;nosti, p&#197;&#153;&#195;&#173;padn&#196;&#155; jin&#195;&#189; probl&#195;&#169;m, pro kter&#195;&#189;
+         existuje zp&#197;&#175;sob, jak jej obej&#195;&#173;t&lt;/td&gt;
+   &lt;/tr&gt;
+ 
+   &lt;tr&gt;
+-    &lt;th&gt;[% severitycs.Trivial %]&lt;/th&gt;
++    &lt;th&gt;[% severitycs.trivial %]&lt;/th&gt;
+ 
+     &lt;td&gt;Kosmetick&#195;&#189; probl&#195;&#169;m, nap&#197;&#153;. p&#197;&#153;eklep &#196;&#141;i &#197;&#161;patn&#196;&#155; zarovnan&#195;&#189; text&lt;/td&gt;
+   &lt;/tr&gt;
+ 
+   &lt;tr&gt;
+-    &lt;th&gt;[% severitycs.Enhancement %]&lt;/th&gt;
++    &lt;th&gt;[% severitycs.enhancement %]&lt;/th&gt;
+ 
+     &lt;td&gt;&#197;&#189;&#195;&#161;dost o nov&#195;&#169; vylep&#197;&#161;en&#195;&#173;&lt;/td&gt;
+ &lt;/table&gt;
+
+Modified: trunk/template/cs/default/reports/chart.csv.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/chart.csv.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/chart.csv.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -20,7 +20,7 @@
+   #%]
+ 
+ [% data = chart.data %]
+-Date\Series,
++Datum\&#195;&#154;daje,
+ [% FOREACH label = chart.labels %]
+   [% label FILTER csv %][% &quot;,&quot; UNLESS loop.last %]
+ [% END %]
+
+Modified: trunk/template/cs/default/reports/chart.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/chart.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/chart.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -27,8 +27,8 @@
+ %]
+ 
+ [% PROCESS global/header.html.tmpl 
+-  title = &quot;Chart&quot;
+-  h3 = time2str(&quot;%Y-%m-%d %H:%M:%S&quot;, time)
++  title = &quot;Graf&quot;
++  h3 = time2str(&quot;%d. %L. %Y %H:%M:%S&quot;, time)
+ %]
+ 
+ &lt;div align=&quot;center&quot;&gt;
+@@ -38,27 +38,26 @@
+     [% width %]&amp;height=[% height -%]
+   [% END %]
+ 
+-  &lt;img alt=&quot;Graphical report results&quot; src=&quot;[% imageurl %]&quot;
++  &lt;img alt=&quot;V&#195;&#189;sledn&#195;&#189; grafick&#195;&#189; report&quot; src=&quot;[% imageurl %]&quot;
+     width=&quot;[% width %]&quot; height=&quot;[% height %]&quot;&gt;
+   &lt;p&gt;
+     [% sizeurl = BLOCK %]chart.cgi?
+       [% imagebase FILTER html %]&amp;action=wrap
+     [% END %]
+     &lt;a href=&quot;[% sizeurl %]&amp;width=[% width %]&amp;height=
+-             [% height + 100 %]&quot;&gt;Taller&lt;/a&gt;&lt;br&gt;
++             [% height + 100 %]&quot;&gt;Vy&#197;&#161;&#197;&#161;&#195;&#173;&lt;/a&gt;&lt;br&gt;
+     &lt;a href=&quot;[% sizeurl %]&amp;width=[% width - 100 %]&amp;height=
+-             [% height %]&quot;&gt;Thinner&lt;/a&gt; * 
++             [% height %]&quot;&gt;U&#197;&#190;&#197;&#161;&#195;&#173;&lt;/a&gt; * 
+     &lt;a href=&quot;[% sizeurl %]&amp;width=[% width + 100 %]&amp;height=
+-             [% height %]&quot;&gt;Fatter&lt;/a&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;
++             [% height %]&quot;&gt;&#197;&#160;ir&#197;&#161;&#195;&#173;&lt;/a&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;
+     &lt;a href=&quot;[% sizeurl %]&amp;width=[% width %]&amp;height=
+-             [% height - 100 %]&quot;&gt;Shorter&lt;/a&gt;&lt;br&gt;
++             [% height - 100 %]&quot;&gt;Ni&#197;&#190;&#197;&#161;&#195;&#173;&lt;/a&gt;&lt;br&gt;
+   &lt;/p&gt;
+   
+   &lt;p&gt;
+     &lt;a href=&quot;chart.cgi?
+       [% imagebase FILTER html %]&amp;ctype=csv&amp;action=plot&quot;&gt;CSV&lt;/a&gt; |
+-    &lt;a href=&quot;chart.cgi?[% imagebase FILTER html %]&amp;action=assemble&quot;&gt;Edit 
+-    this chart&lt;/a&gt;
++    &lt;a href=&quot;chart.cgi?[% imagebase FILTER html %]&amp;action=assemble&quot;&gt;Upravit tento graf&lt;/a&gt;
+   &lt;/p&gt;
+  
+ &lt;/div&gt;
+
+Modified: trunk/template/cs/default/reports/chart.png.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/chart.png.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/chart.png.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -19,8 +19,8 @@
+   # Contributor(s): Gervase Markham &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/bugzilla-cs-svn">gerv at gerv.net</A>&gt;
+   #%]
+ 
+-[% y_label = &quot;Bugs&quot; %]
+-[% x_label = &quot;Time&quot; %]
++[% y_label = &quot;$terms.Chyby&quot; %]
++[% x_label = &quot;&#196;&#140;as&quot; %]
+ 
+ [% IF chart.cumulate %]
+   [% USE graph = GD.Graph.area(width, height) %]
+
+Modified: trunk/template/cs/default/reports/components.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/components.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/components.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -30,7 +30,7 @@
+   
+ [% filtered_product = product FILTER html %]
+ [% PROCESS global/header.html.tmpl 
+-  title = &quot;Components for $product&quot;
++  title = &quot;Komponenty pro $product&quot;
+   h2 = filtered_product %]
+ 
+ [% IF Param(&quot;useqacontact&quot;) %]
+@@ -40,14 +40,14 @@
+ [% END %]
+ 
+ [% IF components.size == 0 %]
+-  This product has no components.
++  Tento produkt nem&#195;&#161; definovan&#195;&#169; &#197;&#190;&#195;&#161;dn&#195;&#169; komponenty.
+ [% ELSE %]
+   &lt;table&gt;
+     &lt;tr&gt;
+-      &lt;th align=&quot;left&quot;&gt;Component&lt;/th&gt;
+-      &lt;th align=&quot;left&quot;&gt;Default Owner&lt;/th&gt;
++      &lt;th align=&quot;left&quot;&gt;Komponenty&lt;/th&gt;
++      &lt;th align=&quot;left&quot;&gt;Implicitn&#195;&#173; majitel&lt;/th&gt;
+       [% IF Param(&quot;useqacontact&quot;) %]
+-        &lt;th align=&quot;left&quot;&gt;Default QA Contact&lt;/th&gt;
++        &lt;th align=&quot;left&quot;&gt;Implicitn&#195;&#173; kontakt QA&lt;/th&gt;
+       [% END %]
+     &lt;/tr&gt;
+ 
+
+Modified: trunk/template/cs/default/reports/create-chart.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/create-chart.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/create-chart.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -27,7 +27,7 @@
+   #%]
+ 
+ [% PROCESS global/header.html.tmpl 
+-  title = &quot;Create Chart&quot;
++  title = &quot;Vytvo&#197;&#153;it graf&quot;
+ %]
+ 
+ [% PROCESS &quot;reports/series-common.html.tmpl&quot; 
+@@ -57,7 +57,7 @@
+ }
+ &lt;/script&gt;
+   
+-[% gttext = &quot;Grand Total&quot; %]
++[% gttext = &quot;Celkem&quot; %]
+ 
+ &lt;form method=&quot;get&quot; action=&quot;chart.cgi&quot; name=&quot;chartform&quot;&gt;  
+   
+@@ -65,16 +65,16 @@
+     [% IF NOT category OR category.size == 0 %]
+       &lt;tr&gt;
+         &lt;td&gt;
+-          &lt;i&gt;No data sets exist, or none are visible to you.&lt;/i&gt;
++          &lt;i&gt;Neexistuj&#195;&#173; &#197;&#190;&#195;&#161;dn&#195;&#169; tabulky dat nebo pro v&#195;&#161;s nejsou viditeln&#195;&#169;.&lt;/i&gt;
+         &lt;/td&gt;
+       &lt;/tr&gt;
+     [% ELSE %]
+       &lt;tr&gt;
+-        &lt;th&gt;Category:&lt;/th&gt;
++        &lt;th&gt;Kategorie:&lt;/th&gt;
+         &lt;th&gt;&lt;/th&gt;
+-        &lt;th&gt;Sub-category:&lt;/th&gt;
++        &lt;th&gt;Podkategorie:&lt;/th&gt;
+         &lt;th&gt;&lt;/th&gt;
+-        &lt;th&gt;Name:&lt;/th&gt;
++        &lt;th&gt;N&#195;&#161;zev:&lt;/th&gt;
+         &lt;th&gt;&lt;br&gt;
+         &lt;/th&gt;
+       &lt;/tr&gt;
+@@ -87,7 +87,7 @@
+                                    
+         &lt;td&gt;
+           &lt;noscript&gt;
+-            &lt;input type=&quot;submit&quot; name=&quot;action-assemble&quot; value=&quot;Update --&gt;&quot;&gt;
++            &lt;input type=&quot;submit&quot; name=&quot;action-assemble&quot; value=&quot;Aktualizovat &#226;&#134;&#146;&quot;&gt;
+           &lt;/noscript&gt;
+         &lt;/td&gt;
+         
+@@ -97,7 +97,7 @@
+                                    
+         &lt;td&gt;
+           &lt;noscript&gt;
+-            &lt;input type=&quot;submit&quot; name=&quot;action-assemble&quot; value=&quot;Update --&gt;&quot;&gt;
++            &lt;input type=&quot;submit&quot; name=&quot;action-assemble&quot; value=&quot;Aktualizovat &#226;&#134;&#146;&quot;&gt;
+           &lt;/noscript&gt;
+         &lt;/td&gt;
+         
+@@ -118,7 +118,7 @@
+         &lt;/td&gt;
+ 
+         &lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt; 
+-          &lt;input type=&quot;submit&quot; name=&quot;action-add&quot; value=&quot;Add To List&quot;&gt;&lt;br&gt;
++          &lt;input type=&quot;submit&quot; name=&quot;action-add&quot; value=&quot;P&#197;&#153;idat do seznamu&quot;&gt;&lt;br&gt;
+         &lt;/td&gt;
+       &lt;/tr&gt;
+     [% END %]
+@@ -132,15 +132,15 @@
+     subcatSelected();
+   &lt;/script&gt;
+ 
+-  &lt;h3&gt;List Of Data Sets To Plot&lt;/h3&gt;
++  &lt;h3&gt;V&#195;&#189;b&#196;&#155;r zobrazen&#195;&#189;ch dat&lt;/h3&gt;
+ 
+   [% IF chart.lines.size &gt; 0 %]
+     &lt;table cellspacing=&quot;2&quot; cellpadding=&quot;2&quot;&gt;
+       &lt;tr&gt;
+-        &lt;th style=&quot;width: 5em;&quot;&gt;Select&lt;/th&gt;
+-        &lt;th&gt;Label&lt;/th&gt;
++        &lt;th style=&quot;width: 5em;&quot;&gt;V&#195;&#189;b&#196;&#155;r&lt;/th&gt;
++        &lt;th&gt;Nadpis&lt;/th&gt;
+         &lt;th&gt;&lt;/th&gt;
+-        &lt;th&gt;Data Set&lt;/th&gt;
++        &lt;th&gt;Tabulka&lt;/th&gt;
+         &lt;th&gt;&lt;/th&gt;
+       &lt;/tr&gt;
+       
+@@ -189,13 +189,13 @@
+             &lt;td align=&quot;center&quot;&gt;
+               [% IF user.id == series.creator OR UserInGroup(&quot;admin&quot;) %]
+                &lt;a href=&quot;chart.cgi?action=edit&amp;series_id=
+-                       [% series.series_id %]&quot;&gt;Edit&lt;/a&gt; |
++                       [% series.series_id %]&quot;&gt;Upravit&lt;/a&gt; |
+               [% END %]
+               &lt;a href=&quot;buglist.cgi?cmdtype=dorem&amp;namedcmd=
+                 [% series.category FILTER url_quote %]%20/%20
+                 [% series.subcategory FILTER url_quote %]%20/%20
+                 [% series.name FILTER url_quote -%]&amp;series_id=
+-                [% series.series_id %]&amp;remaction=runseries&quot;&gt;Run Search&lt;/a&gt;
++                [% series.series_id %]&amp;remaction=runseries&quot;&gt;Prov&#195;&#169;st hled&#195;&#161;n&#195;&#173;&lt;/a&gt;
+             &lt;/td&gt;        
+           &lt;/tr&gt;
+         [% END %]
+@@ -226,40 +226,40 @@
+ 
+       &lt;tr&gt;
+         &lt;td valign=&quot;bottom&quot; style=&quot;text-align: center;&quot;&gt;
+-          &lt;input type=&quot;submit&quot; name=&quot;action-sum&quot; value=&quot;Sum&quot; 
++          &lt;input type=&quot;submit&quot; name=&quot;action-sum&quot; value=&quot;Se&#196;&#141;&#195;&#173;st&quot; 
+                  style=&quot;width: 5em;&quot;&gt;&lt;br&gt;
+-          &lt;input type=&quot;submit&quot; name=&quot;action-remove&quot; value=&quot;Remove&quot;
++          &lt;input type=&quot;submit&quot; name=&quot;action-remove&quot; value=&quot;Odstranit&quot;
+                  style=&quot;width: 5em;&quot;&gt;
+         &lt;/td&gt;
+ 
+         &lt;td style=&quot;text-align: right; vertical-align: bottom;&quot;&gt;
+-          &lt;b&gt;Cumulate:&lt;/b&gt; 
++          &lt;b&gt;Kumulativn&#196;&#155;:&lt;/b&gt; 
+           &lt;input type=&quot;checkbox&quot; name=&quot;cumulate&quot; value=&quot;1&quot;
+           [% &quot; checked&quot; IF chart.cumulate %]&gt;
+         &lt;/td&gt;
+ 
+         &lt;td&gt;&lt;/td&gt;
+         &lt;td valign=&quot;bottom&quot;&gt; 
+-          &lt;b&gt;Date Range:&lt;/b&gt; 
++          &lt;b&gt;Rozsah dat:&lt;/b&gt; 
+           &lt;input type=&quot;text&quot; size=&quot;12&quot; name=&quot;datefrom&quot; 
+             value=&quot;[% time2str(&quot;%Y-%m-%d&quot;, chart.datefrom) IF chart.datefrom%]&quot;&gt;
+-          &lt;b&gt;to&lt;/b&gt; 
++          &lt;b&gt;do&lt;/b&gt; 
+           &lt;input type=&quot;text&quot; size=&quot;12&quot; name=&quot;dateto&quot; 
+             value=&quot;[% time2str(&quot;%Y-%m-%d&quot;, chart.dateto) IF chart.dateto %]&quot;&gt;
+         &lt;/td&gt;
+ 
+         &lt;td style=&quot;text-align: right&quot; valign=&quot;bottom&quot;&gt;
+-          &lt;input type=&quot;submit&quot; name=&quot;action-wrap&quot; value=&quot;Chart This List&quot;&gt;
++          &lt;input type=&quot;submit&quot; name=&quot;action-wrap&quot; value=&quot;Vytvo&#197;&#153;it graf pro tento seznam&quot;&gt;
+         &lt;/td&gt;
+       &lt;/tr&gt;
+     &lt;/table&gt;
+   [% ELSE %]
+-  &lt;p&gt;&lt;i&gt;None&lt;/i&gt;&lt;/p&gt;
++  &lt;p&gt;&lt;i&gt;&#197;&#189;&#195;&#161;dn&#195;&#161;&lt;/i&gt;&lt;/p&gt;
+   [% END %]  
+ &lt;/form&gt;
+ 
+ [% IF UserInGroup('editbugs') %]
+-  &lt;h3&gt;&lt;a href=&quot;query.cgi?format=create-series&quot;&gt;Create New Data Set&lt;/a&gt;&lt;/h3&gt;
++  &lt;h3&gt;&lt;a href=&quot;query.cgi?format=create-series&quot;&gt;Vytvo&#197;&#153;it novou tabulku&lt;/a&gt;&lt;/h3&gt;
+ [% END %]                 
+ 
+ [% PROCESS global/footer.html.tmpl %]
+
+Modified: trunk/template/cs/default/reports/duplicates-simple.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/duplicates-simple.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/duplicates-simple.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -28,9 +28,9 @@
+ &lt;html&gt;
+ 
+   [% IF product %]
+-    [% title = &quot;Most Frequently Reported $terms.Bugs for $product&quot; %]
++    [% title = &quot;Nej&#196;&#141;ast&#196;&#155;ji hl&#195;&#161;&#197;&#161;en${koncovky.mlady_1pl} ${terms.chyby} pro $product&quot; %]
+   [% ELSE %]
+-    [% title = &quot;Most Frequently Reported $terms.Bugs&quot; %]
++    [% title = &quot;Nej&#196;&#141;ast&#196;&#155;ji hl&#195;&#161;&#197;&#161;en${koncovky.mlady_1pl} ${terms.chyby}&quot; %]
+   [% END%]
+ 
+   &lt;head&gt;
+
+Modified: trunk/template/cs/default/reports/duplicates-table.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/duplicates-table.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/duplicates-table.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -49,16 +49,16 @@
+ [% IF bug_ids.size &gt; 0 %]
+   &lt;table border&gt;
+     &lt;tr bgcolor=&quot;#CCCCCC&quot;&gt;
+-      [% FOREACH column = [ { name =&gt; &quot;id&quot;, description =&gt; &quot;$terms.Bug #&quot; },
+-                            { name =&gt; &quot;count&quot;, description =&gt; &quot;Dupe&lt;br&gt;Count&quot; },
++      [% FOREACH column = [ { name =&gt; &quot;id&quot;, description =&gt; &quot;$terms.Chyba #&quot; },
++                            { name =&gt; &quot;count&quot;, description =&gt; &quot;Po&#196;&#141;et&lt;br&gt;duplik&#195;&#161;t&#197;&#175;&quot; },
+                             { name =&gt; &quot;delta&quot;,
+-                        description =&gt; &quot;Change in last&lt;br&gt;$changedsince day(s)&quot; },
+-                            { name =&gt; &quot;component&quot;, description =&gt; &quot;Component&quot; },
+-                            { name =&gt; &quot;bug_severity&quot;, description =&gt; &quot;Severity&quot; },
+-                            { name =&gt; &quot;op_sys&quot;, description =&gt; &quot;Op Sys&quot; },
++                        description =&gt; &quot;Zm&#196;&#155;n za posledn&#195;&#173;ch&lt;br&gt;$changedsince dn&#195;&#173;&quot; },
++                            { name =&gt; &quot;component&quot;, description =&gt; &quot;Komponenta&quot; },
++                            { name =&gt; &quot;bug_severity&quot;, description =&gt; &quot;Z&#195;&#161;va&#197;&#190;nost&quot; },
++                            { name =&gt; &quot;op_sys&quot;, description =&gt; &quot;Op. sys&quot; },
+                             { name =&gt; &quot;target_milestone&quot;,
+-                              description =&gt; &quot;Target&lt;br&gt;Milestone&quot; },
+-                            { name =&gt; &quot;short_desc&quot;, description =&gt; &quot;Summary&quot; } ]
++                              description =&gt; &quot;C&#195;&#173;lov&#195;&#189;&lt;br&gt;miln&#195;&#173;k&quot; },
++                            { name =&gt; &quot;short_desc&quot;, description =&gt; &quot;Shrnut&#195;&#173;&quot; } ]
+        %]
+ 
+         [%# Small hack to keep delta column out if we don't need it %]
+@@ -145,5 +145,5 @@
+ 
+   &lt;/table&gt;
+ [% ELSE %]
+-  &lt;h3&gt;No duplicate [% terms.bugs %] found.&lt;/h3&gt;
++  &lt;h3&gt;Nebyly nalezeny &#197;&#190;&#195;&#161;dn&#195;&#169; duplik&#195;&#161;tn&#195;&#173; [% terms.chyby %].&lt;/h3&gt;
+ [% END %]
+
+Modified: trunk/template/cs/default/reports/duplicates.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/duplicates.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/duplicates.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -36,9 +36,9 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [% IF query_products.size %]
+-  [% title = &quot;Most Frequently Reported $terms.Bugs for ${query_products.join(', ')}&quot; %]
++  [% title = &quot;Nej&#196;&#141;ast&#196;&#155;ji hl&#195;&#161;&#197;&#161;en${koncovky.mlady_1pl} ${terms.chyby} pro ${query_products.join(', ')}&quot; %]
+ [% ELSE %]
+-  [% title = &quot;Most Frequently Reported $terms.Bugs&quot; %]
++  [% title = &quot;Nej&#196;&#141;ast&#196;&#155;ji hl&#195;&#161;&#197;&#161;en${koncovky.mlady_1pl} ${terms.chyby}&quot; %]
+ [% END%]
+ 
+ [% PROCESS global/header.html.tmpl
+@@ -46,9 +46,9 @@
+ %]
+ 
+ &lt;p&gt;
+-  &lt;a href=&quot;#explanation&quot;&gt;What is this data?&lt;/a&gt;
++  &lt;a href=&quot;#explanation&quot;&gt;Co znamenaj&#195;&#173; tyhle &#195;&#186;daje?&lt;/a&gt;
+   &lt;br&gt;
+-  &lt;a href=&quot;#params&quot;&gt;Change parameters&lt;/a&gt;
++  &lt;a href=&quot;#params&quot;&gt;Zm&#196;&#155;nit parametry&lt;/a&gt;
+ &lt;/p&gt;
+ 
+ [% PROCESS &quot;reports/duplicates-table.html.tmpl&quot; %]
+@@ -57,7 +57,7 @@
+ 
+ [% bug_ids_string = vis_bug_ids.join(',') %]
+ 
+-&lt;h3&gt;&lt;a name=&quot;params&quot;&gt;Change Parameters&lt;/a&gt;&lt;/h3&gt;
++&lt;h3&gt;&lt;a name=&quot;params&quot;&gt;Zm&#196;&#155;nit parametry&lt;/a&gt;&lt;/h3&gt;
+ 
+ &lt;form method=&quot;get&quot; action=&quot;duplicates.cgi&quot;&gt;
+   &lt;input type=&quot;hidden&quot; name=&quot;sortby&quot; value=&quot;[% sortby FILTER html %]&quot;&gt;
+@@ -65,22 +65,21 @@
+   &lt;input type=&quot;hidden&quot; name=&quot;bug_id&quot; value=&quot;[% bug_ids_string %]&quot;&gt;
+   &lt;table&gt;
+     &lt;tr&gt;
+-      &lt;td&gt;When sorting or restricting,
+-          work with:&lt;/td&gt;
++      &lt;td&gt;P&#197;&#153;i &#197;&#153;azen&#195;&#173; nebo v&#195;&#189;b&#196;&#155;ru, pracovat s:&lt;/td&gt;
+       &lt;td&gt;
+         &lt;input type=&quot;radio&quot; name=&quot;sortvisible&quot; id=&quot;entirelist&quot; value=&quot;0&quot;
+           [% &quot;checked&quot; IF NOT sortvisible %]&gt;
+         &lt;label for=&quot;entirelist&quot;&gt;
+-          entire list
++          cel&#195;&#189;m seznamem
+         &lt;/label&gt;
+         &lt;br&gt;
+         &lt;input type=&quot;radio&quot; name=&quot;sortvisible&quot; id=&quot;visiblelist&quot; value=&quot;1&quot;
+           [% &quot;checked&quot; IF sortvisible %]&gt;
+         &lt;label for=&quot;visiblelist&quot;&gt;
+-          currently visible list
++          aktu&#195;&#161;ln&#196;&#155; zobrazen&#195;&#189;m seznamem
+         &lt;/label&gt;
+       &lt;/td&gt;
+-      &lt;td rowspan=&quot;4&quot; valign=&quot;top&quot;&gt;Restrict to products:&lt;/td&gt;
++      &lt;td rowspan=&quot;4&quot; valign=&quot;top&quot;&gt;Omezit na produkty:&lt;/td&gt;
+       &lt;td rowspan=&quot;4&quot; valign=&quot;top&quot;&gt;
+         &lt;select name=&quot;product&quot; size=&quot;5&quot; multiple=&quot;multiple&quot;&gt;
+           [% FOREACH p = products %]
+@@ -93,23 +92,23 @@
+      &lt;/tr&gt;
+ 
+     &lt;tr&gt;
+-      &lt;td&gt;Max rows:&lt;/td&gt;
++      &lt;td&gt;Maxim&#195;&#161;ln&#196;&#155; &#197;&#153;&#195;&#161;dk&#197;&#175;:&lt;/td&gt;
+       &lt;td&gt;
+         &lt;input size=&quot;4&quot; name=&quot;maxrows&quot; value=&quot;[% maxrows %]&quot;&gt;
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+     &lt;tr&gt;
+-      &lt;td&gt;Change column is change in the last:&lt;/td&gt;
++      &lt;td&gt;Zm&#196;&#155;na sloupce je zm&#196;&#155;na v posledn&#195;&#173;ch:&lt;/td&gt;
+       &lt;td&gt;
+-        &lt;input size=&quot;4&quot; name=&quot;changedsince&quot; value=&quot;[% changedsince %]&quot;&gt; days
++        &lt;input size=&quot;4&quot; name=&quot;changedsince&quot; value=&quot;[% changedsince %]&quot;&gt; dnech
+       &lt;/td&gt;
+     &lt;/tr&gt;
+ 
+     &lt;tr&gt;
+       &lt;td&gt;
+         &lt;label for=&quot;openonly&quot;&gt;
+-          Open [% terms.bugs %] only:
++          Pouze otev&#197;&#153;en[% koncovky.mlady_1pl %] [%+ terms.chyby %]:
+         &lt;/label&gt;
+       &lt;/td&gt;
+       &lt;td&gt;
+@@ -120,54 +119,53 @@
+ 
+   &lt;/table&gt;
+ 
+-  &lt;input type=&quot;submit&quot; value=&quot;Change&quot;&gt;
++  &lt;input type=&quot;submit&quot; value=&quot;Zm&#196;&#155;nit&quot;&gt;
+ &lt;/form&gt;
+ 
+ &lt;form method=&quot;post&quot; action=&quot;buglist.cgi&quot;&gt;
+   &lt;input type=&quot;hidden&quot; name=&quot;bug_id&quot; value=&quot;[% bug_ids_string %]&quot;&gt;
+-  &lt;input type=&quot;hidden&quot; name=&quot;order&quot; value=&quot;Reuse same sort as last time&quot;&gt;
+-  Or just give this to me as a &lt;input type=&quot;submit&quot; value=&quot;[% terms.bug %] list&quot;&gt;.
+-  (Note: the order may not be the same.)
++  &lt;input type=&quot;hidden&quot; name=&quot;order&quot; value=&quot;Pou&#197;&#190;&#195;&#173;t stejn&#195;&#169; &#197;&#153;azen&#195;&#173; jako minule&quot;&gt;
++  Nebo mi zobrazte tot&#195;&#169;&#197;&#190; ve form&#196;&#155; &lt;input type=&quot;submit&quot; value=&quot;seznamu [% terms.chyba_2pl %]&quot;&gt;.
++  (Pozn&#195;&#161;mka: po&#197;&#153;ad&#195;&#173; se m&#197;&#175;&#197;&#190;e li&#197;&#161;it.)
+ &lt;/form&gt;
+ 
+ &lt;hr&gt;
+ 
+ &lt;b&gt;
+-  &lt;a name=&quot;explanation&quot;&gt;What are &quot;Most Frequently Reported [% terms.Bugs %]&quot;?&lt;/a&gt;
++  &lt;a name=&quot;explanation&quot;&gt;Co to znamen&#195;&#161; &#226;&#128;&#158;Nej&#196;&#141;ast&#196;&#155;ji hl&#195;&#161;&#197;&#161;en[% koncovky.mlady_1pl %] [%+ terms.chyby %]&#226;&#128;&#156;?&lt;/a&gt;
+ &lt;/b&gt;
+ 
+ &lt;blockquote&gt;
+-  The Most Frequent [% terms.Bugs %] page lists the known open [% terms.bugs %] which
+-  are reported most frequently. It is
+-  automatically generated from the [% terms.Bugzilla %] database every 24 hours, by
+-  counting the number of direct and indirect duplicates of [% terms.bugs %].
+-  This information is provided in order to assist in minimizing
+-  the amount of duplicate [% terms.bugs %] entered into [% terms.Bugzilla %], which
+-  saves time for Quality Assurance engineers who have to triage the [% terms.bugs %].
++  Str&#195;&#161;nka &#226;&#128;&#158;Nej&#196;&#141;ast&#196;&#155;ji hl&#195;&#161;&#197;&#161;en[% koncovky.mlady_1pl %] [%+ terms.chyby %]&#226;&#128;&#156; obsahuje seznam v&#197;&#161;ech
++  otev&#197;&#153;en&#195;&#189;ch [% terms.2pl %], pro kter[% koncovky.mlady_4pl %] existuje nejv&#195;&#173;ce opakovan&#195;&#189;ch
++  hl&#195;&#161;&#197;&#161;en&#195;&#173;. Tento seznam se generuje z datab&#195;&#161;ze [% terms.Bugzilla_2sg %] automaticky ka&#197;&#190;d&#195;&#189;ch
++  24 hodin tak, &#197;&#190;e se po&#196;&#141;&#195;&#173;taj&#195;&#173; v&#197;&#161;echny p&#197;&#153;&#195;&#173;m&#195;&#169; a nep&#197;&#153;&#195;&#173;m&#195;&#169; duplik&#195;&#161;ty v&#197;&#161;ech [% terms.chyba_2pl %].
++  C&#195;&#173;lem takto poskytovan&#195;&#189;ch informac&#195;&#173; je omezit mno&#197;&#190;stv&#195;&#173; duplik&#195;&#161;t&#197;&#175; zad&#195;&#161;van&#195;&#189;ch do [% terms.Bugzilla_2sg %],
++  co&#197;&#190; u&#197;&#161;et&#197;&#153;&#195;&#173; &#196;&#141;as odd&#196;&#155;len&#195;&#173; QA.
+ &lt;/blockquote&gt;
+ 
+-&lt;b&gt;How do I use this list?&lt;/b&gt;
++&lt;b&gt;Jak tento seznam pou&#197;&#190;&#195;&#173;vat?&lt;/b&gt;
+ 
+ &lt;ul&gt;
+-  &lt;li&gt;Review the most frequent [% terms.bugs %] list.&lt;/li&gt;
+-  &lt;li&gt;If your problem is listed:&lt;/li&gt;
++  &lt;li&gt;Projd&#196;&#155;te si seznam.&lt;/li&gt;
++  &lt;li&gt;Pokud je v&#195;&#161;&#197;&#161; probl&#195;&#169;m v seznamu:&lt;/li&gt;
+ 
+   &lt;ul&gt;
+-    &lt;li&gt;Click on the [% terms.bug %] number to confirm that you have found the
+-      same [% terms.bug %], and comment if you have additional information
+-      or move on with your testing of the product.
++    &lt;li&gt;Klikn&#196;&#155;te na &#196;&#141;&#195;&#173;slo [% terms.chyba_2sg %], abyste se ujistili, &#197;&#190;e se jedn&#195;&#161;
++      o stejn[% koncovky.mlady_4sg %] [%+ terms.chyba_4sg %], a pokud m&#195;&#161;te
++      n&#196;&#155;jak&#195;&#169; dodate&#196;&#141;n&#195;&#169; informace, p&#197;&#153;idejte dodate&#196;&#141;n&#195;&#189; koment&#195;&#161;&#197;&#153;.
+     &lt;/li&gt;
+   &lt;/ul&gt;
+ 
+-  &lt;li&gt;If your problem not listed:&lt;/li&gt;
++  &lt;li&gt;Pokud v&#195;&#161;&#197;&#161; probl&#195;&#169;m v seznamu nen&#195;&#173;:&lt;/li&gt;
+ 
+   &lt;ul&gt;
+-    &lt;li&gt;&lt;a href=&quot;query.cgi&quot;&gt;Try and locate a similar [% terms.bug %]&lt;/a&gt;
+-        that has already been filed.&lt;/li&gt;
+-    &lt;li&gt;If you find your [% terms.bug %] in [% terms.Bugzilla %],
+-        feel free to comment with any new or additional data you may have.&lt;/li&gt;
+-    &lt;li&gt;If you cannot find your problem already documented in [% terms.Bugzilla %],
+-        &lt;a href=&quot;enter_bug.cgi&quot;&gt;file a new [% terms.bug %]&lt;/a&gt;.&lt;/li&gt;
++    &lt;li&gt;&lt;a href=&quot;query.cgi&quot;&gt;Pokuste se pomoc&#195;&#173; hled&#195;&#161;n&#195;&#173; nal&#195;&#169;zt podobn[% koncovky.mlady_4sg %] [%+ terms.chyba_4sg %]&lt;/a&gt;,
++        jestli ji&#197;&#190; byl[% koncovky.verb %] nahl&#195;&#161;&#197;&#161;en[% koncovky.verb %].&lt;/li&gt;
++    &lt;li&gt;Pokud [% terms.tatochyba_4sg %] v [% terms.Bugzilla_6sg %] najdete,
++        m&#197;&#175;&#197;&#190;ete p&#197;&#153;idat koment&#195;&#161;&#197;&#153; s nov&#195;&#189;mi &#196;&#141;i dal&#197;&#161;&#195;&#173;mi &#195;&#186;daji, kter&#195;&#169; m&#195;&#161;te k dispozici.&lt;/li&gt;
++    &lt;li&gt;Pokud [% terms.tatochyba_4sg %] v datab&#195;&#161;zi [% terms.Bugzilla_2sg %] nejste schopni nal&#195;&#169;zt,
++        &lt;a href=&quot;enter_bug.cgi&quot;&gt;zadejte nov[% koncovky.mlady_4sg %] [%+ terms.chyba_4sg %]&lt;/a&gt;.&lt;/li&gt;
+   &lt;/ul&gt;
+ &lt;/ul&gt;
+ 
+
+Modified: trunk/template/cs/default/reports/edit-series.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/edit-series.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/edit-series.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -19,7 +19,7 @@
+   # Contributor(s): Gervase Markham &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/bugzilla-cs-svn">gerv at gerv.net</A>&gt;
+   #%]
+ 
+-[% title = &quot;Edit Series&quot; %]
++[% title = &quot;Editace &#197;&#153;ady&quot; %]
+ [% h2 = BLOCK %]
+   [% default.category FILTER html %] / 
+   [%+ default.subcategory FILTER html %] /
+@@ -31,7 +31,7 @@
+ [% IF changes_saved %]
+   &lt;p&gt;
+     &lt;font color=&quot;red&quot;&gt;
+-      Series updated.
++      &#197;&#152;ada aktualizov&#195;&#161;na.
+     &lt;/font&gt;
+   &lt;/p&gt;
+ [% END %]
+@@ -39,7 +39,7 @@
+ &lt;form method=&quot;get&quot; action=&quot;chart.cgi&quot; name=&quot;chartform&quot;&gt;
+   
+   [% PROCESS reports/series.html.tmpl 
+-     button_name = &quot;Change Data Set&quot; %]
++     button_name = &quot;Upravit tabulku&quot; %]
+   &lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;alter&quot;&gt;
+   
+   [% IF default.series_id %]
+@@ -53,22 +53,20 @@
+     &lt;a href=&quot;mailto:[% creator.email FILTER html %]&quot;&gt;
+     [% creator.email FILTER html %]&lt;/a&gt;
+   [% ELSE %]
+-    (automatically created by [% terms.Bugzilla %])
++    (automaticky vytvo&#197;&#153;eno [% terms.Bugzilla_7sg %])
+   [% END %]
+ &lt;/p&gt;
+ 
+-&lt;p&gt;Note: it is not yet possible to edit the search associated with this data
+-set.
++&lt;p&gt;Pozn&#195;&#161;mka: Dosud nelze upravovat hled&#195;&#161;n&#195;&#173; sdru&#197;&#190;en&#195;&#169; s touto tabulkou.
+ &lt;/p&gt;
+ 
+ &lt;p&gt;
+-  &lt;a href=&quot;query.cgi?[% default.query FILTER html %]&quot;&gt;View 
+-    series search parameters&lt;/a&gt; |
++  &lt;a href=&quot;query.cgi?[% default.query FILTER html %]&quot;&gt;Zobrazit parametry hled&#195;&#161;n&#195;&#173;&lt;/a&gt; |
+   &lt;a href=&quot;buglist.cgi?cmdtype=dorem&amp;namedcmd=
+     [% default.category FILTER url_quote %]-
+     [% default.subcategory FILTER url_quote %]-
+     [% default.name FILTER url_quote %]&amp;remaction=runseries&amp;series_id=
+-    [% default.series_id %]&quot;&gt;Run series search&lt;/a&gt;
++    [% default.series_id %]&quot;&gt;Prov&#195;&#169;st hled&#195;&#161;n&#195;&#173;&lt;/a&gt;
+ &lt;/p&gt;
+ 
+ [% PROCESS global/footer.html.tmpl %]
+
+Modified: trunk/template/cs/default/reports/keywords.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/keywords.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/keywords.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -30,7 +30,7 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [% PROCESS global/header.html.tmpl
+-  title = &quot;$terms.Bugzilla Keyword Descriptions&quot;
++  title = &quot;Popisy kl&#195;&#173;&#196;&#141;ov&#195;&#189;ch slov v $terms.Bugzilla_6sg&quot;
+ %]
+ 
+ [% FOREACH keyword = keywords %]
+@@ -41,9 +41,9 @@
+ 
+     &lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
+       &lt;tr bgcolor=&quot;#6666FF&quot;&gt;
+-        &lt;th align=&quot;left&quot;&gt;Name&lt;/th&gt;
+-        &lt;th align=&quot;left&quot;&gt;Description&lt;/th&gt;
+-        &lt;th align=&quot;left&quot;&gt;[% terms.Bugs %]&lt;/th&gt;
++        &lt;th align=&quot;left&quot;&gt;N&#195;&#161;zev&lt;/th&gt;
++        &lt;th align=&quot;left&quot;&gt;Popis&lt;/th&gt;
++        &lt;th align=&quot;left&quot;&gt;[% terms.Chyby %]&lt;/th&gt;
+       &lt;/tr&gt;
+   [% END %]
+ 
+@@ -58,7 +58,7 @@
+         &lt;a href=&quot;buglist.cgi?keywords=[% keyword.name FILTER url_quote %]&quot;&gt;
+           [% keyword.bugcount %]&lt;/a&gt;
+       [% ELSE %]
+-        none
++        &#197;&#190;&#195;&#161;dn[% koncovky.mlady_1pl %]
+       [% END %]
+     &lt;/td&gt;
+   &lt;/tr&gt;
+@@ -70,7 +70,7 @@
+ 
+ [% IF caneditkeywords %]
+   &lt;p&gt;
+-    &lt;a href=&quot;editkeywords.cgi&quot;&gt;Edit keywords&lt;/a&gt;.
++    &lt;a href=&quot;editkeywords.cgi&quot;&gt;Upravit kl&#195;&#173;&#196;&#141;ov&#195;&#161; slova&lt;/a&gt;.
+   &lt;/p&gt;
+ [% END %]
+ 
+
+Modified: trunk/template/cs/default/reports/menu.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/menu.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/menu.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -27,47 +27,43 @@
+ [% PROCESS global/variables.none.tmpl %]
+ 
+ [% PROCESS global/header.html.tmpl
+-  title = &quot;Reporting and Charting Kitchen&quot;
++  title = &quot;Laborato&#197;&#153; tabulek a report&#197;&#175;&quot;
+ %]
+ 
+ &lt;p&gt;
+-  [% terms.Bugzilla %] allows you to view and track the state of the [% terms.bug %] database in
+-  all manner of exciting ways.
++  [% terms.Bugzilla %] v&#195;&#161;m umo&#197;&#190;&#197;&#136;uje prohl&#195;&#173;&#197;&#190;et a sledovat stav datab&#195;&#161;ze [% terms.chyba_2pl %] mnoha
++  zaj&#195;&#173;mav&#195;&#189;mi zp&#197;&#175;soby.
+ &lt;/p&gt;
+ 
+-&lt;h2&gt;Current State&lt;/h2&gt;
++&lt;h2&gt;Aktu&#195;&#161;ln&#195;&#173; situace&lt;/h2&gt;
+ 
+ &lt;ul&gt;
+   &lt;li&gt;
+-    &lt;strong&gt;&lt;a href=&quot;query.cgi&quot;&gt;Search&lt;/a&gt;&lt;/strong&gt; -
+-    list sets of [% terms.bugs %].
++    &lt;strong&gt;&lt;a href=&quot;query.cgi&quot;&gt;Hled&#195;&#161;n&#195;&#173;&lt;/a&gt;&lt;/strong&gt; &#226;&#128;&#147; vypisuje seznamy [% terms.chyba_2pl %].
+   &lt;/li&gt;
+   &lt;li&gt;
+     &lt;strong&gt;
+-      &lt;a href=&quot;query.cgi?format=report-table&quot;&gt;Tabular reports&lt;/a&gt;
+-    &lt;/strong&gt; -
+-    tables of [% terms.bug %] counts in 1, 2 or 3 dimensions, as HTML or CSV.
++      &lt;a href=&quot;query.cgi?format=report-table&quot;&gt;Tabulkov&#195;&#169; reporty&lt;/a&gt;
++    &lt;/strong&gt; &#226;&#128;&#147; tabulky [% terms.chyba_2pl %] v jednom, dvou nebo t&#197;&#153;ech rozm&#196;&#155;rech, v HTML &#196;&#141;i CSV.
+   &lt;/li&gt;
+   &lt;li&gt;
+     &lt;strong&gt;
+-      &lt;a href=&quot;query.cgi?format=report-graph&quot;&gt;Graphical reports&lt;/a&gt;
+-    &lt;/strong&gt; -
+-    line graphs, bar and pie charts.
++      &lt;a href=&quot;query.cgi?format=report-graph&quot;&gt;Grafick&#195;&#169; reporty&lt;/a&gt;
++    &lt;/strong&gt; &#226;&#128;&#147; &#196;&#141;&#195;&#161;rov&#195;&#169;, pruhov&#195;&#169; a kol&#195;&#161;&#196;&#141;ov&#195;&#169; grafy
+   &lt;/li&gt;
+ &lt;/ul&gt;
+ 
+-&lt;h2&gt;Change Over Time&lt;/h2&gt;
++&lt;h2&gt;Zm&#196;&#155;ny s &#196;&#141;asem&lt;/h2&gt;
+ 
+ &lt;ul&gt;
+   &lt;li&gt;
+-    &lt;strong&gt;&lt;a href=&quot;reports.cgi&quot;&gt;Old Charts&lt;/a&gt;&lt;/strong&gt; - 
+-    plot the status and/or resolution of [% terms.bugs %] against
+-    time, for each product in your database.
++    &lt;strong&gt;&lt;a href=&quot;reports.cgi&quot;&gt;Star&#197;&#161;&#195;&#173; grafy&lt;/a&gt;&lt;/strong&gt; &#226;&#128;&#147; vykreslit
++    stav a &#197;&#153;e&#197;&#161;en&#195;&#173; [% terms.chyba_2pl %] u ka&#197;&#190;d&#195;&#169;ho produktu v z&#195;&#161;vislosti na &#196;&#141;ase
+   &lt;/li&gt;
+   [% IF UserInGroup(Param(&quot;chartgroup&quot;)) %]
+     &lt;li&gt;
+-      &lt;strong&gt;&lt;a href=&quot;chart.cgi&quot;&gt;New Charts&lt;/a&gt;&lt;/strong&gt; - 
+-      plot any arbitrary search against time. Far more powerful.
++      &lt;strong&gt;&lt;a href=&quot;chart.cgi&quot;&gt;Nov&#195;&#169; grafy&lt;/a&gt;&lt;/strong&gt; &#226;&#128;&#147; vykreslen&#195;&#173; z&#195;&#161;vislosti
++      libovoln&#195;&#169;ho hled&#195;&#161;n&#195;&#173; na &#196;&#141;ase. Mnohem siln&#196;&#155;j&#197;&#161;&#195;&#173; funkce.
+     &lt;/li&gt;
+   [% END %]
+ &lt;/ul&gt;
+
+Modified: trunk/template/cs/default/reports/report-bar.png.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/report-bar.png.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/report-bar.png.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -21,7 +21,7 @@
+ 
+ [% PROCESS global/variables.none.tmpl %]
+ 
+-[% y_label = &quot;$terms.Bugs&quot; %]
++[% y_label = &quot;$terms.Chyby&quot; %]
+ 
+ [% PROCESS &quot;global/field-descs.none.tmpl&quot; %]
+ 
+
+Modified: trunk/template/cs/default/reports/report-line.png.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/report-line.png.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/report-line.png.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -21,7 +21,7 @@
+ 
+ [% PROCESS global/variables.none.tmpl %]
+ 
+-[% y_label = &quot;$terms.Bugs&quot; %]
++[% y_label = &quot;$terms.Chyby&quot; %]
+ 
+ [% PROCESS &quot;global/field-descs.none.tmpl&quot; %]
+ 
+
+Modified: trunk/template/cs/default/reports/report-table.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/report-table.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/report-table.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -89,7 +89,7 @@
+         &lt;/td&gt;
+       [% END %]
+       &lt;td class=&quot;ttotal&quot;&gt;
+-        Total
++        Celkem
+       &lt;/td&gt;
+     &lt;/tr&gt;
+   [% END %]
+@@ -132,7 +132,7 @@
+   &lt;tr&gt;
+     [% row_idx = 1 - row_idx %]
+     &lt;td class=&quot;ttotal&quot;&gt;
+-      Total
++      Celkem
+     &lt;/td&gt;
+     [% FOREACH col = col_names %]
+       [% NEXT IF col == &quot;&quot; %]
+
+Modified: trunk/template/cs/default/reports/report.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/report.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/report.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -73,7 +73,7 @@
+     .t4     { background-color: #c3d3ed } /* darker blue */
+     .ttotal { background-color: #cfffdf } /* light green */
+   &quot;
+-  h3 = time2str(&quot;%Y-%m-%d %H:%M:%S&quot;, time)
++  h3 = time2str(&quot;%d. %L. %Y %H:%M:%S&quot;, time)
+ %]
+ 
+ [% IF debug %]
+@@ -84,7 +84,7 @@
+ 
+   [% FOREACH tbl = tbl_names %]    
+     [% IF tbl == &quot;-total-&quot; %]
+-      [% tbl_disp = &quot;Total&quot; %]
++      [% tbl_disp = &quot;Celkem&quot; %]
+     [% ELSE %]
+       [% tbl_disp = tbl %]
+     [% END %]
+@@ -111,7 +111,7 @@
+         [% END %]width=[% width %]&amp;height=[% height %]      
+       [% END %]
+       
+-      &lt;img alt=&quot;Graphical report results&quot; src=&quot;[% imageurl %]&quot;
++      &lt;img alt=&quot;V&#195;&#189;sledn&#195;&#189; grafick&#195;&#189; report&quot; src=&quot;[% imageurl %]&quot;
+         width=&quot;[% width %]&quot; height=&quot;[% height %]&quot;&gt;
+     [% END %]
+     &lt;br&gt;
+@@ -120,10 +120,10 @@
+   &lt;table&gt;
+     &lt;tr&gt;
+       &lt;td&gt;
+-        [% formats = [ { name =&gt; &quot;pie&quot;,   description =&gt; &quot;Pie&quot; },
+-                       { name =&gt; &quot;bar&quot;,   description =&gt; &quot;Bar&quot; },
+-                       { name =&gt; &quot;line&quot;,  description =&gt; &quot;Line&quot; },
+-                       { name =&gt; &quot;table&quot;, description =&gt; &quot;Table&quot; } ] %]
++        [% formats = [ { name =&gt; &quot;pie&quot;,   description =&gt; &quot;Kol&#195;&#161;&#196;&#141;ov&#195;&#189;&quot; },
++                       { name =&gt; &quot;bar&quot;,   description =&gt; &quot;Pruhov&#195;&#189;&quot; },
++                       { name =&gt; &quot;line&quot;,  description =&gt; &quot;&#196;&#140;&#195;&#161;rov&#195;&#189;&quot; },
++                       { name =&gt; &quot;table&quot;, description =&gt; &quot;Tabulka&quot; } ] %]
+ 
+         [% formaturl = &quot;report.cgi?$switchbase&amp;width=$width&amp;height=$height&quot; _ 
+                        &quot;&amp;action=wrap&quot; %]
+@@ -148,13 +148,13 @@
+           [% format FILTER html %][% END %]
+         &lt;td align=&quot;center&quot;&gt;
+           &lt;a href=&quot;[% sizeurl %]&amp;width=[% width %]&amp;height=
+-                   [% height + 100 %]&quot;&gt;Taller&lt;/a&gt;&lt;br&gt;
++                   [% height + 100 %]&quot;&gt;Vy&#197;&#161;&#197;&#161;&#195;&#173;&lt;/a&gt;&lt;br&gt;
+           &lt;a href=&quot;[% sizeurl %]&amp;width=[% width - 100 %]&amp;height=
+-                   [% height %]&quot;&gt;Thinner&lt;/a&gt; * 
++                   [% height %]&quot;&gt;U&#197;&#190;&#197;&#161;&#195;&#173;&lt;/a&gt; * 
+           &lt;a href=&quot;[% sizeurl %]&amp;width=[% width + 100 %]&amp;height=
+-                   [% height %]&quot;&gt;Fatter&lt;/a&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;
++                   [% height %]&quot;&gt;&#197;&#160;ir&#197;&#161;&#195;&#173;&lt;/a&gt;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;
+           &lt;a href=&quot;[% sizeurl %]&amp;width=[% width %]&amp;height=
+-                   [% height - 100 %]&quot;&gt;Shorter&lt;/a&gt;&lt;br&gt;
++                   [% height - 100 %]&quot;&gt;Ni&#197;&#190;&#197;&#161;&#195;&#173;&lt;/a&gt;&lt;br&gt;
+         &lt;/td&gt;
+       [% END %]
+     &lt;tr&gt;
+@@ -162,12 +162,11 @@
+ 
+   &lt;p&gt;
+     [% IF format == &quot;table&quot; %]
+-      &lt;a href=&quot;query.cgi?[% switchbase %]&amp;format=report-table&quot;&gt;Edit 
+-      this report&lt;/a&gt;
++      &lt;a href=&quot;query.cgi?[% switchbase %]&amp;format=report-table&quot;&gt;Upravit tento report&lt;/a&gt;
+     [% ELSE %]
+       &lt;a href=&quot;query.cgi?[% switchbase %]&amp;chart_format=
+         [% format %]&amp;format=report-graph&amp;cumulate=[% cumulate %]&quot;&gt;
+-        Edit this report
++        Upravit tento report
+       &lt;/a&gt;
+     [% END %]
+   &lt;/p&gt;
+
+Modified: trunk/template/cs/default/reports/series.html.tmpl
+===================================================================
+--- trunk/template/cs/default/reports/series.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/reports/series.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -28,17 +28,17 @@
+   #%]
+ 
+ [% PROCESS &quot;reports/series-common.html.tmpl&quot;
+-   newtext = &quot;New (name below)&quot; 
++   newtext = &quot;Nov&#195;&#161; (jm&#195;&#169;no n&#195;&#173;&#197;&#190;e)&quot; 
+  %]
+   
+ &lt;table cellpadding=&quot;2&quot; cellspacing=&quot;2&quot; border=&quot;0&quot;
+        style=&quot;text-align: left; margin-left: 20px&quot;&gt;
+   &lt;tbody&gt;
+     &lt;tr&gt;
+-      &lt;th&gt;Category:&lt;/th&gt;
++      &lt;th&gt;Kategorie:&lt;/th&gt;
+       &lt;th&gt;&lt;/th&gt;
+-      &lt;th&gt;Sub-category:&lt;/th&gt;
+-      &lt;th&gt;Name:&lt;/th&gt;
++      &lt;th&gt;Podkategorie:&lt;/th&gt;
++      &lt;th&gt;N&#195;&#161;zev:&lt;/th&gt;
+       &lt;td&gt;&lt;/td&gt;
+     &lt;/tr&gt;
+     &lt;tr&gt;
+@@ -47,7 +47,7 @@
+                                        onchange =&gt; &quot;catSelected()&quot; } %]
+         &lt;td&gt;
+           &lt;noscript&gt;
+-            &lt;input type=&quot;submit&quot; name=&quot;action-edit&quot; value=&quot;Update --&gt;&quot;&gt;
++            &lt;input type=&quot;submit&quot; name=&quot;action-edit&quot; value=&quot;Aktualizovat &#226;&#134;&#146;&quot;&gt;
+           &lt;/noscript&gt;
+         &lt;/td&gt;
+         
+@@ -61,17 +61,17 @@
+       &lt;/td&gt;
+ 
+       &lt;td valign=&quot;top&quot;&gt;
+-        &lt;span style=&quot;font-weight: bold;&quot;&gt;Run every&lt;/span&gt; &nbsp;
++        &lt;span style=&quot;font-weight: bold;&quot;&gt;Prov&#195;&#161;d&#196;&#155;t ka&#197;&#190;d&#195;&#189;ch&lt;/span&gt; &nbsp;
+         &lt;input type=&quot;text&quot; size=&quot;2&quot; name=&quot;frequency&quot;
+                value=&quot;[% (default.frequency.0 OR 7) FILTER html %]&quot;&gt;
+-        &lt;span style=&quot;font-weight: bold;&quot;&gt;&nbsp;day(s)&lt;/span&gt;&lt;br&gt;
++        &lt;span style=&quot;font-weight: bold;&quot;&gt;&nbsp;dn&#195;&#173;&lt;/span&gt;&lt;br&gt;
+         [%# Change 'admin' here and in Series.pm, or remove the check
+             completely, if you want to change who can make series public. %]
+         [% IF UserInGroup('admin') %]      
+           &lt;input type=&quot;checkbox&quot; name=&quot;public&quot;
+                  [% &quot;checked='checked'&quot; IF default.public.0 %]&gt;
+-          &lt;span style=&quot;font-weight: bold;&quot;&gt;Visible to all&lt;br&gt;
+-          (within group restrictions)&lt;/span&gt; 
++          &lt;span style=&quot;font-weight: bold;&quot;&gt;Viditeln&#195;&#161; v&#197;&#161;em&lt;br&gt;
++          (v r&#195;&#161;mci omezen&#195;&#173; skupin)&lt;/span&gt; 
+         [% END %]
+       &lt;/td&gt;
+     &lt;/tr&gt;
+
+Modified: trunk/template/cs/default/search/form.html.tmpl
+===================================================================
+--- trunk/template/cs/default/search/form.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/search/form.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -513,10 +513,11 @@
+     &lt;td&gt;
+       &lt;table&gt;
+         &lt;tr&gt;
+-          &lt;th align=&quot;left&quot;&gt;St&lt;u&gt;a&lt;/u&gt;tus:&lt;/th&gt;
++          &lt;th align=&quot;left&quot;&gt;St&lt;u&gt;a&lt;/u&gt;v:&lt;/th&gt;
+         &lt;/tr&gt;
+         &lt;tr valign=&quot;top&quot;&gt;
+-          [% PROCESS select sel = { name =&gt; 'bug_status',
++          [% PROCESS filtselect sel = { name =&gt; 'bug_status',
++				    filter =&gt; statuscs,
+                                     size =&gt; 7,
+                                     accesskey =&gt; 'a' } %]
+         &lt;/tr&gt;
+@@ -526,13 +527,14 @@
+       &lt;table&gt;
+         &lt;tr&gt;
+           &lt;th align=&quot;left&quot;&gt;
+-            &lt;u&gt;R&lt;/u&gt;ozhodnut&#195;&#173;:
++            &#197;&#152;&lt;u&gt;e&lt;/u&gt;&#197;&#161;en&#195;&#173;:
+           &lt;/th&gt;
+         &lt;/tr&gt;
+         &lt;tr valign=&quot;top&quot;&gt;
+-          [% PROCESS select sel = { name =&gt; 'resolution',
++          [% PROCESS filtselect sel = { name =&gt; 'resolution',
++				    filter =&gt; resolutioncs,
+                                     size =&gt; 7,
+-                                    accesskey =&gt; 'r' } %]
++                                    accesskey =&gt; 'e' } %]
+         &lt;/tr&gt;
+       &lt;/table&gt;
+     &lt;/td&gt;
+@@ -542,7 +544,8 @@
+           &lt;th align=&quot;left&quot;&gt;&lt;u&gt;Z&lt;/u&gt;&#195;&#161;va&#197;&#190;nost:&lt;/th&gt;
+         &lt;/tr&gt;
+         &lt;tr valign=&quot;top&quot;&gt;
+-          [% PROCESS select sel = { name =&gt; 'bug_severity',
++          [% PROCESS filtselect sel = { name =&gt; 'bug_severity',
++				    filter =&gt; severitycs,
+                                     size =&gt; 7,
+                                     accesskey =&gt; 'z' } %]
+         &lt;/tr&gt;
+@@ -780,3 +783,18 @@
+     &lt;/label&gt;
+   &lt;/td&gt;
+ [% END %]
++
++[% BLOCK filtselect %]
++  &lt;td align=&quot;left&quot;&gt;
++    &lt;label for=&quot;[% sel.name %]&quot; accesskey=&quot;[% sel.accesskey %]&quot;&gt;
++      &lt;select name=&quot;[% sel.name %]&quot; id=&quot;[% sel.name %]&quot;
++              multiple=&quot;multiple&quot; size=&quot;[% sel.size %]&quot;&gt;
++      [% FOREACH name = ${sel.name} %]
++        &lt;option value=&quot;[% name FILTER html %]&quot;
++          [% &quot; selected&quot; IF lsearch(default.${sel.name}, name) != -1 %]&gt;
++          [% sel.filter.$name FILTER html %]&lt;/option&gt;
++      [% END %]
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++[% END %]
+
+Modified: trunk/template/cs/default/search/search-create-series.html.tmpl
+===================================================================
+--- trunk/template/cs/default/search/search-create-series.html.tmpl	2005-09-13 17:28:14 UTC (rev 2)
++++ trunk/template/cs/default/search/search-create-series.html.tmpl	2005-09-14 18:25:19 UTC (rev 3)
+@@ -41,7 +41,7 @@
+   abyste vid&#196;&#155;li, kter&#195;&#169; [% terms.chyby %] budou v t&#195;&#169;to tabulce zahrnuty.
+ &lt;/p&gt;
+     
+-&lt;h3&gt;Data Set Parameters&lt;/h3&gt;
++&lt;h3&gt;Parametry tabulky&lt;/h3&gt;
+       
+ [% PROCESS reports/series.html.tmpl 
+    button_name = &quot;Vytvo&#197;&#153;it tabulku&quot; %]
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000000.html">[Bugzilla-cs-svn] r2 - in trunk/template/cs/default: account account/auth account/email account/password account/prefs admin/keywords bug/create bug/process global list pages request search
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1">[ date ]</a>
+              <a href="thread.html#1">[ thread ]</a>
+              <a href="subject.html#1">[ subject ]</a>
+              <a href="author.html#1">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/bugzilla-cs-svn">More information about the Bugzilla-cs-svn
+mailing list</a><br>
+</body></html>
